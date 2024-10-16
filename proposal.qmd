@@ -1,8 +1,8 @@
 ---
-title: "Proposal title"
+title: "Financial Analysis of long term care services for the elderly beings"
 subtitle: "Proposal"
 author: 
-  - name: "Team Name"
+  - name: "Trailblazers"
     affiliations:
       - name: "School of Information, University of Arizona"
 description: "Project description"
@@ -22,6 +22,8 @@ execute:
 #| label: load-pkgs
 #| message: false
 library(tidyverse)
+library(here)
+library(dplyr)
 ```
 
 ## Dataset
@@ -29,16 +31,71 @@ library(tidyverse)
 ```{r}
 #| label: load-dataset
 #| message: false
+
+data <- read.csv(here("NHE.csv"))
+
+glimpse(data)
+
+
+
 ```
 
 A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
 
-Make sure to load the data and use inline code for some of this information.
+## Source:
 
-## Questions
+Centers for Medicare & Medicaid Services
+
+## How it was originally collected:
+
+The National Health Expenditure Accounts (NHEA) are the official estimates of total health care spending in the United States. Dating back to 1960, the NHEA measures annual U.S. expenditures for health care goods and services, public health activities, government administration, the net cost of health insurance, and investment related to health care. The data are presented by type of service, sources of funding, and type of sponsor.
+
+## Brief description:
+
+There are about 544 rows and 64 columns in the dataset which accounts the data from 1960 to 2022 and the data sets show a detailed trend of various social expenditure on medicare from individual to government levels.
+
+## Ethical Concerns:
+
+Nothing Specific
+
+## Questions:
+
+1.  If medical expenditure gets bigger as age increases, what are the sources of income and/or average income of that old age group?
+
+2.  Along with the population demographic data of US, what can we predict to happen in next 15-20 years?
+
+3.  How many percent of the population will be able to support themselves with proper medical treatment after retirement? what can individuals and governments do about it?
 
 The two questions you want to answer.
+
+If medical expenditure gets bigger as age increases, what are the sources of income and/or average income of that old age group?
+
+How many percent of the population will be able to support themselves with proper medical treatment after retirement? what can individuals and governments do about it?
+
+There are much options for categorical data
+
+## Statement on why this question is important.
+
+The aging population is a global trend for most the developed countries all over the world. asking and answering these research questions is valuable because they address critical issues related to aging, healthcare costs, and financial sustainability in retirement.
+
+Predicting demographic trends over the next 15-20 years enables governments and businesses to proactively plan for shifts in labor markets, healthcare demand, and resource allocation. Finally, examining how many people can afford proper medical treatment after retirement highlights the need for both individuals and governments to take action, such as improving pension systems, enhancing healthcare access, and promoting financial preparedness, which are all essential for ensuring a healthier and more secure aging population.
+
+## A description of the research topic along with a concise statement of your hypotheses on this topic.
+
+1.  Medical expenditures for the elderly will significantly increase with age, and this group’s primary income sources will be insufficient to cover these expenses, leading to a financial strain fully.
+
+2.  Demographic data will show a rapid increase in the elderly population in the US over the next 15-20 years, resulting in heightened demand for healthcare services, increased dependency ratios, and pressure on pension systems.
+
+3.  A significant portion of the population will be unable to afford adequate medical treatment after retirement, necessitating policy interventions and increased individual financial planning to address this gap.
 
 ## Analysis plan
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+
+1.  Trend Analysis of Total National Health Expenditures
+2.  Impact of Health Insurance on Expenditure
+3.  Out-of-Pocket Expenditures Analysis
+4.  Government vs. Private Expenditures
+5.  Expenditures on Different Services
+6.  Impact of Recessions on Health Expenditures
+7.  Forecasting Future Expenditures.
