@@ -1,11 +1,11 @@
 ---
-title: "Project Title"
+title: "Financial analysis of medicare Services for the elderly population"
 subtitle: "INFO 526 - Fall 2024 - Project 01"
 author: 
-  - name: "Team name"
+  - name: "Trailblazers"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Project description"
+description: "Financial Analysis of Medical Costs for the Elderly in the US"
 format:
    html:
     code-tools: true
@@ -19,4 +19,4 @@ execute:
 
 ## Abstract
 
-Add project abstract here.
+The aging population is a significant global trend, particularly in developed countries. Exploring and addressing key research questions on this topic is crucial for understanding healthcare costs, financial sustainability in retirement, and, furthermore, social stability.

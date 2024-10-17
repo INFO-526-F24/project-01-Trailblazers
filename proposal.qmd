@@ -1,11 +1,11 @@
 ---
-title: "Financial Analysis of long term care services for the elderly beings"
-subtitle: "Proposal"
+title: "Financial analysis of medicare Services for the elderly population"
+subtitle: "INFO 526 - Fall 2024 - Project 01"
 author: 
   - name: "Trailblazers"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Project description"
+description: "Financial Analysis of Medical Costs for the Elderly in the US"
 format:
   html:
     code-tools: true
@@ -22,7 +22,6 @@ execute:
 #| label: load-pkgs
 #| message: false
 library(tidyverse)
-library(here)
 library(dplyr)
 ```
 
@@ -32,27 +31,26 @@ library(dplyr)
 #| label: load-dataset
 #| message: false
 
-data <- read.csv(here("NHE.csv"))
+url <- "https://raw.githubusercontent.com/INFO-526-F24/project-01-Trailblazers/refs/heads/main/data/NHE.csv"
+
+data <- read.csv(url)
 
 glimpse(data)
-
-
-
 ```
-
-A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
 
 ## Source:
 
 Centers for Medicare & Medicaid Services
 
-## How it was originally collected:
+## How the data was originally collected:
 
-The National Health Expenditure Accounts (NHEA) are the official estimates of total health care spending in the United States. Dating back to 1960, the NHEA measures annual U.S. expenditures for health care goods and services, public health activities, government administration, the net cost of health insurance, and investment related to health care. The data are presented by type of service, sources of funding, and type of sponsor.
+The data are sourced from the **Services Annual Survey (SAS)** and the **Economic Census**, both conducted annually by the U.S. Census Bureau. Additionally, the data includes estimates from the **National Health Expenditure Accounts (NHEA)**, which are the official figures for total healthcare spending in the United States. Dating back to 1960, the NHEA provides annual measurements of U.S. expenditures on healthcare goods and services, public health activities, government administration, the net cost of health insurance, and investments related to healthcare. These comprehensive estimates offer a detailed view of the nation’s healthcare spending trends over time.
 
-## Brief description:
+## 
 
-There are about 544 rows and 64 columns in the dataset which accounts the data from 1960 to 2022 and the data sets show a detailed trend of various social expenditure on medicare from individual to government levels.
+## Brief description of the dataset:
+
+The dataset contains 544 rows and 64 columns, spanning data from 1960 to 2022. It provides a detailed overview of various social expenditures on healthcare, covering contributions from individuals to government levels. This comprehensive dataset highlights trends in Medicare and other healthcare-related spending over time, offering insights into the financial dynamics of healthcare in the United States.
 
 ## Ethical Concerns:
 
@@ -60,33 +58,35 @@ Nothing Specific
 
 ## Questions:
 
-1.  If medical expenditure gets bigger as age increases, what are the sources of income and/or average income of that old age group?
+1.  If medical expenditure increases with age, what are the primary sources of income for the elderly, and what is the average income for this age group?
 
-2.  Along with the population demographic data of US, what can we predict to happen in next 15-20 years?
+2.  Given the U.S. population demographic trends, what predictions can be made for the next 15-20 years in terms of healthcare demand and financial sustainability for the aging population?
 
-3.  How many percent of the population will be able to support themselves with proper medical treatment after retirement? what can individuals and governments do about it?
+3.  What percentage of the population will be able to afford proper medical treatment after retirement? What actions can individuals and governments take to address this challenge?
 
-The two questions you want to answer.
+## The two key questions we aim to address are
 
-If medical expenditure gets bigger as age increases, what are the sources of income and/or average income of that old age group?
+1.  As medical expenditure rises with age, what are the sources of income, and do the elderly have sufficient financial resources to cover healthcare costs?
 
-How many percent of the population will be able to support themselves with proper medical treatment after retirement? what can individuals and governments do about it?
+2.  What percentage of the population will be able to afford adequate medical care post-retirement, and what steps can individuals and governments take to ensure access to necessary treatments?
 
-There are much options for categorical data
+## **Data Characteristics**
 
-## Statement on why this question is important.
+The dataset contains only numerical columns, with no categorical variables, and is well-structured with 543 rows across the dataset. All data is properly columnized, with each variable in its own column and each observation in its own row, ensuring the dataset is tidy and well-organized for analysis.
 
-The aging population is a global trend for most the developed countries all over the world. asking and answering these research questions is valuable because they address critical issues related to aging, healthcare costs, and financial sustainability in retirement.
+## Why these questions are important
 
-Predicting demographic trends over the next 15-20 years enables governments and businesses to proactively plan for shifts in labor markets, healthcare demand, and resource allocation. Finally, examining how many people can afford proper medical treatment after retirement highlights the need for both individuals and governments to take action, such as improving pension systems, enhancing healthcare access, and promoting financial preparedness, which are all essential for ensuring a healthier and more secure aging population.
+The aging population is a significant global trend, particularly in developed countries. Exploring and addressing key research questions on this topic is crucial for understanding healthcare costs, financial sustainability in retirement, and, furthermore, social stability.
 
-## A description of the research topic along with a concise statement of your hypotheses on this topic.
+By analyzing demographic trends alongside financial projections of Medicare expenditures for the next 15-20 years, governments and businesses can better prepare for the rising healthcare costs associated with an aging population. Evaluating retirees’ ability to afford medical care emphasizes the urgent need for coordinated efforts from both the government and the private healthcare sector to improve access to care, affordability, and financial planning to meet the increasing demands of an aging population.
 
-1.  Medical expenditures for the elderly will significantly increase with age, and this group’s primary income sources will be insufficient to cover these expenses, leading to a financial strain fully.
+## **Research Topic and Hypotheses**
 
-2.  Demographic data will show a rapid increase in the elderly population in the US over the next 15-20 years, resulting in heightened demand for healthcare services, increased dependency ratios, and pressure on pension systems.
+Medical expenditures for the elderly are expected to rise significantly with age, and the primary income sources for this group will likely be insufficient to fully cover the costs, leading to increasing financial strain.
 
-3.  A significant portion of the population will be unable to afford adequate medical treatment after retirement, necessitating policy interventions and increased individual financial planning to address this gap.
+Demographic data will predict a sharp rise in the elderly population in the U.S. over the next 15-20 years, which will result in greater demand for healthcare services, increased dependency ratios, and heightened pressure on pension and medicare systems.
+
+A substantial portion of the population may be unable to afford adequate medical treatment after retirement, highlighting the need for policy interventions and enhanced individual financial planning to address this growing gap.
 
 ## Analysis plan
 
