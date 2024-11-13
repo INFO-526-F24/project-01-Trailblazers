@@ -44,15 +44,15 @@ A brief description of your dataset including its provenance, dimensions, etc. a
 
 ## Source:
 
-Centers for Medicare & Medicaid Services
+Data.CMS.gov
 
 ## How it was originally collected:
 
-The National Health Expenditure Accounts (NHEA) are the official estimates of total health care spending in the United States. Dating back to 1960, the NHEA measures annual U.S. expenditures for health care goods and services, public health activities, government administration, the net cost of health insurance, and investment related to health care. The data are presented by type of service, sources of funding, and type of sponsor.
+The dataset likely comes from CMS, with long-term care hospitals regularly reporting quality measures, which are audited and standardized, then published on Long-Term Care Hospital Compare for transparency and benchmarking.
 
 ## Brief description:
 
-There are about 544 rows and 64 columns in the dataset which accounts the data from 1960 to 2022 and the data sets show a detailed trend of various social expenditure on medicare from individual to government levels.
+There are about 24826 rows and 16 columns in the dataset which accounts the data from 1960 to 2022 and the data sets show a detailed trend of various social expenditure on medicare from individual to government levels.
 
 ## Ethical Concerns:
 
