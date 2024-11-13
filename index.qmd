@@ -1,11 +1,11 @@
 ---
-title: "Financial analysis of medicare Services for the elderly population"
+title: "Financial Analysis of long term care services for the elderly beings"
 subtitle: "INFO 526 - Fall 2024 - Project 01"
 author: 
   - name: "Trailblazers"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Financial Analysis of Medical Costs for the Elderly in the US"
+description: "Project description"
 format:
    html:
     code-tools: true
@@ -19,4 +19,4 @@ execute:
 
 ## Abstract
 
-The aging population is a significant global trend, particularly in developed countries. Exploring and addressing key research questions on this topic is crucial for understanding healthcare costs, financial sustainability in retirement, and, furthermore, social stability.
+This analysis explores at the financial backdrop of long-term care (LTC) services for the elderly, namely the costs, funding sources, and economic impact on people and government-run programs. We evaluate changes in expenditure across various LTC services, including skilled nursing facilities, home healthcare, and assisted living facilities, utilizing data from 1960 to 2022. The study emphasizes the growing financial strain on families, as well as their growing dependency on public financing sources like Medicare and Medicaid. In addition, we look at various strategies to alleviate these financial risks, such as expanding private insurance coverage and making legislative recommendations to improve the sustainability of long-term care funding. This comprehensive research is intended to enlighten stakeholders and policymakers about the economic difficulties and prospects in the LTC sector.
