@@ -9,7 +9,7 @@
 <meta name="author" content="Trailblazers">
 <meta name="description" content="Project description">
 
-<title>Financial Analysis of long term care services for the elderly beings</title>
+<title>Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics – Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4754,7 +4754,7 @@ vertical-align: -.125em;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Financial Analysis of long term care services for the elderly beings</span>
+    <span class="navbar-title">Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics</span>
     </a>
   </div>
             <div id="quarto-search" class title="Search"></div>
@@ -4810,7 +4810,11 @@ vertical-align: -.125em;
   <li><a href="#ethical-concerns" id="toc-ethical-concerns" class="nav-link" data-scroll-target="#ethical-concerns">Ethical Concerns:</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions:</a></li>
   <li><a href="#statement-on-why-this-question-is-important." id="toc-statement-on-why-this-question-is-important." class="nav-link" data-scroll-target="#statement-on-why-this-question-is-important.">Statement on why this question is important.</a></li>
-  <li><a href="#a-description-of-the-research-topic-along-with-a-concise-statement-of-your-hypotheses-on-this-topic." id="toc-a-description-of-the-research-topic-along-with-a-concise-statement-of-your-hypotheses-on-this-topic." class="nav-link" data-scroll-target="#a-description-of-the-research-topic-along-with-a-concise-statement-of-your-hypotheses-on-this-topic.">A description of the research topic along with a concise statement of your hypotheses on this topic.</a></li>
+  <li><a href="#a-description-of-the-research-topic-along-with-a-concise-statement-of-your-hypotheses-on-this-topic." id="toc-a-description-of-the-research-topic-along-with-a-concise-statement-of-your-hypotheses-on-this-topic." class="nav-link" data-scroll-target="#a-description-of-the-research-topic-along-with-a-concise-statement-of-your-hypotheses-on-this-topic.">A description of the research topic along with a concise statement of your hypotheses on this topic.</a>
+  <ul class="collapse">
+  <li><a href="#expected-outcomes" id="toc-expected-outcomes" class="nav-link" data-scroll-target="#expected-outcomes">Expected Outcomes:</a></li>
+  <li><a href="#importance-of-this-study" id="toc-importance-of-this-study" class="nav-link" data-scroll-target="#importance-of-this-study">Importance of This Study:</a></li>
+  </ul></li>
   <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a></li>
   </ul>
 </nav>
@@ -4820,7 +4824,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Financial Analysis of long term care services for the elderly beings</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Proposal</p>
 </div>
 
@@ -4839,7 +4843,7 @@ vertical-align: -.125em;
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            School of Information, University of Arizona
+            College of Information, University of Arizona
           </p>
       </div>
   </div>
@@ -4864,43 +4868,62 @@ vertical-align: -.125em;
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;Long-Term_Care_Hospital-Provider_Data_Sep2024.csv&quot;</span>))</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;healthcare_dataset.csv&quot;</span>))</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 24,825
-Columns: 16
-$ CMS.Certification.Number..CCN. &lt;int&gt; 12006, 12006, 12006, 12006, 12006, 1200…
-$ Provider.Name                  &lt;chr&gt; &quot;INFIRMARY LTAC HOSPITAL&quot;, &quot;INFIRMARY L…
-$ Address.Line.1                 &lt;chr&gt; &quot;5 MOBILE INFIRMARY CIRCLE&quot;, &quot;5 MOBILE …
-$ Address.Line.2                 &lt;chr&gt; &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;,…
-$ City.Town                      &lt;chr&gt; &quot;MOBILE&quot;, &quot;MOBILE&quot;, &quot;MOBILE&quot;, &quot;MOBILE&quot;,…
-$ State                          &lt;chr&gt; &quot;AL&quot;, &quot;AL&quot;, &quot;AL&quot;, &quot;AL&quot;, &quot;AL&quot;, &quot;AL&quot;, &quot;AL…
-$ ZIP.Code                       &lt;int&gt; 36607, 36607, 36607, 36607, 36607, 3660…
-$ County.Parish                  &lt;chr&gt; &quot;Mobile&quot;, &quot;Mobile&quot;, &quot;Mobile&quot;, &quot;Mobile&quot;,…
-$ Telephone.Number               &lt;chr&gt; &quot;(251) 660-5611&quot;, &quot;(251) 660-5611&quot;, &quot;(2…
-$ CMS.Region                     &lt;int&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, …
-$ Measure.Code                   &lt;chr&gt; &quot;L_006_01_CI_LOWER&quot;, &quot;L_006_01_CI_UPPER…
-$ Score                          &lt;chr&gt; &quot;0.195&quot;, &quot;2.084&quot;, &quot;No Different than th…
-$ Footnote                       &lt;chr&gt; &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;,…
-$ Start.Date                     &lt;chr&gt; &quot;10-01-2022&quot;, &quot;10-01-2022&quot;, &quot;10-01-2022…
-$ End.Date                       &lt;chr&gt; &quot;09/30/2023&quot;, &quot;09/30/2023&quot;, &quot;09/30/2023…
-$ Measure.Date.Range             &lt;chr&gt; &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;,…</code></pre>
+<pre><code>Rows: 55,500
+Columns: 15
+$ Name               &lt;chr&gt; &quot;Bobby JacksOn&quot;, &quot;LesLie TErRy&quot;, &quot;DaNnY sMitH&quot;, &quot;an…
+$ Age                &lt;int&gt; 30, 62, 76, 28, 43, 36, 21, 20, 82, 58, 72, 38, 75,…
+$ Gender             &lt;chr&gt; &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Male…
+$ Blood.Type         &lt;chr&gt; &quot;B-&quot;, &quot;A+&quot;, &quot;A-&quot;, &quot;O+&quot;, &quot;AB+&quot;, &quot;A+&quot;, &quot;AB-&quot;, &quot;A+&quot;, &quot;…
+$ Medical.Condition  &lt;chr&gt; &quot;Cancer&quot;, &quot;Obesity&quot;, &quot;Obesity&quot;, &quot;Diabetes&quot;, &quot;Cancer…
+$ Date.of.Admission  &lt;chr&gt; &quot;2024-01-31&quot;, &quot;2019-08-20&quot;, &quot;2022-09-22&quot;, &quot;2020-11-…
+$ Doctor             &lt;chr&gt; &quot;Matthew Smith&quot;, &quot;Samantha Davies&quot;, &quot;Tiffany Mitche…
+$ Hospital           &lt;chr&gt; &quot;Sons and Miller&quot;, &quot;Kim Inc&quot;, &quot;Cook PLC&quot;, &quot;Hernande…
+$ Insurance.Provider &lt;chr&gt; &quot;Blue Cross&quot;, &quot;Medicare&quot;, &quot;Aetna&quot;, &quot;Medicare&quot;, &quot;Aet…
+$ Billing.Amount     &lt;dbl&gt; 18856.28131, 33643.32729, 27955.09608, 37909.78241,…
+$ Room.Number        &lt;int&gt; 328, 265, 205, 450, 458, 389, 389, 277, 316, 249, 3…
+$ Admission.Type     &lt;chr&gt; &quot;Urgent&quot;, &quot;Emergency&quot;, &quot;Emergency&quot;, &quot;Elective&quot;, &quot;Ur…
+$ Discharge.Date     &lt;chr&gt; &quot;2024-02-02&quot;, &quot;2019-08-26&quot;, &quot;2022-10-07&quot;, &quot;2020-12-…
+$ Medication         &lt;chr&gt; &quot;Paracetamol&quot;, &quot;Ibuprofen&quot;, &quot;Aspirin&quot;, &quot;Ibuprofen&quot;,…
+$ Test.Results       &lt;chr&gt; &quot;Normal&quot;, &quot;Inconclusive&quot;, &quot;Normal&quot;, &quot;Abnormal&quot;, &quot;Ab…</code></pre>
 </div>
 </div>
 <p>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</p>
 </section>
 <section id="source" class="level2">
 <h2 class="anchored" data-anchor-id="source">Source:</h2>
-<p>Data.CMS.gov</p>
+<p>Kaggle</p>
 </section>
 <section id="how-it-was-originally-collected" class="level2">
 <h2 class="anchored" data-anchor-id="how-it-was-originally-collected">How it was originally collected:</h2>
-<p>The dataset likely comes from CMS, with long-term care hospitals regularly reporting quality measures, which are audited and standardized, then published on Long-Term Care Hospital Compare for transparency and benchmarking.</p>
+<p>This dataset was synthetically generated using Python’s Faker library. It was designed to mirror real-world healthcare records while ensuring that no sensitive or actual patient data is included, adhering strictly to privacy and ethical standards.</p>
 </section>
 <section id="brief-description" class="level2">
 <h2 class="anchored" data-anchor-id="brief-description">Brief description:</h2>
-<p>There are about 24826 rows and 16 columns in the dataset which accounts the data from 1960 to 2022 and the data sets show a detailed trend of various social expenditure on medicare from individual to government levels.</p>
+<ul>
+<li><p><strong>Number of Rows:</strong> 55,500</p></li>
+<li><p><strong>Number of Columns:</strong> 15</p></li>
+<li><p><strong>Columns Include:</strong></p>
+<ul>
+<li><p>Patient demographics (e.g., Name, Age, Gender)</p></li>
+<li><p>Clinical details (e.g., Blood Type, Medical Condition, Medication)</p></li>
+<li><p>Admission and discharge details (e.g., Date of Admission, Discharge Date, Admission Type)</p></li>
+<li><p>Billing and hospital information (e.g., Billing Amount, Hospital, Insurance Provider)</p></li>
+<li><p>Test Results (categories: Normal, Abnormal, Inconclusive)</p></li>
+</ul></li>
+</ul>
+<section id="trends-present-in-the-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="trends-present-in-the-dataset">Trends Present in the Dataset:</h4>
+<ol type="1">
+<li><p>Distribution of patient demographics, such as age and gender.</p></li>
+<li><p>Most common medical conditions and their associated admission types.</p></li>
+<li><p>Trends in test results based on patient demographics and medical conditions.</p></li>
+<li><p>Relationships between billing amounts, hospitals, and insurance providers.</p></li>
+</ol>
+</section>
 </section>
 <section id="ethical-concerns" class="level2">
 <h2 class="anchored" data-anchor-id="ethical-concerns">Ethical Concerns:</h2>
@@ -4909,9 +4932,9 @@ $ Measure.Date.Range             &lt;chr&gt; &quot;-&quot;, &quot;-&quot;, &quot
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions:</h2>
 <ol type="1">
-<li><p>How do hospitals in different regions or states compare to the national benchmark in terms of performance scores?</p></li>
-<li><p>How is the distribution of long-term care hospitals across different states, counties, and CMS regions? Are there any regions with notably higher or lower numbers of these facilities?</p></li>
-<li><p>Has there been a change in hospital performance scores over the available time periods? Are there any seasonal or annual trends?</p></li>
+<li><p>What demographic factors influence test results (Normal, Abnormal, Inconclusive)? Importance: Identifying demographic trends can improve targeted healthcare services and personalized medicine.</p></li>
+<li><p>What is the relationship between medical conditions and admission types (Emergency, Elective, Urgent)? Importance: Understanding these patterns can help in hospital resource planning and patient care prioritization.</p></li>
+<li><p>What factors contribute most to higher billing amounts? Importance: Insights here can inform healthcare cost optimization and insurance claim processes.</p></li>
 </ol>
 <p>The two questions you want to answer.</p>
 <p>If medical expenditure gets bigger as age increases, what are the sources of income and/or average income of that old age group?</p>
@@ -4920,16 +4943,32 @@ $ Measure.Date.Range             &lt;chr&gt; &quot;-&quot;, &quot;-&quot;, &quot
 </section>
 <section id="statement-on-why-this-question-is-important." class="level2">
 <h2 class="anchored" data-anchor-id="statement-on-why-this-question-is-important.">Statement on why this question is important.</h2>
-<p>The aging population is a global trend for most the developed countries all over the world. asking and answering these research questions is valuable because they address critical issues related to aging, healthcare costs, and financial sustainability in retirement.</p>
-<p>Predicting demographic trends over the next 15-20 years enables governments and businesses to proactively plan for shifts in labor markets, healthcare demand, and resource allocation. Finally, examining how many people can afford proper medical treatment after retirement highlights the need for both individuals and governments to take action, such as improving pension systems, enhancing healthcare access, and promoting financial preparedness, which are all essential for ensuring a healthier and more secure aging population.</p>
+<p>Examining the impact of patient demographics and medical conditions on test results is vital for improving healthcare outcomes and advancing precision medicine. Insights from such research help identify patterns and disparities that influence diagnostic accuracy, enabling healthcare providers to deliver personalized care tailored to individual needs. This understanding also facilitates better resource allocation, ensuring critical care reaches high-risk populations effectively. Moreover, it enhances predictive modeling for early intervention, supports data-driven decision-making, and guides public health policies to address systemic inequities. By focusing on these relationships, the study contributes to the development of more efficient, equitable, and patient-centered healthcare systems.</p>
 </section>
 <section id="a-description-of-the-research-topic-along-with-a-concise-statement-of-your-hypotheses-on-this-topic." class="level2">
 <h2 class="anchored" data-anchor-id="a-description-of-the-research-topic-along-with-a-concise-statement-of-your-hypotheses-on-this-topic.">A description of the research topic along with a concise statement of your hypotheses on this topic.</h2>
+<p>Hypothesis: Demographics such as age, gender, and medical conditions significantly influence the outcomes of medical tests during healthcare admissions.</p>
+<p>In addition to this baseline hypothesis, we can propose:</p>
 <ol type="1">
-<li><p>Medical expenditures for the elderly will significantly increase with age, and this group’s primary income sources will be insufficient to cover these expenses, leading to a financial strain fully.</p></li>
-<li><p>Demographic data will show a rapid increase in the elderly population in the US over the next 15-20 years, resulting in heightened demand for healthcare services, increased dependency ratios, and pressure on pension systems.</p></li>
-<li><p>A significant portion of the population will be unable to afford adequate medical treatment after retirement, necessitating policy interventions and increased individual financial planning to address this gap.</p></li>
+<li><p>Age Groups: Older age groups are more likely to have “Abnormal” test results due to comorbidities, whereas younger demographics might show a higher rate of “Normal” outcomes.</p></li>
+<li><p>Gender Influence: Certain medical conditions (e.g., cardiovascular diseases or diabetes) and test results may differ significantly between genders.</p></li>
+<li><p>Condition-Specific Outcomes: Patients with chronic conditions like hypertension or diabetes may exhibit a higher proportion of “Abnormal” results, while those admitted for minor ailments may lean toward “Normal” outcomes.</p></li>
+<li><p>Admission Type Correlation: Emergency admissions are hypothesized to show a higher likelihood of “Abnormal” results compared to elective or urgent admissions due to the critical nature of emergency cases.</p></li>
 </ol>
+<section id="expected-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="expected-outcomes">Expected Outcomes:</h3>
+<ol type="1">
+<li><p>Identification of high-risk demographic groups (e.g., older males with diabetes) for targeted interventions.</p></li>
+<li><p>Insights into resource allocation based on the likelihood of “Abnormal” or “Inconclusive” results in specific demographics.</p></li>
+<li><p>Improved predictive models for healthcare outcomes that incorporate demographic data, aiding in precision medicine and operational efficiency.</p></li>
+</ol>
+</section>
+<section id="importance-of-this-study" class="level3">
+<h3 class="anchored" data-anchor-id="importance-of-this-study">Importance of This Study:</h3>
+<p>Personalized Medicine: Tailored interventions based on identified demographic patterns can enhance patient care.</p>
+<p>Healthcare Efficiency: Understanding the links between demographics and test results can help hospitals optimize diagnostic resources.</p>
+<p>Policy Making: The insights can inform public health policies, focusing on vulnerable populations for better health outcomes.</p>
+</section>
 </section>
 <section id="analysis-plan" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-plan">Analysis plan</h2>
@@ -4937,33 +4976,25 @@ $ Measure.Date.Range             &lt;chr&gt; &quot;-&quot;, &quot;-&quot;, &quot
 <li>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</li>
 </ul>
 <ol type="1">
-<li>Trend Analysis of Total National Health Expenditures</li>
+<li>Data Preprocessing:</li>
 </ol>
-<p>This analysis could look at the total expenditures related to long-term care hospitals over time, comparing expenditure trends within and across states or CMS regions. Are there trends in costs that correlate with changes in performance scores, or are certain regions seeing more rapid expenditure increases? By examining the time-series data, this analysis could identify upward or downward trends in hospital expenditures, potentially shedding light on factors driving these shifts.</p>
+<p>Handle categorical data by encoding variables like Gender, Medical Condition, Admission Type, and Test Results. Convert date columns (e.g., Date of Admission and Discharge Date) into appropriate formats and calculate the length of stay.</p>
 <ol start="2" type="1">
-<li>Impact of Health Insurance on Expenditure</li>
+<li>Exploratory Data Analysis (EDA):</li>
 </ol>
-<p>Although this dataset doesn’t directly include insurance type or expenditures, exploring correlations between regions with high or low performance scores and general insurance coverage rates in those areas (from complementary datasets) could offer insights. For instance, regions with higher insurance coverage might show lower out-of-pocket expenditures, potentially affecting long-term care hospital utilization and quality. This can also lead to supplementary research on insurance coverage impact on expenditures across different regions.</p>
+<p>Visualize the distribution of Test Results across different demographics and medical conditions. Identify correlations between numerical features like Age, Billing Amount, and Room Number.</p>
 <ol start="3" type="1">
-<li>Out-of-Pocket Expenditures Analysis</li>
+<li>Feature Engineering:</li>
 </ol>
-<p>If other sources on out-of-pocket costs are combined with this dataset, analysis could compare how out-of-pocket expenses vary for patients across hospitals with different performance scores or in different regions. By studying hospitals with different scores, one could examine if lower-scoring hospitals correlate with higher out-of-pocket expenses for patients, potentially impacting patient access to quality care in underperforming regions.</p>
+<p>Create additional features, such as length of hospital stay and admission seasonality.</p>
 <ol start="4" type="1">
-<li>Government vs. Private Expenditures</li>
+<li>Modeling:</li>
 </ol>
-<p>For regions or hospitals funded primarily through government programs (Medicare, Medicaid) versus those with more private funding, how do expenditures and performance compare? This would involve investigating whether government-supported regions correlate with higher or lower quality scores, thereby indicating the possible impact of funding sources on hospital performance. If supplemented by expenditure data, this could reveal the efficiency and outcomes tied to public vs. private healthcare funding.</p>
+<p>Frame this as a multiclass classification problem to predict Test Results (Normal, Abnormal, Inconclusive). Use algorithms such as Logistic Regression, Random Forest, and XGBoost. Evaluate model performance using metrics like accuracy, precision, recall, and F1-score.</p>
 <ol start="5" type="1">
-<li>Expenditures on Different Services</li>
+<li>Insights and Recommendations:</li>
 </ol>
-<p>With various Measure Codes representing different performance indicators (e.g., L_006_01_CI_LOWER, L_006_01_COMP_PERF), this dataset allows for exploring the expenditure or resource allocation patterns across services such as readmission rates, discharge times, or patient outcomes. Analyzing these measures can uncover whether high-expenditure areas show better outcomes across specific services and highlight which services are most correlated with increased quality</p>
-<ol start="6" type="1">
-<li>Impact of Recessions on Health Expenditures</li>
-</ol>
-<p>Recession periods (like the 2008 financial crisis or the economic downturn during COVID-19) could be aligned with expenditure and performance data to examine the resilience of long-term care hospitals. This analysis could explore whether recessions led to drops in performance or altered spending in particular regions. Regional analysis during these periods could highlight how economic stressors impact access to quality care and may affect performance scores.</p>
-<ol start="7" type="1">
-<li>Forecasting Future Expenditures</li>
-</ol>
-<p>Based on trends in performance and regional growth, forecasting models could project future costs associated with long-term care hospitals. By using past performance data and demographic trends, forecasts could estimate the future demand for long-term care services and anticipate which regions may face increasing expenditures. This could be useful for policymakers in planning for adequate resources and improving access to quality long-term care.</p>
+<p>Summarize key factors influencing test results. Provide actionable insights for improving healthcare analytics and decision-making.</p>
 
 
 <!-- -->
@@ -5626,126 +5657,163 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
 <div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> &quot;Financial Analysis of long term care services for the elderly beings&quot;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="an">subtitle:</span><span class="co"> &quot;Proposal&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">  - name: &quot;Trailblazers&quot;</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">    affiliations:</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">      - name: &quot;School of Information, University of Arizona&quot;</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="an">description:</span><span class="co"> &quot;Project description&quot;</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="an">format:</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">  html:</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">    code-tools: true</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">    code-line-numbers: true</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="an">code-annotations:</span><span class="co"> hover</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="an">execute:</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co">  warning: false</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="co">---</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="in">```{r}</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="co">#| label: load-pkgs</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="co">#| message: false</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="fu">library</span>(here)</span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="in">```</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="fu">## Dataset</span></span>
-<span id="cb4-32"><a href="#cb4-32"></a></span>
-<span id="cb4-35"><a href="#cb4-35"></a><span class="in">```{r}</span></span>
-<span id="cb4-36"><a href="#cb4-36"></a><span class="co">#| label: load-dataset</span></span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="co">#| message: false</span></span>
-<span id="cb4-38"><a href="#cb4-38"></a></span>
-<span id="cb4-39"><a href="#cb4-39"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;Long-Term_Care_Hospital-Provider_Data_Sep2024.csv&quot;</span>))</span>
-<span id="cb4-40"><a href="#cb4-40"></a></span>
-<span id="cb4-41"><a href="#cb4-41"></a><span class="fu">glimpse</span>(data)</span>
-<span id="cb4-42"><a href="#cb4-42"></a></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> &quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="an">subtitle:</span><span class="co"> &quot;Proposal&quot;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">  - name: &quot;Trailblazers&quot;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">    affiliations:</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">      - name: &quot;College of Information, University of Arizona&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="an">description:</span><span class="co"> &quot;Project description&quot;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="an">format:</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">  html:</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">    code-tools: true</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">    code-line-numbers: true</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="an">code-annotations:</span><span class="co"> hover</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="an">execute:</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">  warning: false</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="co">---</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="in">```{r}</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="co">#| label: load-pkgs</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="co">#| message: false</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="fu">library</span>(here)</span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="in">```</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="fu">## Dataset</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="in">```{r}</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a><span class="co">#| label: load-dataset</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="co">#| message: false</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a></span>
+<span id="cb4-40"><a href="#cb4-40"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;healthcare_dataset.csv&quot;</span>))</span>
+<span id="cb4-41"><a href="#cb4-41"></a></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="fu">glimpse</span>(data)</span>
 <span id="cb4-43"><a href="#cb4-43"></a></span>
 <span id="cb4-44"><a href="#cb4-44"></a></span>
-<span id="cb4-45"><a href="#cb4-45"></a><span class="in">```</span></span>
-<span id="cb4-46"><a href="#cb4-46"></a></span>
-<span id="cb4-47"><a href="#cb4-47"></a>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</span>
-<span id="cb4-48"><a href="#cb4-48"></a></span>
-<span id="cb4-49"><a href="#cb4-49"></a><span class="fu">## Source:</span></span>
-<span id="cb4-50"><a href="#cb4-50"></a></span>
-<span id="cb4-51"><a href="#cb4-51"></a>Data.CMS.gov</span>
-<span id="cb4-52"><a href="#cb4-52"></a></span>
-<span id="cb4-53"><a href="#cb4-53"></a><span class="fu">## How it was originally collected:</span></span>
-<span id="cb4-54"><a href="#cb4-54"></a></span>
-<span id="cb4-55"><a href="#cb4-55"></a>The dataset likely comes from CMS, with long-term care hospitals regularly reporting quality measures, which are audited and standardized, then published on Long-Term Care Hospital Compare for transparency and benchmarking.</span>
-<span id="cb4-56"><a href="#cb4-56"></a></span>
-<span id="cb4-57"><a href="#cb4-57"></a><span class="fu">## Brief description:</span></span>
-<span id="cb4-58"><a href="#cb4-58"></a></span>
-<span id="cb4-59"><a href="#cb4-59"></a>There are about 24826 rows and 16 columns in the dataset which accounts the data from 1960 to 2022 and the data sets show a detailed trend of various social expenditure on medicare from individual to government levels.</span>
-<span id="cb4-60"><a href="#cb4-60"></a></span>
-<span id="cb4-61"><a href="#cb4-61"></a><span class="fu">## Ethical Concerns:</span></span>
-<span id="cb4-62"><a href="#cb4-62"></a></span>
-<span id="cb4-63"><a href="#cb4-63"></a>Nothing Specific</span>
-<span id="cb4-64"><a href="#cb4-64"></a></span>
-<span id="cb4-65"><a href="#cb4-65"></a><span class="fu">## Questions:</span></span>
-<span id="cb4-66"><a href="#cb4-66"></a></span>
-<span id="cb4-67"><a href="#cb4-67"></a><span class="ss">1.  </span>How do hospitals in different regions or states compare to the national benchmark in terms of performance scores?</span>
-<span id="cb4-68"><a href="#cb4-68"></a></span>
-<span id="cb4-69"><a href="#cb4-69"></a><span class="ss">2.  </span>How is the distribution of long-term care hospitals across different states, counties, and CMS regions? Are there any regions with notably higher or lower numbers of these facilities?</span>
-<span id="cb4-70"><a href="#cb4-70"></a></span>
-<span id="cb4-71"><a href="#cb4-71"></a><span class="ss">3.  </span>Has there been a change in hospital performance scores over the available time periods? Are there any seasonal or annual trends?</span>
-<span id="cb4-72"><a href="#cb4-72"></a></span>
-<span id="cb4-73"><a href="#cb4-73"></a>The two questions you want to answer.</span>
-<span id="cb4-74"><a href="#cb4-74"></a></span>
-<span id="cb4-75"><a href="#cb4-75"></a>If medical expenditure gets bigger as age increases, what are the sources of income and/or average income of that old age group?</span>
-<span id="cb4-76"><a href="#cb4-76"></a></span>
-<span id="cb4-77"><a href="#cb4-77"></a>How many percent of the population will be able to support themselves with proper medical treatment after retirement? what can individuals and governments do about it?</span>
-<span id="cb4-78"><a href="#cb4-78"></a></span>
-<span id="cb4-79"><a href="#cb4-79"></a>There are much options for categorical data</span>
-<span id="cb4-80"><a href="#cb4-80"></a></span>
-<span id="cb4-81"><a href="#cb4-81"></a><span class="fu">## Statement on why this question is important.</span></span>
-<span id="cb4-82"><a href="#cb4-82"></a></span>
-<span id="cb4-83"><a href="#cb4-83"></a>The aging population is a global trend for most the developed countries all over the world. asking and answering these research questions is valuable because they address critical issues related to aging, healthcare costs, and financial sustainability in retirement.</span>
-<span id="cb4-84"><a href="#cb4-84"></a></span>
-<span id="cb4-85"><a href="#cb4-85"></a>Predicting demographic trends over the next 15-20 years enables governments and businesses to proactively plan for shifts in labor markets, healthcare demand, and resource allocation. Finally, examining how many people can afford proper medical treatment after retirement highlights the need for both individuals and governments to take action, such as improving pension systems, enhancing healthcare access, and promoting financial preparedness, which are all essential for ensuring a healthier and more secure aging population.</span>
-<span id="cb4-86"><a href="#cb4-86"></a></span>
-<span id="cb4-87"><a href="#cb4-87"></a><span class="fu">## A description of the research topic along with a concise statement of your hypotheses on this topic.</span></span>
-<span id="cb4-88"><a href="#cb4-88"></a></span>
-<span id="cb4-89"><a href="#cb4-89"></a><span class="ss">1.  </span>Medical expenditures for the elderly will significantly increase with age, and this group’s primary income sources will be insufficient to cover these expenses, leading to a financial strain fully.</span>
-<span id="cb4-90"><a href="#cb4-90"></a></span>
-<span id="cb4-91"><a href="#cb4-91"></a><span class="ss">2.  </span>Demographic data will show a rapid increase in the elderly population in the US over the next 15-20 years, resulting in heightened demand for healthcare services, increased dependency ratios, and pressure on pension systems.</span>
-<span id="cb4-92"><a href="#cb4-92"></a></span>
-<span id="cb4-93"><a href="#cb4-93"></a><span class="ss">3.  </span>A significant portion of the population will be unable to afford adequate medical treatment after retirement, necessitating policy interventions and increased individual financial planning to address this gap.</span>
-<span id="cb4-94"><a href="#cb4-94"></a></span>
-<span id="cb4-95"><a href="#cb4-95"></a><span class="fu">## Analysis plan</span></span>
-<span id="cb4-96"><a href="#cb4-96"></a></span>
-<span id="cb4-97"><a href="#cb4-97"></a><span class="ss">-   </span>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</span>
-<span id="cb4-98"><a href="#cb4-98"></a></span>
-<span id="cb4-99"><a href="#cb4-99"></a><span class="ss">1.  </span>Trend Analysis of Total National Health Expenditures</span>
-<span id="cb4-100"><a href="#cb4-100"></a></span>
-<span id="cb4-101"><a href="#cb4-101"></a>This analysis could look at the total expenditures related to long-term care hospitals over time, comparing expenditure trends within and across states or CMS regions. Are there trends in costs that correlate with changes in performance scores, or are certain regions seeing more rapid expenditure increases? By examining the time-series data, this analysis could identify upward or downward trends in hospital expenditures, potentially shedding light on factors driving these shifts.</span>
-<span id="cb4-102"><a href="#cb4-102"></a></span>
-<span id="cb4-103"><a href="#cb4-103"></a><span class="ss">2.  </span>Impact of Health Insurance on Expenditure</span>
-<span id="cb4-104"><a href="#cb4-104"></a></span>
-<span id="cb4-105"><a href="#cb4-105"></a>Although this dataset doesn&#39;t directly include insurance type or expenditures, exploring correlations between regions with high or low performance scores and general insurance coverage rates in those areas (from complementary datasets) could offer insights. For instance, regions with higher insurance coverage might show lower out-of-pocket expenditures, potentially affecting long-term care hospital utilization and quality. This can also lead to supplementary research on insurance coverage impact on expenditures across different regions.</span>
-<span id="cb4-106"><a href="#cb4-106"></a></span>
-<span id="cb4-107"><a href="#cb4-107"></a><span class="ss">3.  </span>Out-of-Pocket Expenditures Analysis</span>
-<span id="cb4-108"><a href="#cb4-108"></a></span>
-<span id="cb4-109"><a href="#cb4-109"></a>If other sources on out-of-pocket costs are combined with this dataset, analysis could compare how out-of-pocket expenses vary for patients across hospitals with different performance scores or in different regions. By studying hospitals with different scores, one could examine if lower-scoring hospitals correlate with higher out-of-pocket expenses for patients, potentially impacting patient access to quality care in underperforming regions.</span>
-<span id="cb4-110"><a href="#cb4-110"></a></span>
-<span id="cb4-111"><a href="#cb4-111"></a><span class="ss">4.  </span>Government vs. Private Expenditures</span>
-<span id="cb4-112"><a href="#cb4-112"></a></span>
-<span id="cb4-113"><a href="#cb4-113"></a>For regions or hospitals funded primarily through government programs (Medicare, Medicaid) versus those with more private funding, how do expenditures and performance compare? This would involve investigating whether government-supported regions correlate with higher or lower quality scores, thereby indicating the possible impact of funding sources on hospital performance. If supplemented by expenditure data, this could reveal the efficiency and outcomes tied to public vs. private healthcare funding.</span>
-<span id="cb4-114"><a href="#cb4-114"></a></span>
-<span id="cb4-115"><a href="#cb4-115"></a><span class="ss">5.  </span>Expenditures on Different Services</span>
-<span id="cb4-116"><a href="#cb4-116"></a></span>
-<span id="cb4-117"><a href="#cb4-117"></a>With various Measure Codes representing different performance indicators (e.g., L_006_01_CI_LOWER, L_006_01_COMP_PERF), this dataset allows for exploring the expenditure or resource allocation patterns across services such as readmission rates, discharge times, or patient outcomes. Analyzing these measures can uncover whether high-expenditure areas show better outcomes across specific services and highlight which services are most correlated with increased quality</span>
-<span id="cb4-118"><a href="#cb4-118"></a></span>
-<span id="cb4-119"><a href="#cb4-119"></a><span class="ss">6.  </span>Impact of Recessions on Health Expenditures</span>
-<span id="cb4-120"><a href="#cb4-120"></a></span>
-<span id="cb4-121"><a href="#cb4-121"></a>Recession periods (like the 2008 financial crisis or the economic downturn during COVID-19) could be aligned with expenditure and performance data to examine the resilience of long-term care hospitals. This analysis could explore whether recessions led to drops in performance or altered spending in particular regions. Regional analysis during these periods could highlight how economic stressors impact access to quality care and may affect performance scores.</span>
-<span id="cb4-122"><a href="#cb4-122"></a></span>
-<span id="cb4-123"><a href="#cb4-123"></a><span class="ss">7.  </span>Forecasting Future Expenditures</span>
-<span id="cb4-124"><a href="#cb4-124"></a></span>
-<span id="cb4-125"><a href="#cb4-125"></a>Based on trends in performance and regional growth, forecasting models could project future costs associated with long-term care hospitals. By using past performance data and demographic trends, forecasts could estimate the future demand for long-term care services and anticipate which regions may face increasing expenditures. This could be useful for policymakers in planning for adequate resources and improving access to quality long-term care.</span>
+<span id="cb4-45"><a href="#cb4-45"></a></span>
+<span id="cb4-46"><a href="#cb4-46"></a><span class="in">```</span></span>
+<span id="cb4-47"><a href="#cb4-47"></a></span>
+<span id="cb4-48"><a href="#cb4-48"></a>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</span>
+<span id="cb4-49"><a href="#cb4-49"></a></span>
+<span id="cb4-50"><a href="#cb4-50"></a><span class="fu">## Source:</span></span>
+<span id="cb4-51"><a href="#cb4-51"></a></span>
+<span id="cb4-52"><a href="#cb4-52"></a>Kaggle</span>
+<span id="cb4-53"><a href="#cb4-53"></a></span>
+<span id="cb4-54"><a href="#cb4-54"></a><span class="fu">## How it was originally collected:</span></span>
+<span id="cb4-55"><a href="#cb4-55"></a></span>
+<span id="cb4-56"><a href="#cb4-56"></a>This dataset was synthetically generated using Python&#39;s Faker library. It was designed to mirror real-world healthcare records while ensuring that no sensitive or actual patient data is included, adhering strictly to privacy and ethical standards.</span>
+<span id="cb4-57"><a href="#cb4-57"></a></span>
+<span id="cb4-58"><a href="#cb4-58"></a><span class="fu">## Brief description:</span></span>
+<span id="cb4-59"><a href="#cb4-59"></a></span>
+<span id="cb4-60"><a href="#cb4-60"></a><span class="ss">-   </span>**Number of Rows:** 55,500</span>
+<span id="cb4-61"><a href="#cb4-61"></a></span>
+<span id="cb4-62"><a href="#cb4-62"></a><span class="ss">-   </span>**Number of Columns:** 15</span>
+<span id="cb4-63"><a href="#cb4-63"></a></span>
+<span id="cb4-64"><a href="#cb4-64"></a><span class="ss">-   </span>**Columns Include:**</span>
+<span id="cb4-65"><a href="#cb4-65"></a></span>
+<span id="cb4-66"><a href="#cb4-66"></a><span class="ss">    -   </span>Patient demographics (e.g., Name, Age, Gender)</span>
+<span id="cb4-67"><a href="#cb4-67"></a></span>
+<span id="cb4-68"><a href="#cb4-68"></a><span class="ss">    -   </span>Clinical details (e.g., Blood Type, Medical Condition, Medication)</span>
+<span id="cb4-69"><a href="#cb4-69"></a></span>
+<span id="cb4-70"><a href="#cb4-70"></a><span class="ss">    -   </span>Admission and discharge details (e.g., Date of Admission, Discharge Date, Admission Type)</span>
+<span id="cb4-71"><a href="#cb4-71"></a></span>
+<span id="cb4-72"><a href="#cb4-72"></a><span class="ss">    -   </span>Billing and hospital information (e.g., Billing Amount, Hospital, Insurance Provider)</span>
+<span id="cb4-73"><a href="#cb4-73"></a></span>
+<span id="cb4-74"><a href="#cb4-74"></a><span class="ss">    -   </span>Test Results (categories: Normal, Abnormal, Inconclusive)</span>
+<span id="cb4-75"><a href="#cb4-75"></a></span>
+<span id="cb4-76"><a href="#cb4-76"></a><span class="fu">#### Trends Present in the Dataset:</span></span>
+<span id="cb4-77"><a href="#cb4-77"></a></span>
+<span id="cb4-78"><a href="#cb4-78"></a><span class="ss">1.  </span>Distribution of patient demographics, such as age and gender.</span>
+<span id="cb4-79"><a href="#cb4-79"></a></span>
+<span id="cb4-80"><a href="#cb4-80"></a><span class="ss">2.  </span>Most common medical conditions and their associated admission types.</span>
+<span id="cb4-81"><a href="#cb4-81"></a></span>
+<span id="cb4-82"><a href="#cb4-82"></a><span class="ss">3.  </span>Trends in test results based on patient demographics and medical conditions.</span>
+<span id="cb4-83"><a href="#cb4-83"></a></span>
+<span id="cb4-84"><a href="#cb4-84"></a><span class="ss">4.  </span>Relationships between billing amounts, hospitals, and insurance providers.</span>
+<span id="cb4-85"><a href="#cb4-85"></a></span>
+<span id="cb4-86"><a href="#cb4-86"></a><span class="fu">## Ethical Concerns:</span></span>
+<span id="cb4-87"><a href="#cb4-87"></a></span>
+<span id="cb4-88"><a href="#cb4-88"></a>Nothing Specific</span>
+<span id="cb4-89"><a href="#cb4-89"></a></span>
+<span id="cb4-90"><a href="#cb4-90"></a><span class="fu">## Questions:</span></span>
+<span id="cb4-91"><a href="#cb4-91"></a></span>
+<span id="cb4-92"><a href="#cb4-92"></a><span class="ss">1.  </span>What demographic factors influence test results (Normal, Abnormal, Inconclusive)? Importance: Identifying demographic trends can improve targeted healthcare services and personalized medicine.</span>
+<span id="cb4-93"><a href="#cb4-93"></a></span>
+<span id="cb4-94"><a href="#cb4-94"></a><span class="ss">2.  </span>What is the relationship between medical conditions and admission types (Emergency, Elective, Urgent)? Importance: Understanding these patterns can help in hospital resource planning and patient care prioritization.</span>
+<span id="cb4-95"><a href="#cb4-95"></a></span>
+<span id="cb4-96"><a href="#cb4-96"></a><span class="ss">3.  </span>What factors contribute most to higher billing amounts? Importance: Insights here can inform healthcare cost optimization and insurance claim processes.</span>
+<span id="cb4-97"><a href="#cb4-97"></a></span>
+<span id="cb4-98"><a href="#cb4-98"></a>The two questions you want to answer.</span>
+<span id="cb4-99"><a href="#cb4-99"></a></span>
+<span id="cb4-100"><a href="#cb4-100"></a>If medical expenditure gets bigger as age increases, what are the sources of income and/or average income of that old age group?</span>
+<span id="cb4-101"><a href="#cb4-101"></a></span>
+<span id="cb4-102"><a href="#cb4-102"></a>How many percent of the population will be able to support themselves with proper medical treatment after retirement? what can individuals and governments do about it?</span>
+<span id="cb4-103"><a href="#cb4-103"></a></span>
+<span id="cb4-104"><a href="#cb4-104"></a>There are much options for categorical data</span>
+<span id="cb4-105"><a href="#cb4-105"></a></span>
+<span id="cb4-106"><a href="#cb4-106"></a><span class="fu">## Statement on why this question is important.</span></span>
+<span id="cb4-107"><a href="#cb4-107"></a></span>
+<span id="cb4-108"><a href="#cb4-108"></a>Examining the impact of patient demographics and medical conditions on test results is vital for improving healthcare outcomes and advancing precision medicine. Insights from such research help identify patterns and disparities that influence diagnostic accuracy, enabling healthcare providers to deliver personalized care tailored to individual needs. This understanding also facilitates better resource allocation, ensuring critical care reaches high-risk populations effectively. Moreover, it enhances predictive modeling for early intervention, supports data-driven decision-making, and guides public health policies to address systemic inequities. By focusing on these relationships, the study contributes to the development of more efficient, equitable, and patient-centered healthcare systems.</span>
+<span id="cb4-109"><a href="#cb4-109"></a></span>
+<span id="cb4-110"><a href="#cb4-110"></a><span class="fu">## A description of the research topic along with a concise statement of your hypotheses on this topic.</span></span>
+<span id="cb4-111"><a href="#cb4-111"></a></span>
+<span id="cb4-112"><a href="#cb4-112"></a>Hypothesis: Demographics such as age, gender, and medical conditions significantly influence the outcomes of medical tests during healthcare admissions.</span>
+<span id="cb4-113"><a href="#cb4-113"></a></span>
+<span id="cb4-114"><a href="#cb4-114"></a>In addition to this baseline hypothesis, we can propose:</span>
+<span id="cb4-115"><a href="#cb4-115"></a></span>
+<span id="cb4-116"><a href="#cb4-116"></a><span class="ss">1.  </span>Age Groups: Older age groups are more likely to have &quot;Abnormal&quot; test results due to comorbidities, whereas younger demographics might show a higher rate of &quot;Normal&quot; outcomes.</span>
+<span id="cb4-117"><a href="#cb4-117"></a></span>
+<span id="cb4-118"><a href="#cb4-118"></a><span class="ss">2.  </span>Gender Influence: Certain medical conditions (e.g., cardiovascular diseases or diabetes) and test results may differ significantly between genders.</span>
+<span id="cb4-119"><a href="#cb4-119"></a></span>
+<span id="cb4-120"><a href="#cb4-120"></a><span class="ss">3.  </span>Condition-Specific Outcomes: Patients with chronic conditions like hypertension or diabetes may exhibit a higher proportion of &quot;Abnormal&quot; results, while those admitted for minor ailments may lean toward &quot;Normal&quot; outcomes.</span>
+<span id="cb4-121"><a href="#cb4-121"></a></span>
+<span id="cb4-122"><a href="#cb4-122"></a><span class="ss">4.  </span>Admission Type Correlation: Emergency admissions are hypothesized to show a higher likelihood of &quot;Abnormal&quot; results compared to elective or urgent admissions due to the critical nature of emergency cases.</span>
+<span id="cb4-123"><a href="#cb4-123"></a></span>
+<span id="cb4-124"><a href="#cb4-124"></a><span class="fu">### Expected Outcomes:</span></span>
+<span id="cb4-125"><a href="#cb4-125"></a></span>
+<span id="cb4-126"><a href="#cb4-126"></a><span class="ss">1.  </span>Identification of high-risk demographic groups (e.g., older males with diabetes) for targeted interventions.</span>
+<span id="cb4-127"><a href="#cb4-127"></a></span>
+<span id="cb4-128"><a href="#cb4-128"></a><span class="ss">2.  </span>Insights into resource allocation based on the likelihood of &quot;Abnormal&quot; or &quot;Inconclusive&quot; results in specific demographics.</span>
+<span id="cb4-129"><a href="#cb4-129"></a></span>
+<span id="cb4-130"><a href="#cb4-130"></a><span class="ss">3.  </span>Improved predictive models for healthcare outcomes that incorporate demographic data, aiding in precision medicine and operational efficiency.</span>
+<span id="cb4-131"><a href="#cb4-131"></a></span>
+<span id="cb4-132"><a href="#cb4-132"></a><span class="fu">### Importance of This Study:</span></span>
+<span id="cb4-133"><a href="#cb4-133"></a></span>
+<span id="cb4-134"><a href="#cb4-134"></a>Personalized Medicine: Tailored interventions based on identified demographic patterns can enhance patient care.</span>
+<span id="cb4-135"><a href="#cb4-135"></a></span>
+<span id="cb4-136"><a href="#cb4-136"></a>Healthcare Efficiency: Understanding the links between demographics and test results can help hospitals optimize diagnostic resources.</span>
+<span id="cb4-137"><a href="#cb4-137"></a></span>
+<span id="cb4-138"><a href="#cb4-138"></a>Policy Making: The insights can inform public health policies, focusing on vulnerable populations for better health outcomes.</span>
+<span id="cb4-139"><a href="#cb4-139"></a></span>
+<span id="cb4-140"><a href="#cb4-140"></a><span class="fu">## Analysis plan</span></span>
+<span id="cb4-141"><a href="#cb4-141"></a></span>
+<span id="cb4-142"><a href="#cb4-142"></a><span class="ss">-   </span>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</span>
+<span id="cb4-143"><a href="#cb4-143"></a></span>
+<span id="cb4-144"><a href="#cb4-144"></a><span class="ss">1.  </span>Data Preprocessing:</span>
+<span id="cb4-145"><a href="#cb4-145"></a></span>
+<span id="cb4-146"><a href="#cb4-146"></a>Handle categorical data by encoding variables like Gender, Medical Condition, Admission Type, and Test Results. Convert date columns (e.g., Date of Admission and Discharge Date) into appropriate formats and calculate the length of stay.</span>
+<span id="cb4-147"><a href="#cb4-147"></a></span>
+<span id="cb4-148"><a href="#cb4-148"></a><span class="ss">2.  </span>Exploratory Data Analysis (EDA):</span>
+<span id="cb4-149"><a href="#cb4-149"></a></span>
+<span id="cb4-150"><a href="#cb4-150"></a>Visualize the distribution of Test Results across different demographics and medical conditions. Identify correlations between numerical features like Age, Billing Amount, and Room Number.</span>
+<span id="cb4-151"><a href="#cb4-151"></a></span>
+<span id="cb4-152"><a href="#cb4-152"></a><span class="ss">3.  </span>Feature Engineering:</span>
+<span id="cb4-153"><a href="#cb4-153"></a></span>
+<span id="cb4-154"><a href="#cb4-154"></a>Create additional features, such as length of hospital stay and admission seasonality.</span>
+<span id="cb4-155"><a href="#cb4-155"></a></span>
+<span id="cb4-156"><a href="#cb4-156"></a><span class="ss">4.  </span>Modeling:</span>
+<span id="cb4-157"><a href="#cb4-157"></a></span>
+<span id="cb4-158"><a href="#cb4-158"></a>Frame this as a multiclass classification problem to predict Test Results (Normal, Abnormal, Inconclusive). Use algorithms such as Logistic Regression, Random Forest, and XGBoost. Evaluate model performance using metrics like accuracy, precision, recall, and F1-score.</span>
+<span id="cb4-159"><a href="#cb4-159"></a></span>
+<span id="cb4-160"><a href="#cb4-160"></a><span class="ss">5.  </span>Insights and Recommendations:</span>
+<span id="cb4-161"><a href="#cb4-161"></a></span>
+<span id="cb4-162"><a href="#cb4-162"></a>Summarize key factors influencing test results. Provide actionable insights for improving healthcare analytics and decision-making.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
