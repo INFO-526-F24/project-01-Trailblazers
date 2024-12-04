@@ -1,5 +1,5 @@
 ---
-title: "Financial Analysis of long term care services for the elderly beings"
+title: "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics"
 subtitle: "INFO 526 - Fall 2024 - Project 01"
 author: 
   - name: "Trailblazers"
@@ -19,4 +19,4 @@ execute:
 
 ## Abstract
 
-This analysis explores at the financial backdrop of long-term care (LTC) services for the elderly, namely the costs, funding sources, and economic impact on people and government-run programs. We evaluate changes in expenditure across various LTC services, including skilled nursing facilities, home healthcare, and assisted living facilities, utilizing data from 1960 to 2022. The study emphasizes the growing financial strain on families, as well as their growing dependency on public financing sources like Medicare and Medicaid. In addition, we look at various strategies to alleviate these financial risks, such as expanding private insurance coverage and making legislative recommendations to improve the sustainability of long-term care funding. This comprehensive research is intended to enlighten stakeholders and policymakers about the economic difficulties and prospects in the LTC sector.
+This study explores how patient demographics, such as age and gender, along with medical conditions, impact diagnostic test results. By examining these relationships, it aims to identify patterns that can enhance healthcare decision-making and ensure resources are directed where they’re needed most. The insights can help healthcare providers improve diagnostic accuracy, deliver tailored care, and address disparities in outcomes. This research contributes to advancing patient-centered healthcare, making it more precise, accessible, and equitable, ultimately supporting a future where medical decisions are better informed by individual patient profiles and real-world needs..
