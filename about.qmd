@@ -1,5 +1,5 @@
 ---
-title: "Financial Analysis of Long-Term Care Services for the Elderly in the US"
+title: "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics"
 format: html
 editor: visual
 ---
