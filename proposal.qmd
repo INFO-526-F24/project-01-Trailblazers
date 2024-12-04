@@ -1,10 +1,11 @@
 ---
-title: "Financial Analysis of long term care services for the elderly beings"
+title: "
+Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics"
 subtitle: "Proposal"
 author: 
   - name: "Trailblazers"
     affiliations:
-      - name: "School of Information, University of Arizona"
+      - name: "College of Information, University of Arizona"
 description: "Project description"
 format:
   html:
@@ -32,7 +33,7 @@ library(dplyr)
 #| label: load-dataset
 #| message: false
 
-data <- read.csv(here("Long-Term_Care_Hospital-Provider_Data_Sep2024.csv"))
+data <- read.csv(here("data", "healthcare_dataset.csv"))
 
 glimpse(data)
 
@@ -44,15 +45,39 @@ A brief description of your dataset including its provenance, dimensions, etc. a
 
 ## Source:
 
-Data.CMS.gov
+Kaggle
 
 ## How it was originally collected:
 
-The dataset likely comes from CMS, with long-term care hospitals regularly reporting quality measures, which are audited and standardized, then published on Long-Term Care Hospital Compare for transparency and benchmarking.
+This dataset was synthetically generated using Python's Faker library. It was designed to mirror real-world healthcare records while ensuring that no sensitive or actual patient data is included, adhering strictly to privacy and ethical standards.
 
 ## Brief description:
 
-There are about 24826 rows and 16 columns in the dataset which accounts the data from 1960 to 2022 and the data sets show a detailed trend of various social expenditure on medicare from individual to government levels.
+-   **Number of Rows:** 55,500
+
+-   **Number of Columns:** 15
+
+-   **Columns Include:**
+
+    -   Patient demographics (e.g., Name, Age, Gender)
+
+    -   Clinical details (e.g., Blood Type, Medical Condition, Medication)
+
+    -   Admission and discharge details (e.g., Date of Admission, Discharge Date, Admission Type)
+
+    -   Billing and hospital information (e.g., Billing Amount, Hospital, Insurance Provider)
+
+    -   Test Results (categories: Normal, Abnormal, Inconclusive)
+
+#### Trends Present in the Dataset:
+
+1.  Distribution of patient demographics, such as age and gender.
+
+2.  Most common medical conditions and their associated admission types.
+
+3.  Trends in test results based on patient demographics and medical conditions.
+
+4.  Relationships between billing amounts, hospitals, and insurance providers.
 
 ## Ethical Concerns:
 
@@ -60,11 +85,11 @@ Nothing Specific
 
 ## Questions:
 
-1.  How do hospitals in different regions or states compare to the national benchmark in terms of performance scores?
+1.  What demographic factors influence test results (Normal, Abnormal, Inconclusive)? Importance: Identifying demographic trends can improve targeted healthcare services and personalized medicine.
 
-2.  How is the distribution of long-term care hospitals across different states, counties, and CMS regions? Are there any regions with notably higher or lower numbers of these facilities?
+2.  What is the relationship between medical conditions and admission types (Emergency, Elective, Urgent)? Importance: Understanding these patterns can help in hospital resource planning and patient care prioritization.
 
-3.  Has there been a change in hospital performance scores over the available time periods? Are there any seasonal or annual trends?
+3.  What factors contribute most to higher billing amounts? Importance: Insights here can inform healthcare cost optimization and insurance claim processes.
 
 The two questions you want to answer.
 
@@ -76,46 +101,58 @@ There are much options for categorical data
 
 ## Statement on why this question is important.
 
-The aging population is a global trend for most the developed countries all over the world. asking and answering these research questions is valuable because they address critical issues related to aging, healthcare costs, and financial sustainability in retirement.
-
-Predicting demographic trends over the next 15-20 years enables governments and businesses to proactively plan for shifts in labor markets, healthcare demand, and resource allocation. Finally, examining how many people can afford proper medical treatment after retirement highlights the need for both individuals and governments to take action, such as improving pension systems, enhancing healthcare access, and promoting financial preparedness, which are all essential for ensuring a healthier and more secure aging population.
+Examining the impact of patient demographics and medical conditions on test results is vital for improving healthcare outcomes and advancing precision medicine. Insights from such research help identify patterns and disparities that influence diagnostic accuracy, enabling healthcare providers to deliver personalized care tailored to individual needs. This understanding also facilitates better resource allocation, ensuring critical care reaches high-risk populations effectively. Moreover, it enhances predictive modeling for early intervention, supports data-driven decision-making, and guides public health policies to address systemic inequities. By focusing on these relationships, the study contributes to the development of more efficient, equitable, and patient-centered healthcare systems.
 
 ## A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-1.  Medical expenditures for the elderly will significantly increase with age, and this group’s primary income sources will be insufficient to cover these expenses, leading to a financial strain fully.
+Hypothesis: Demographics such as age, gender, and medical conditions significantly influence the outcomes of medical tests during healthcare admissions.
 
-2.  Demographic data will show a rapid increase in the elderly population in the US over the next 15-20 years, resulting in heightened demand for healthcare services, increased dependency ratios, and pressure on pension systems.
+In addition to this baseline hypothesis, we can propose:
 
-3.  A significant portion of the population will be unable to afford adequate medical treatment after retirement, necessitating policy interventions and increased individual financial planning to address this gap.
+1.  Age Groups: Older age groups are more likely to have "Abnormal" test results due to comorbidities, whereas younger demographics might show a higher rate of "Normal" outcomes.
+
+2.  Gender Influence: Certain medical conditions (e.g., cardiovascular diseases or diabetes) and test results may differ significantly between genders.
+
+3.  Condition-Specific Outcomes: Patients with chronic conditions like hypertension or diabetes may exhibit a higher proportion of "Abnormal" results, while those admitted for minor ailments may lean toward "Normal" outcomes.
+
+4.  Admission Type Correlation: Emergency admissions are hypothesized to show a higher likelihood of "Abnormal" results compared to elective or urgent admissions due to the critical nature of emergency cases.
+
+### Expected Outcomes:
+
+1.  Identification of high-risk demographic groups (e.g., older males with diabetes) for targeted interventions.
+
+2.  Insights into resource allocation based on the likelihood of "Abnormal" or "Inconclusive" results in specific demographics.
+
+3.  Improved predictive models for healthcare outcomes that incorporate demographic data, aiding in precision medicine and operational efficiency.
+
+### Importance of This Study:
+
+Personalized Medicine: Tailored interventions based on identified demographic patterns can enhance patient care.
+
+Healthcare Efficiency: Understanding the links between demographics and test results can help hospitals optimize diagnostic resources.
+
+Policy Making: The insights can inform public health policies, focusing on vulnerable populations for better health outcomes.
 
 ## Analysis plan
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
 
-1.  Trend Analysis of Total National Health Expenditures
+1.  Data Preprocessing:
 
-This analysis could look at the total expenditures related to long-term care hospitals over time, comparing expenditure trends within and across states or CMS regions. Are there trends in costs that correlate with changes in performance scores, or are certain regions seeing more rapid expenditure increases? By examining the time-series data, this analysis could identify upward or downward trends in hospital expenditures, potentially shedding light on factors driving these shifts.
+Handle categorical data by encoding variables like Gender, Medical Condition, Admission Type, and Test Results. Convert date columns (e.g., Date of Admission and Discharge Date) into appropriate formats and calculate the length of stay.
 
-2.  Impact of Health Insurance on Expenditure
+2.  Exploratory Data Analysis (EDA):
 
-Although this dataset doesn't directly include insurance type or expenditures, exploring correlations between regions with high or low performance scores and general insurance coverage rates in those areas (from complementary datasets) could offer insights. For instance, regions with higher insurance coverage might show lower out-of-pocket expenditures, potentially affecting long-term care hospital utilization and quality. This can also lead to supplementary research on insurance coverage impact on expenditures across different regions.
+Visualize the distribution of Test Results across different demographics and medical conditions. Identify correlations between numerical features like Age, Billing Amount, and Room Number.
 
-3.  Out-of-Pocket Expenditures Analysis
+3.  Feature Engineering:
 
-If other sources on out-of-pocket costs are combined with this dataset, analysis could compare how out-of-pocket expenses vary for patients across hospitals with different performance scores or in different regions. By studying hospitals with different scores, one could examine if lower-scoring hospitals correlate with higher out-of-pocket expenses for patients, potentially impacting patient access to quality care in underperforming regions.
+Create additional features, such as length of hospital stay and admission seasonality.
 
-4.  Government vs. Private Expenditures
+4.  Modeling:
 
-For regions or hospitals funded primarily through government programs (Medicare, Medicaid) versus those with more private funding, how do expenditures and performance compare? This would involve investigating whether government-supported regions correlate with higher or lower quality scores, thereby indicating the possible impact of funding sources on hospital performance. If supplemented by expenditure data, this could reveal the efficiency and outcomes tied to public vs. private healthcare funding.
+Frame this as a multiclass classification problem to predict Test Results (Normal, Abnormal, Inconclusive). Use algorithms such as Logistic Regression, Random Forest, and XGBoost. Evaluate model performance using metrics like accuracy, precision, recall, and F1-score.
 
-5.  Expenditures on Different Services
+5.  Insights and Recommendations:
 
-With various Measure Codes representing different performance indicators (e.g., L_006_01_CI_LOWER, L_006_01_COMP_PERF), this dataset allows for exploring the expenditure or resource allocation patterns across services such as readmission rates, discharge times, or patient outcomes. Analyzing these measures can uncover whether high-expenditure areas show better outcomes across specific services and highlight which services are most correlated with increased quality
-
-6.  Impact of Recessions on Health Expenditures
-
-Recession periods (like the 2008 financial crisis or the economic downturn during COVID-19) could be aligned with expenditure and performance data to examine the resilience of long-term care hospitals. This analysis could explore whether recessions led to drops in performance or altered spending in particular regions. Regional analysis during these periods could highlight how economic stressors impact access to quality care and may affect performance scores.
-
-7.  Forecasting Future Expenditures
-
-Based on trends in performance and regional growth, forecasting models could project future costs associated with long-term care hospitals. By using past performance data and demographic trends, forecasts could estimate the future demand for long-term care services and anticipate which regions may face increasing expenditures. This could be useful for policymakers in planning for adequate resources and improving access to quality long-term care.
+Summarize key factors influencing test results. Provide actionable insights for improving healthcare analytics and decision-making.

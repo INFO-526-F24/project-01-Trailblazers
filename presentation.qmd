@@ -1,5 +1,5 @@
 ---
-title: "Financial Analysis of long term care services for the elderly beings"
+title: "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics"
 subtitle: "INFO 526 - Fall 2023 - Project 1"
 author: "Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Giridhar Kotha, Rohith"
 title-slide-attributes:
