@@ -22,7 +22,18 @@ execute:
 
 # Load packages here
 pacman::p_load(tidymodels,
-               tidyverse)
+               tidyverse,
+               here,
+               viridis, 
+               ggplot2,
+               openintro, 
+               ggridges,  
+               lubridate,
+               dplyr,
+               gridExtra,
+               GGally,
+               corrplot,
+               reshape2)
 
 ```
 
@@ -45,11 +56,9 @@ knitr::opts_chunk$set(
 ```{r}
 #| label: load-data
 #| include: false
-# Load data here
-data(mtcars)
-mtcars$speed <- mtcars$hp / mtcars$wt
+healthcare_data <- read.csv(here("data", "healthcare_dataset.csv"))
 
-data("penguins")
+glimpse(data)
 ```
 
 # Using Quarto for presentations
@@ -83,21 +92,266 @@ or in two columns
 ## Code
 
 ```{r, echo=FALSE}
-model <- lm(mpg ~ speed, data = mtcars) 
+#Data Cleaning-(Explaination needed in markdown)
 
-model |> tidy()
+# Check for missing values and remove rows with NAs
+healthcare_data <- healthcare_data %>%
+  filter_all(all_vars(!is.na(.)))
 
-model |> glance()
+# Remove duplicate rows
+healthcare_data <- healthcare_data %>%
+  distinct()
+
+# Check and print data types of columns
+str(healthcare_data)
+
+# Convert 'Date of Admission' and 'Discharge Date' to datetime format
+healthcare_data$Date.of.Admission <- ymd(healthcare_data$Date.of.Admission)
+healthcare_data$Discharge.Date <- ymd(healthcare_data$Discharge.Date)
+
+# Verify changes
+str(healthcare_data)
 
 ```
 
 ## Plots
 
 ```{r}
-penguins |>
-  mutate(species = ifelse(species == "Adelie", "Adelie", "Other")) |>
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
-  geom_point()
+# 1. Univariate Analysis
+# Gender count
+gender_count <- healthcare_data %>% 
+  group_by(Gender) %>% 
+  summarise(count = n())
+
+# Plot Gender Distribution
+ggplot(gender_count, aes(x = Gender, y = count, fill = Gender)) +
+  geom_bar(stat = "identity", width = 0.6) +  # Adjust bar width
+  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 4) +  # Adjust label positioning
+  labs(title = "Gender Distribution", x = "Gender", y = "Count") +
+  scale_y_continuous(breaks = seq(0, 30000, by = 5000), limits = c(0, 30000)) +  # Ensure y-axis reaches 30000
+  theme(
+    legend.position = "none",
+    axis.title.x = element_blank()
+)
+```
+
+```{r}
+# Count of different medical conditions
+condition_count <- healthcare_data %>% 
+  group_by(Medical.Condition) %>% 
+  summarise(count = n())
+
+# Plot Medical Condition Distribution
+ggplot(condition_count, aes(x = Medical.Condition, y = count, fill = Medical.Condition)) +
+  geom_bar(stat = "identity", width = 0.6) +  # Adjust bar width
+  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 3) +  # Adjust label positioning and size
+  theme_minimal() +
+  labs(title = "Distribution of Medical Conditions", x = "Medical Condition", y = "Count") +
+  scale_y_continuous(breaks = seq(0, 10000, by = 2500), limits = c(0, 10000)) +  # Add y-axis breaks and limits
+  theme(
+    axis.text.x = element_text(vjust=4, hjust = 0.5),  # Rotate x-axis labels
+    legend.position = "none"  # Removelegend
+)
+```
+
+```{r}
+blood_type_count <- healthcare_data %>%
+  count(Blood.Type, sort = TRUE) %>%
+  rename(Category = Blood.Type, Count = n)
+
+# Plot Blood Type Distribution with count as text on each bar
+ggplot(blood_type_count, aes(x = reorder(Category, Count), y = Count, fill = Category)) +
+  geom_bar(stat = "identity", show.legend = FALSE, width = 0.6) +  # Adjust width for better appearance
+  geom_text(aes(label = Count), hjust = -0.2, color = "black", size = 3) +  # Add count as text
+  coord_flip() +  # Flip coordinates for horizontal bars
+  labs(title = "Blood Type Distribution", x = "Blood Type", y = "Count") +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),  # Center and bold title
+    axis.title.x = element_text(face = "bold"),
+    axis.title.y = element_text(face = "bold"),
+    axis.text = element_text(size=10),
+    axis.text.x = element_text(vjust=4, hjust = 0.5)
+)+scale_y_continuous(breaks = seq(0, 8000, by = 2000), limits = c(0, 8000)) 
+```
+
+```{r}
+# Count of Test Results
+test_results_count <- healthcare_data %>%
+  group_by(Test.Results) %>%
+  summarise(count = n())
+
+# Plot Test Results Distribution
+ggplot(test_results_count, aes(x = Test.Results, y = count, fill = Test.Results)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 3.5) +  # Adjust label positioning
+  labs(title = "Test Results Distribution", x = "Test Results", y = "Count") +scale_y_continuous(breaks = seq(0, 20000, by = 5000), limits = c(0, 20000)) + theme(axis.text.x = element_text(vjust=4, hjust = 0.5))
+```
+
+```{r}
+library(knitr)
+
+# Create age groups
+healthcare_data <- healthcare_data %>%
+  mutate(Age_Group = case_when(
+    Age >= 0 & Age <= 18 ~ "0-18",
+    Age >= 19 & Age <= 35 ~ "19-35",
+    Age >= 36 & Age <= 50 ~ "36-50",
+    Age >= 51 & Age <= 65 ~ "51-65",
+    Age > 65 ~ "65+",
+    TRUE ~ "Unknown"
+  ))
+
+# Count the number of patients in each age group
+age_group_count <- healthcare_data %>%
+  group_by(Age_Group) %>%
+  summarise(Count = n(), .groups = 'drop')
+
+# Use knitr to display the results in a neat format
+cat("### Age Group Distribution\n")
+knitr::kable(age_group_count, caption = "Age Group Distribution of Patients")
+```
+
+```{r}
+#Multi-variate Analysis
+# Boxplot for Age by Medical Condition with adjusted bar size
+ggplot(healthcare_data, aes(x = Medical.Condition, y = Age, fill = Medical.Condition)) +
+  geom_boxplot() +  # Adjusted width for smaller boxplot size
+  geom_jitter(aes(color = Medical.Condition), alpha = 0.5, size = 1) +  # Jittered points for better visualization
+  stat_summary(fun.y = "mean", geom = "point", shape = 3, size = 4, color = "black") +  # Mean points
+  theme_minimal() +
+  labs(title = "Age Distribution by Medical Condition", x = "Medical Condition", y = "Age") + 
+  scale_y_continuous(breaks = seq(0, 100, by = 25), limits = c(0, 100)) +  # Y-axis breaks and limits
+  theme(axis.text.x = element_text(vjust = 4, hjust = 0.5),  # Adjust x-axis text positioning
+        plot.title = element_text(hjust = 0.5, face = "bold"),  # Center and bold the title
+        axis.title = element_text(face = "bold"))  # Boldaxistitles
+
+```
+
+```{r}
+# Calculate average billing by Admission Type
+billing_by_admission <- healthcare_data %>%
+  group_by(Admission.Type) %>%
+  summarise(mean_billing = mean(Billing.Amount, na.rm = TRUE))
+
+# Plot average billing amount by Admission Type
+ggplot(billing_by_admission, aes(x = Admission.Type, y = mean_billing, fill = Admission.Type)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = round(mean_billing, 2)), vjust = -0.3, color = "black", size = 4) +  # Adjusted text positioning
+  labs(title = "Average Billing Amount by Admission Type", x = "Admission Type", y = "Average Billing Amount") +scale_y_continuous(breaks = seq(0, 30000, by = 10000), limits = c(0, 30000)) +  # Add y-axis breaks
+  theme(axis.text.x = element_text(vjust=4, hjust = 0.5))
+```
+
+```{r}
+# Count the number of occurrences of each combination of 'Medical.Condition' and 'Admission.Type'
+# Count the number of occurrences of each combination of 'Medical.Condition' and 'Admission.Type'
+condition_admission_count <- healthcare_data %>%
+  group_by(Medical.Condition, Admission.Type) %>%
+  summarise(count = n(), .groups = 'drop')
+
+# Plot using ggplot
+ggplot(condition_admission_count, aes(x = Medical.Condition, y = count, fill = Admission.Type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+    # Light colors
+  labs(title = "Admission Type by Medical Condition", 
+       x = "Medical Condition", 
+       y = "Count",
+       fill = "Admission Type") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(vjust=4,hjust = 0.5),  # Center the x-axis labels without rotation
+        plot.title = element_text(hjust = 0.5),  # Center the title
+        legend.position = "top") +  # Position legend at the top
+  theme(plot.margin = margin(1, 1, 1, 1)) +  # Adjust margins if needed
+  geom_text(aes(label = count), position = position_dodge(width = 0.8), vjust = -0.3, color = "black", size = 2.25)+scale_y_continuous(breaks = seq(0, 3200, by = 800), limits = c(0, 3200)) 
+```
+
+```{r}
+# Count the number of occurrences of each combination of 'Blood.Type' and 'Medical.Condition'
+blood_condition_count <- healthcare_data %>%
+  group_by(Blood.Type, Medical.Condition) %>%
+  summarise(count = n(), .groups = 'drop')
+
+# Plot using ggplot
+ggplot(blood_condition_count, aes(x = Blood.Type, y = count, fill = Medical.Condition)) +
+  geom_bar(stat = "identity", position = "stack") +  # Stack the bars for each medical condition
+  labs(title = "Medical Conditions by Blood Type", 
+       x = "Blood Type", 
+       y = "Count",
+       fill = "Medical Condition") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(vjust=4,hjust = 0.5),  # Center the x-axis labels without rotation
+        plot.title = element_text(hjust = 0.5),  # Center the title
+        legend.position = "right") +  # Position the legend on the right side
+  theme(plot.margin = margin(1, 1, 1, 1)) +  # Adjust margins if needed
+  geom_text(aes(label = count), position = position_stack(vjust = 0.5), color = "black", size = 2.5)+scale_y_continuous(breaks = seq(0, 8000, by = 2000), limits = c(0, 8000)) 
+```
+
+```{r}
+# Ensure the Date.of.Admission column is in Date format
+healthcare_data$Date.of.Admission <- as.Date(healthcare_data$Date.of.Admission, format = "%Y-%m-%d")
+
+# Extract year from the Date.of.Admission column
+healthcare_data <- healthcare_data %>%
+  mutate(Year = format(Date.of.Admission, "%Y"))  # Extract year
+
+# Summarize revenue by year
+yearly_revenue <- healthcare_data %>%
+  group_by(Year) %>%
+  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%
+  mutate(total_revenue_millions = total_revenue / 1e6)  # Convert revenue to millions
+
+# Print the summarized revenue to verify the calculation
+print(yearly_revenue)
+
+# Verify conversion to millions
+healthcare_data %>%
+  group_by(Year) %>%
+  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE)) %>%
+  mutate(manual_check_millions = total_revenue / 1e6)  # Recalculate millions manually
+```
+
+```{r}
+# Ensure the Date.of.Admission column is in Date format
+healthcare_data$Date.of.Admission <- as.Date(healthcare_data$Date.of.Admission, format = "%Y-%m-%d")
+
+# Extract year from the Date.of.Admission column
+healthcare_data <- healthcare_data %>%
+  mutate(Year = format(Date.of.Admission, "%Y"))  # Extract year
+
+# Summarize revenue by year
+yearly_revenue <- healthcare_data %>%
+  group_by(Year) %>%
+  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%
+  mutate(total_revenue_millions = total_revenue / 1e6)  # Convert revenue to millions
+
+# Plot the yearly revenue as a line graph
+ggplot(yearly_revenue, aes(x = Year, y = total_revenue_millions, group = 1)) +
+  geom_line(color = "blue", size = 1) +
+  geom_point(color = "red", size = 2) +
+  geom_text(aes(label = round(total_revenue_millions, 2)), hjust=1.2,vjust = -0.5, color = "black", size = 2.5) +  # Position text above the point
+  labs(title = "Yearly Revenue in Millions",
+       x = "Year",
+       y = "Revenue (Millions)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 10),  # Customize x-axis label size
+        plot.title = element_text(hjust = 0.5)) +scale_y_continuous(breaks = seq(0, 300, by = 60), limits = c(0, 300)) 
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```         
+```
+
+```         
 ```
 
 ## Plot and text
@@ -110,13 +364,7 @@ penguins |>
 :::
 
 ::: {.column width="50%"}
-```{r, warning=FALSE, fig.width=5.5}
-penguins |>
-  ggplot(aes(x = bill_length_mm, y = species, color = species)) +
-  geom_boxplot(linewidth = 0.75,
-               outlier.size = 2.5) +
-  theme_minimal(base_size = 15) +
-  theme(legend.key.size = unit(0.8, "cm"))
+```{r}
 ```
 :::
 :::
@@ -126,13 +374,6 @@ penguins |>
 ## Tables
 
 If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
-```{r}
-penguins |> 
-  head() |>
-  kableExtra::kable() |>
-  kableExtra::kable_styling()
-```
 
 ## Images
 
