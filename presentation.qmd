@@ -337,15 +337,89 @@ ggplot(yearly_revenue, aes(x = Year, y = total_revenue_millions, group = 1)) +
 ```
 
 ```{r}
+# Calculate total revenue per age group
+age_group_revenue <- healthcare_data %>%
+  group_by(Age_Group) %>%
+  summarise(Total_Revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%
+  mutate(Total_Revenue_Million = Total_Revenue / 1e6)  # Convert to millions
+
+# Display the results in a neat format using knitr
+cat("### Age Group Revenue Distribution (in Millions)\n")
+knitr::kable(age_group_revenue, caption = "Total Revenue by Age Group (in Millions)")
+
+# Create a bar plot for revenue distribution by age group with "M" suffix
+ggplot(age_group_revenue, aes(x = Age_Group, y = Total_Revenue_Million, fill = Age_Group)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  geom_text(aes(label = paste0(round(Total_Revenue_Million, 1), "M")), 
+            vjust = -0.5, color = "black", size = 3) +
+  labs(title = "Total Medical Revenue by Age Group (in Millions)",
+       x = "Age Group",
+       y = "Total Revenue (in Millions)") +
+  theme(axis.text.x = element_text(vjust = 4, hjust=0.5),  # Rotate x-axis labels for readability
+        plot.title = element_text(hjust = 0.5)) +
+  scale_y_continuous(labels = scales::label_number(scale = 1, suffix = "M"),limits = c(0, 500))  # Add "M" suffix to y-axis
+
+  
+```
+
+```{r}
+# Pie chart of Total Revenue by Age Group
+# Pie chart of Total Revenue by Age Group with Percentages
+ggplot(age_group_revenue, aes(x = "", y = Total_Revenue_Million, fill = Age_Group)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  labs(title = "Proportion of Total Revenue by Age Group (in Millions)") +
+  theme(axis.text.x = element_blank(), 
+        plot.title = element_text(hjust = 0.5)) +
+  geom_text(aes(label = paste0(round(Total_Revenue_Million / sum(Total_Revenue_Million) * 100, 1), "%")),
+            position = position_stack(vjust = 0.5), color = "white")
 
 ```
 
 ```{r}
+#RQ-2-How many people will be able to support themselves with medical treatment after retirement
+
+#Comparison of Medical Expenditure by Age Group
+# Box plot: Medical Expenditure by Age Group
+ggplot(healthcare_data, aes(x = Age_Group, y = Billing.Amount, fill = Age_Group)) +
+  geom_boxplot() +
+  labs(title = "Medical Expenditure by Age Group",
+       x = "Age Group",
+       y = "Medical Expenditure") +
+  theme(axis.text.x = element_text(vjust = 0.5), plot.title = element_text(hjust = 0.5)) +
+  scale_y_continuous(labels = scales::comma)
 
 ```
 
 ```{r}
+# Calculate average revenue per age group in thousands (K)
+age_group_avg_revenue <- healthcare_data %>%
+  group_by(Age_Group) %>%
+  summarise(Average_Revenue = mean(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%
+  mutate(Average_Revenue_K = Average_Revenue / 1e3)  # Convert to thousands (K)
 
+# Display the results in a neat format using knitr
+cat("### Age Group Average Revenue Distribution (in Thousands)\n")
+knitr::kable(age_group_avg_revenue, caption = "Average Revenue by Age Group (in Thousands)")
+
+# Create a bar plot for average revenue distribution by age group in K
+ggplot(age_group_avg_revenue, aes(x = Age_Group, y = Average_Revenue_K, fill = Age_Group)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  geom_text(aes(label = paste0(round(Average_Revenue_K, 1), "K")), 
+            vjust = -0.5, color = "black", size = 3) +
+  labs(title = "Average Medical Revenue by Age Group (in Thousands)",
+       x = "Age Group",
+       y = "Average Revenue (in K)") +
+  theme(axis.text.x = element_text(vjust = 4, hjust=0.5),  # Adjust x-axis labels for readability
+        plot.title = element_text(hjust = 0.5)) +
+  scale_y_continuous(labels = scales::label_number(scale = 1, suffix = "K"),limits = c(0, 30))
+
+#write the content accordingly as justification for q-2
+
+```
+
+```{r}
+#Machine Learning part
 ```
 
 ```         
