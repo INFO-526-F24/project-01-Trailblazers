@@ -33,7 +33,12 @@ pacman::p_load(tidymodels,
                gridExtra,
                GGally,
                corrplot,
-               reshape2)
+               reshape2,
+               e1071,
+               randomForest,
+               caret,
+               gbm
+               )
 
 ```
 
@@ -260,7 +265,6 @@ ggplot(condition_admission_count, aes(x = Medical.Condition, y = count, fill = A
   theme(axis.text.x = element_text(vjust=4,hjust = 0.5),  # Center the x-axis labels without rotation
         plot.title = element_text(hjust = 0.5),  # Center the title
         legend.position = "top") +  # Position legend at the top
-  theme(plot.margin = margin(1, 1, 1, 1)) +  # Adjust margins if needed
   geom_text(aes(label = count), position = position_dodge(width = 0.8), vjust = -0.3, color = "black", size = 2.25)+scale_y_continuous(breaks = seq(0, 3200, by = 800), limits = c(0, 3200)) 
 ```
 
@@ -281,7 +285,6 @@ ggplot(blood_condition_count, aes(x = Blood.Type, y = count, fill = Medical.Cond
   theme(axis.text.x = element_text(vjust=4,hjust = 0.5),  # Center the x-axis labels without rotation
         plot.title = element_text(hjust = 0.5),  # Center the title
         legend.position = "right") +  # Position the legend on the right side
-  theme(plot.margin = margin(1, 1, 1, 1)) +  # Adjust margins if needed
   geom_text(aes(label = count), position = position_stack(vjust = 0.5), color = "black", size = 2.5)+scale_y_continuous(breaks = seq(0, 8000, by = 2000), limits = c(0, 8000)) 
 ```
 
@@ -420,9 +423,118 @@ ggplot(age_group_avg_revenue, aes(x = Age_Group, y = Average_Revenue_K, fill = A
 
 ```{r}
 #Machine Learning part
+# Ensure Test.Results is a factor
+healthcare_data <- healthcare_data %>%
+  mutate(Test.Results = as.factor(Test.Results))
+
+# Split data into training and testing sets
+set.seed(123)  # For reproducibility
+train_index <- createDataPartition(healthcare_data$Test.Results, p = 0.8, list = FALSE)
+train_data <- healthcare_data[train_index, ]
+test_data <- healthcare_data[-train_index, ]
+
+# Select relevant features
+features <- c("Age", "Gender", "Billing.Amount", "Admission.Type", "Insurance.Provider", "Hospital")
+train_data <- train_data[, c(features, "Test.Results")]
+test_data <- test_data[, c(features, "Test.Results")]
+
+```
+
+```{r}
+# Train Random Forest model
+rf_model <- randomForest(Test.Results ~ ., data = train_data, ntree = 100)
+rf_pred <- predict(rf_model, test_data)
+
+# Confusion Matrix for Random Forest
+rf_cm <- confusionMatrix(rf_pred, test_data$Test.Results)  # Ensure categorical variables are factors
+categorical_columns <- c("Gender", "Admission.Type", "Insurance.Provider", "Hospital", "Test.Results")
+train_data[categorical_columns] <- lapply(train_data[categorical_columns], factor)
+test_data[categorical_columns] <- lapply(test_data[categorical_columns], factor)
+
+# Train Naive Bayes model
+set.seed(123)
+nb_model <- naiveBayes(Test.Results ~ ., data = train_data)
+
+# Predict on the test data
+nb_predictions <- predict(nb_model, test_data)
+
+# Evaluate model performance using confusion matrix
+nb_cm <- confusionMatrix(nb_predictions, test_data$Test.Results)          
+
 ```
 
 ```         
+```
+
+```{r}
+# Calculate performance metrics for Random Forest
+rf_accuracy <- rf_cm$overall['Accuracy']
+rf_precision <- rf_cm$byClass['Pos Pred Value']
+rf_recall <- rf_cm$byClass['Sensitivity']
+rf_f1 <- 2 * (rf_precision * rf_recall) / (rf_precision + rf_recall)
+
+# Calculate performance metrics for Naive Bayes
+nb_accuracy <- nb_cm$overall['Accuracy']
+nb_precision <- nb_cm$byClass['Pos Pred Value']
+nb_recall <- nb_cm$byClass['Sensitivity']
+nb_f1 <- 2 * (nb_precision * nb_recall) / (nb_precision + nb_recall)
+
+# Create a data frame for plotting
+performance_df <- data.frame(
+  Metric = rep(c("Accuracy", "Precision", "Recall", "F1-Score"), each = 2),
+  Value = c(rf_accuracy, nb_accuracy, rf_precision, nb_precision,
+            rf_recall, nb_recall, rf_f1, nb_f1),
+  Model = rep(c("Random Forest", "Naive Bayes"), times = 4)
+)
+
+# Load ggplot2 for visualization
+library(ggplot2)
+
+# Plot the performance metrics
+ggplot(performance_df, aes(x = Metric, y = Value, fill = Model)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Comparison of Random Forest and Naive Bayes Performance",
+       x = "Metric",
+       y = "Value") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_manual(values = c("Random Forest" = "blue", "Naive Bayes" = "red"))
+
+```
+
+```{r}
+# Check the distribution of Test.Results after cleaning
+table(healthcare_data$Test.Results)
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+# Remove rows with missing Test.Results
+healthcare_data <- healthcare_data[!is.na(healthcare_data$Test.Results), ]
+# Example of replacing incorrect entries
+healthcare_data$Test.Results[healthcare_data$Test.Results == 
+```
+
+```         
+```
+
+```{r}
+
 ```
 
 ```         
