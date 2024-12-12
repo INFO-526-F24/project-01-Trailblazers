@@ -121,280 +121,608 @@ str(healthcare_data)
 
 ## Plots
 
+## Gender Distribution
+
 ```{r}
+
 # 1. Univariate Analysis
-# Gender count
+# Group data by Gender and count the number of occurrences for each gender
 gender_count <- healthcare_data %>% 
   group_by(Gender) %>% 
-  summarise(count = n())
+  summarise(count = n())  # Summarize the counts for each gender
 
 # Plot Gender Distribution
-ggplot(gender_count, aes(x = Gender, y = count, fill = Gender)) +
-  geom_bar(stat = "identity", width = 0.6) +  # Adjust bar width
-  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 4) +  # Adjust label positioning
-  labs(title = "Gender Distribution", x = "Gender", y = "Count") +
-  scale_y_continuous(breaks = seq(0, 30000, by = 5000), limits = c(0, 30000)) +  # Ensure y-axis reaches 30000
+ggplot(gender_count, aes(x = Gender, y = count, fill = Gender)) +  # Define data and aesthetics
+  geom_bar(stat = "identity", width = 0.6) +  # Create bar chart with specified bar width
+  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 4) +  # Add data labels above bars
+  labs(
+    title = "Gender Distribution",  # Set chart title
+    x = "Gender",  # Set x-axis label
+    y = "Count"  # Set y-axis label
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 30000, by = 5000),  # Set y-axis tick marks at intervals of 5000
+    limits = c(0, 30000)  # Set y-axis limits to ensure it reaches 30000
+  ) +
   theme(
-    legend.position = "none",
-    axis.title.x = element_blank()
-)
+    legend.position = "none",  # Remove legend
+    axis.title.x = element_blank()  # Remove x-axis title for a cleaner look
+  )
+
 ```
 
+## Interpretation of the Graph
+The graph represents the gender distribution of a dataset. It shows the counts of individuals grouped by gender (Female and Male). The counts for each gender are labeled above the bars:
+
+Female: 27,470 individuals.
+Male: 27,496 individuals.
+The counts are nearly equal, indicating a balanced gender distribution in the dataset.
+
+
+## Distribution of Medical Conditions
+
 ```{r}
-# Count of different medical conditions
+
+# Group data by Medical Condition and calculate the count of each condition
 condition_count <- healthcare_data %>% 
   group_by(Medical.Condition) %>% 
-  summarise(count = n())
+  summarise(count = n())  # Summarize the counts for each condition
 
 # Plot Medical Condition Distribution
-ggplot(condition_count, aes(x = Medical.Condition, y = count, fill = Medical.Condition)) +
-  geom_bar(stat = "identity", width = 0.6) +  # Adjust bar width
-  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 3) +  # Adjust label positioning and size
-  theme_minimal() +
-  labs(title = "Distribution of Medical Conditions", x = "Medical Condition", y = "Count") +
-  scale_y_continuous(breaks = seq(0, 10000, by = 2500), limits = c(0, 10000)) +  # Add y-axis breaks and limits
+ggplot(condition_count, aes(x = Medical.Condition, y = count, fill = Medical.Condition)) +  # Define data and aesthetics
+  geom_bar(stat = "identity", width = 0.6) +  # Create a bar chart with specified bar width
+  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 3) +  # Add labels above bars
+  theme_minimal() +  # Apply minimal theme for a clean look
+  labs(
+    title = "Distribution of Medical Conditions",  # Set chart title
+    x = "Medical Condition",  # Set x-axis label
+    y = "Count"  # Set y-axis label
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 10000, by = 2500),  # Set y-axis breaks at intervals of 2500
+    limits = c(0, 10000)  # Set y-axis limits to ensure it reaches 10000
+  ) +
   theme(
-    axis.text.x = element_text(vjust=4, hjust = 0.5),  # Rotate x-axis labels
-    legend.position = "none"  # Removelegend
-)
+    axis.text.x = element_text(vjust = 4, hjust = 0.5),  # Adjust x-axis label positioning
+    legend.position = "none"  # Remove legend
+  )
+
 ```
 
+## Interpretation of the Graph
+The bar chart depicts the distribution of various medical conditions in the dataset. The counts for each condition are labeled above the bars:
+Arthritis: 9,218 cases.
+Asthma: 9,095 cases.
+Cancer: 9,140 cases.
+Diabetes: 9,216 cases.
+Hypertension: 9,151 cases.
+Obesity: 9,146 cases.
+The data indicates that all medical conditions have nearly similar counts, suggesting an evenly distributed representation of conditions in the dataset.
+
+
+## Blood Type Distribution
+
 ```{r}
+
+# 1. Prepare data: Count the occurrences of each blood type
 blood_type_count <- healthcare_data %>%
-  count(Blood.Type, sort = TRUE) %>%
-  rename(Category = Blood.Type, Count = n)
+  count(Blood.Type, sort = TRUE) %>%  # Count each blood type and sort in descending order
+  rename(Category = Blood.Type, Count = n)  # Rename columns for clarity
 
-# Plot Blood Type Distribution with count as text on each bar
-ggplot(blood_type_count, aes(x = reorder(Category, Count), y = Count, fill = Category)) +
-  geom_bar(stat = "identity", show.legend = FALSE, width = 0.6) +  # Adjust width for better appearance
-  geom_text(aes(label = Count), hjust = -0.2, color = "black", size = 3) +  # Add count as text
-  coord_flip() +  # Flip coordinates for horizontal bars
-  labs(title = "Blood Type Distribution", x = "Blood Type", y = "Count") +
+# 2. Plot Blood Type Distribution with count as text on each bar
+ggplot(blood_type_count, aes(x = reorder(Category, Count), y = Count, fill = Category)) +  # Define data and aesthetics
+  geom_bar(stat = "identity", show.legend = FALSE, width = 0.6) +  # Create horizontal bars
+  geom_text(aes(label = Count), hjust = -0.2, color = "black", size = 3) +  # Add text labels for counts
+  coord_flip() +  # Flip coordinates for a horizontal bar chart
+  labs(
+    title = "Blood Type Distribution",  # Set chart title
+    x = "Blood Type",  # Set x-axis label
+    y = "Count"  # Set y-axis label
+  ) +
   theme(
-    plot.title = element_text(hjust = 0.5, face = "bold"),  # Center and bold title
-    axis.title.x = element_text(face = "bold"),
-    axis.title.y = element_text(face = "bold"),
-    axis.text = element_text(size=10),
-    axis.text.x = element_text(vjust=4, hjust = 0.5)
-)+scale_y_continuous(breaks = seq(0, 8000, by = 2000), limits = c(0, 8000)) 
+    plot.title = element_text(hjust = 0.5, face = "bold"),  # Center-align and bold title
+    axis.title.x = element_text(face = "bold"),  # Bold x-axis title
+    axis.title.y = element_text(face = "bold"),  # Bold y-axis title
+    axis.text = element_text(size = 10),  # Set size of axis text
+    axis.text.x = element_text(vjust = 4, hjust = 0.5)  # Adjust x-axis text for clarity
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 8000, by = 2000),  # Set y-axis ticks at intervals of 2000
+    limits = c(0, 8000)  # Ensure y-axis limits reach 8000
+  )
+
 ```
 
+## Interpretation of the Graph
+The bar chart represents the distribution of different blood types within the dataset. Each bar corresponds to a blood type, and the counts are displayed as text beside the bars:
+A-: 6,898 individuals
+A+: 6,896 individuals
+B+: 6,885 individuals
+AB+: 6,882 individuals
+AB-: 6,874 individuals
+B-: 6,872 individuals
+O+: 6,855 individuals
+O-: 6,804 individuals
+The data suggests that all blood types have relatively similar counts, with small variations. A- is the most frequent blood type, while O- is the least.
+
+
+## Test Results Distribution Plot
+
 ```{r}
-# Count of Test Results
+
+# 1. Count occurrences of each test result category
 test_results_count <- healthcare_data %>%
-  group_by(Test.Results) %>%
-  summarise(count = n())
+  group_by(Test.Results) %>%  # Group data by 'Test.Results'
+  summarise(count = n())  # Count the occurrences of each test result category
 
-# Plot Test Results Distribution
-ggplot(test_results_count, aes(x = Test.Results, y = count, fill = Test.Results)) +
-  geom_bar(stat = "identity") +
-  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 3.5) +  # Adjust label positioning
-  labs(title = "Test Results Distribution", x = "Test Results", y = "Count") +scale_y_continuous(breaks = seq(0, 20000, by = 5000), limits = c(0, 20000)) + theme(axis.text.x = element_text(vjust=4, hjust = 0.5))
+# 2. Plot the distribution of test results
+ggplot(test_results_count, aes(x = Test.Results, y = count, fill = Test.Results)) +  # Define data and aesthetics
+  geom_bar(stat = "identity") +  # Create bars with height based on counts
+  geom_text(aes(label = count), vjust = -0.2, color = "black", size = 3.5) +  # Add count as text above each bar
+  labs(
+    title = "Test Results Distribution",  # Title of the chart
+    x = "Test Results",  # Label for the x-axis
+    y = "Count"  # Label for the y-axis
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 20000, by = 5000),  # Set y-axis ticks at intervals of 5000
+    limits = c(0, 20000)  # Set y-axis limits to accommodate data range
+  ) +
+  theme(
+    axis.text.x = element_text(vjust = 4, hjust = 0.5)  # Adjust x-axis text for better readability
+  )
+
 ```
 
-```{r}
-library(knitr)
+## Interpretation of the Graph
+The bar chart displays the distribution of test results from the dataset. Each bar represents a category of test results, and the height indicates the count of occurrences for that category. The exact count is displayed on top of each bar for better readability.
 
-# Create age groups
-healthcare_data <- healthcare_data %>%
-  mutate(Age_Group = case_when(
-    Age >= 0 & Age <= 18 ~ "0-18",
-    Age >= 19 & Age <= 35 ~ "19-35",
-    Age >= 36 & Age <= 50 ~ "36-50",
-    Age >= 51 & Age <= 65 ~ "51-65",
-    Age > 65 ~ "65+",
-    TRUE ~ "Unknown"
+From the chart:
+It is possible to determine which test result category is most or least frequent.
+The y-axis is scaled to a maximum of 20,000, with intervals of 5,000, providing an appropriate scale for interpretation.
+
+## Age Group Distribution of Patients
+
+```{r}
+
+# Load the knitr package
+library(knitr)  # For displaying the results in a neat table format
+
+# 1. Create Age Groups
+healthcare_data <- healthcare_data %>%  # Modify the healthcare_data dataset
+  mutate(Age_Group = case_when(  # Add a new column 'Age_Group'
+    Age >= 0 & Age <= 18 ~ "0-18",  # Assign "0-18" for ages 0 to 18
+    Age >= 19 & Age <= 35 ~ "19-35",  # Assign "19-35" for ages 19 to 35
+    Age >= 36 & Age <= 50 ~ "36-50",  # Assign "36-50" for ages 36 to 50
+    Age >= 51 & Age <= 65 ~ "51-65",  # Assign "51-65" for ages 51 to 65
+    Age > 65 ~ "65+",  # Assign "65+" for ages above 65
+    TRUE ~ "Unknown"  # Assign "Unknown" for any other cases (e.g., missing or invalid data)
   ))
 
-# Count the number of patients in each age group
-age_group_count <- healthcare_data %>%
-  group_by(Age_Group) %>%
-  summarise(Count = n(), .groups = 'drop')
+# 2. Count Patients in Each Age Group
+age_group_count <- healthcare_data %>%  # Use the modified dataset
+  group_by(Age_Group) %>%  # Group by the 'Age_Group' column
+  summarise(Count = n(), .groups = 'drop')  # Count the number of patients in each age group
 
-# Use knitr to display the results in a neat format
-cat("### Age Group Distribution\n")
-knitr::kable(age_group_count, caption = "Age Group Distribution of Patients")
-```
-
-```{r}
-#Multi-variate Analysis
-# Boxplot for Age by Medical Condition with adjusted bar size
-ggplot(healthcare_data, aes(x = Medical.Condition, y = Age, fill = Medical.Condition)) +
-  geom_boxplot() +  # Adjusted width for smaller boxplot size
-  geom_jitter(aes(color = Medical.Condition), alpha = 0.5, size = 1) +  # Jittered points for better visualization
-  stat_summary(fun.y = "mean", geom = "point", shape = 3, size = 4, color = "black") +  # Mean points
-  theme_minimal() +
-  labs(title = "Age Distribution by Medical Condition", x = "Medical Condition", y = "Age") + 
-  scale_y_continuous(breaks = seq(0, 100, by = 25), limits = c(0, 100)) +  # Y-axis breaks and limits
-  theme(axis.text.x = element_text(vjust = 4, hjust = 0.5),  # Adjust x-axis text positioning
-        plot.title = element_text(hjust = 0.5, face = "bold"),  # Center and bold the title
-        axis.title = element_text(face = "bold"))  # Boldaxistitles
+# 3. Display Results in a Table
+cat("### Age Group Distribution\n")  # Add a heading for the results
+knitr::kable(age_group_count, caption = "Age Group Distribution of Patients")  # Display the table neatly using knitr
 
 ```
 
+## Interpretation of the Results
+The table provides a summary of the distribution of patients across different age groups. The age groups are defined as:
+0-18 years: Representing children and adolescents.
+19-35 years: Representing young adults.
+36-50 years: Representing middle-aged individuals.
+51-65 years: Representing older adults nearing retirement age.
+65+ years: Representing the elderly population.
+The counts in the table allow us to analyze which age group has the highest or lowest number of patients, helping identify trends in patient demographics. This can assist healthcare providers in tailoring age-specific services or interventions.
+
+## Age Distribution by Medical Condition
+
 ```{r}
+# Multi-variate Analysis
+# Boxplot for Age by Medical Condition
+
+ggplot(healthcare_data, aes(x = Medical.Condition, y = Age, fill = Medical.Condition)) +  # Map medical condition to x-axis, age to y-axis, and fill colors
+  geom_boxplot() +  # Add a boxplot to visualize the age distribution for each condition
+  geom_jitter(aes(color = Medical.Condition), alpha = 0.5, size = 1) +  # Add jittered points for individual data visualization
+  stat_summary(fun.y = "mean", geom = "point", shape = 3, size = 4, color = "black") +  # Add 'X' marker for mean age
+  theme_minimal() +  # Apply minimal theme for cleaner visuals
+  labs(
+    title = "Age Distribution by Medical Condition",  # Set the title
+    x = "Medical Condition",  # Label the x-axis
+    y = "Age"  # Label the y-axis
+  ) + 
+  scale_y_continuous(
+    breaks = seq(0, 100, by = 25),  # Add y-axis ticks at intervals of 25
+    limits = c(0, 100)  # Set the y-axis range from 0 to 100
+  ) +  
+  theme(
+    axis.text.x = element_text(vjust = 4, hjust = 0.5),  # Adjust x-axis label position for readability
+    plot.title = element_text(hjust = 0.5, face = "bold"),  # Center and bold the plot title
+    axis.title = element_text(face = "bold")  # Bold the axis titles
+  )
+
+```
+
+## Interpretation of the Graph
+The boxplot represents the distribution of patients' ages across various medical conditions. Key insights include:
+
+Boxplot Details:
+
+The box shows the interquartile range (IQR), representing the middle 50% of ages for each medical condition.
+The horizontal line inside the box represents the median age for each condition.
+Whiskers extend to the smallest and largest values within 1.5 times the IQR, and points outside these whiskers are considered outliers.
+Jittered Points:
+
+The scatter points (jitter) overlay the boxplot to show individual patient ages, providing more granular data visibility.
+Mean Indication:
+
+A black 'X' marker (mean point) is added for each medical condition, offering a quick comparison of average age.
+General Trends:
+
+Variations in age distribution across medical conditions can indicate if specific conditions are more common among certain age groups.
+For example, conditions like arthritis or hypertension may have higher age medians compared to asthma or diabetes, which could indicate age-related trends.
+
+
+##  Average Billing Amount by Admission Type
+
+```{r}
+
 # Calculate average billing by Admission Type
 billing_by_admission <- healthcare_data %>%
-  group_by(Admission.Type) %>%
-  summarise(mean_billing = mean(Billing.Amount, na.rm = TRUE))
+  group_by(Admission.Type) %>%  # Group data by admission type
+  summarise(mean_billing = mean(Billing.Amount, na.rm = TRUE))  # Calculate the mean billing amount for each group, ignoring missing values
 
 # Plot average billing amount by Admission Type
-ggplot(billing_by_admission, aes(x = Admission.Type, y = mean_billing, fill = Admission.Type)) +
-  geom_bar(stat = "identity") +
-  geom_text(aes(label = round(mean_billing, 2)), vjust = -0.3, color = "black", size = 4) +  # Adjusted text positioning
-  labs(title = "Average Billing Amount by Admission Type", x = "Admission Type", y = "Average Billing Amount") +scale_y_continuous(breaks = seq(0, 30000, by = 10000), limits = c(0, 30000)) +  # Add y-axis breaks
-  theme(axis.text.x = element_text(vjust=4, hjust = 0.5))
+ggplot(billing_by_admission, aes(x = Admission.Type, y = mean_billing, fill = Admission.Type)) +  # Map admission type to x-axis and mean billing to y-axis
+  geom_bar(stat = "identity") +  # Use bar chart to show mean billing
+  geom_text(
+    aes(label = round(mean_billing, 2)),  # Display rounded mean billing amount as text
+    vjust = -0.3,  # Adjust vertical positioning of the labels above the bars
+    color = "black", size = 4  # Set text color and size
+  ) +
+  labs(
+    title = "Average Billing Amount by Admission Type",  # Add title to the graph
+    x = "Admission Type",  # Label the x-axis
+    y = "Average Billing Amount"  # Label the y-axis
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 30000, by = 10000),  # Define y-axis breaks at intervals of 10,000
+    limits = c(0, 30000)  # Set the y-axis range from 0 to 30,000
+  ) +
+  theme(
+    axis.text.x = element_text(vjust = 4, hjust = 0.5)  # Adjust x-axis text positioning for better readability
+  )
+
 ```
 
+## Interpretation of the Graph
+The bar chart provides insights into the average billing amount for different types of hospital admissions. Key observations include:
+
+Average Billing Amount Differences:
+Each bar represents the average billing amount for a specific admission type, such as emergency, elective, or urgent admissions.
+The height of the bars indicates the relative cost, allowing easy comparison across admission types.
+
+Key Insights:
+Admission types with higher average billing (e.g., Emergency admissions) may reflect the complexity and urgency of the care provided.
+Lower billing amounts (e.g., Elective admissions) could be associated with planned or less intensive procedures.
+
+Practical Implications:
+This analysis can help hospitals and healthcare providers evaluate the cost structures associated with different admission types and plan resource allocation accordingly.
+
+
+## Admission Type by Medical Condition
+
 ```{r}
-# Count the number of occurrences of each combination of 'Medical.Condition' and 'Admission.Type'
+
 # Count the number of occurrences of each combination of 'Medical.Condition' and 'Admission.Type'
 condition_admission_count <- healthcare_data %>%
-  group_by(Medical.Condition, Admission.Type) %>%
-  summarise(count = n(), .groups = 'drop')
+  group_by(Medical.Condition, Admission.Type) %>%  # Group data by medical condition and admission type
+  summarise(count = n(), .groups = 'drop')  # Count the number of occurrences for each group
 
 # Plot using ggplot
-ggplot(condition_admission_count, aes(x = Medical.Condition, y = count, fill = Admission.Type)) +
-  geom_bar(stat = "identity", position = "dodge") +
-    # Light colors
-  labs(title = "Admission Type by Medical Condition", 
-       x = "Medical Condition", 
-       y = "Count",
-       fill = "Admission Type") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(vjust=4,hjust = 0.5),  # Center the x-axis labels without rotation
-        plot.title = element_text(hjust = 0.5),  # Center the title
-        legend.position = "top") +  # Position legend at the top
-  geom_text(aes(label = count), position = position_dodge(width = 0.8), vjust = -0.3, color = "black", size = 2.25)+scale_y_continuous(breaks = seq(0, 3200, by = 800), limits = c(0, 3200)) 
+ggplot(condition_admission_count, aes(x = Medical.Condition, y = count, fill = Admission.Type)) +  # Map variables for plotting
+  geom_bar(stat = "identity", position = "dodge") +  # Use grouped bar chart to separate bars by admission type
+  labs(
+    title = "Admission Type by Medical Condition",  # Add title to the graph
+    x = "Medical Condition",  # Label x-axis
+    y = "Count",  # Label y-axis
+    fill = "Admission Type"  # Legend title for the fill aesthetic
+  ) +
+  theme_minimal() +  # Use minimal theme for a clean appearance
+  theme(
+    axis.text.x = element_text(vjust = 4, hjust = 0.5),  # Adjust x-axis text for better readability
+    plot.title = element_text(hjust = 0.5),  # Center-align the plot title
+    legend.position = "top"  # Position the legend at the top for easier interpretation
+  ) +
+  geom_text(
+    aes(label = count),  # Display counts on the bars
+    position = position_dodge(width = 0.8),  # Adjust text position to align with grouped bars
+    vjust = -0.3,  # Position text slightly above the bars
+    color = "black", size = 2.25  # Set text color and size for readability
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 3200, by = 800),  # Define y-axis breaks at intervals of 800
+    limits = c(0, 3200)  # Set y-axis range from 0 to 3200
+  )
+
 ```
 
+## Interpretation of the Graph
+This grouped bar chart visualizes the relationship between medical conditions and admission types, providing the following insights:
+
+Admission Type Breakdown:
+For each medical condition, bars represent counts of different admission types (e.g., Emergency, Elective, or Urgent).
+The dodge position ensures clear separation between bars for easier comparison across admission types.
+
+Key Observations:
+Certain conditions like Hypertension or Diabetes may have higher counts for specific admission types, such as Emergency.
+Elective admissions may dominate planned medical conditions such as Obesity-related procedures.
+Urgent admissions might be fewer overall, reflecting their specialized and immediate nature.
+
+Practical Implications:
+Hospitals can use this data to allocate resources appropriately based on admission patterns for different conditions.
+Identifying conditions with higher emergency admissions can guide emergency preparedness.
+
+
+## Medical Conditions by Blood Type
+
 ```{r}
+
 # Count the number of occurrences of each combination of 'Blood.Type' and 'Medical.Condition'
 blood_condition_count <- healthcare_data %>%
-  group_by(Blood.Type, Medical.Condition) %>%
-  summarise(count = n(), .groups = 'drop')
+  group_by(Blood.Type, Medical.Condition) %>%  # Group data by blood type and medical condition
+  summarise(count = n(), .groups = 'drop')  # Count the number of occurrences for each group
 
 # Plot using ggplot
-ggplot(blood_condition_count, aes(x = Blood.Type, y = count, fill = Medical.Condition)) +
-  geom_bar(stat = "identity", position = "stack") +  # Stack the bars for each medical condition
-  labs(title = "Medical Conditions by Blood Type", 
-       x = "Blood Type", 
-       y = "Count",
-       fill = "Medical Condition") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(vjust=4,hjust = 0.5),  # Center the x-axis labels without rotation
-        plot.title = element_text(hjust = 0.5),  # Center the title
-        legend.position = "right") +  # Position the legend on the right side
-  geom_text(aes(label = count), position = position_stack(vjust = 0.5), color = "black", size = 2.5)+scale_y_continuous(breaks = seq(0, 8000, by = 2000), limits = c(0, 8000)) 
+ggplot(blood_condition_count, aes(x = Blood.Type, y = count, fill = Medical.Condition)) +  # Map variables for plotting
+  geom_bar(stat = "identity", position = "stack") +  # Use stacked bar chart to display medical conditions within each blood type
+  labs(
+    title = "Medical Conditions by Blood Type",  # Add title to the graph
+    x = "Blood Type",  # Label x-axis
+    y = "Count",  # Label y-axis
+    fill = "Medical Condition"  # Legend title for the fill aesthetic
+  ) +
+  theme_minimal() +  # Use minimal theme for a clean appearance
+  theme(
+    axis.text.x = element_text(vjust = 4, hjust = 0.5),  # Adjust x-axis text for better readability
+    plot.title = element_text(hjust = 0.5),  # Center-align the plot title
+    legend.position = "right"  # Position the legend on the right side of the chart
+  ) +
+  geom_text(
+    aes(label = count),  # Display counts within the stacked bars
+    position = position_stack(vjust = 0.5),  # Position text at the center of each stack
+    color = "black", size = 2.5  # Set text color and size for readability
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 8000, by = 2000),  # Define y-axis breaks at intervals of 2000
+    limits = c(0, 8000)  # Set y-axis range from 0 to 8000
+  )
+
 ```
 
+## Interpretation of the Graph
+This stacked bar chart illustrates the distribution of medical conditions across different blood types, providing the following insights:
+
+Blood Type Analysis:
+The bars represent the total count of individuals for each blood type, with subdivisions indicating various medical conditions.
+The stacking highlights how medical conditions are distributed within each blood type.
+
+Medical Condition Contribution:
+Certain blood types (e.g., O+, A+) may show higher overall counts, reflecting their prevalence in the dataset.
+Specific medical conditions may dominate for certain blood types, indicating potential associations between medical conditions and blood types.
+
+Key Observations:
+Blood types such as O- or AB- might have lower overall counts, which aligns with their rarity in the general population.
+The composition of medical conditions within each blood type is relatively consistent, with a few exceptions.
+
+Practical Implications:
+This chart is useful for identifying whether certain blood types are more prone to specific medical conditions.
+Healthcare providers can use this data for personalized care, especially in conditions where blood type may have clinical relevance.
+
+
+## Yearly Revenue Summary and Validation
+
 ```{r}
+
 # Ensure the Date.of.Admission column is in Date format
-healthcare_data$Date.of.Admission <- as.Date(healthcare_data$Date.of.Admission, format = "%Y-%m-%d")
+healthcare_data$Date.of.Admission <- as.Date(healthcare_data$Date.of.Admission, format = "%Y-%m-%d")  
+# Convert the Date.of.Admission column to Date format for accurate date-based operations.
 
 # Extract year from the Date.of.Admission column
 healthcare_data <- healthcare_data %>%
-  mutate(Year = format(Date.of.Admission, "%Y"))  # Extract year
+  mutate(Year = format(Date.of.Admission, "%Y"))  
+# Create a new column 'Year' to store the year extracted from Date.of.Admission.
 
 # Summarize revenue by year
 yearly_revenue <- healthcare_data %>%
-  group_by(Year) %>%
-  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%
-  mutate(total_revenue_millions = total_revenue / 1e6)  # Convert revenue to millions
+  group_by(Year) %>%  # Group data by year
+  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%  
+  # Calculate the total revenue for each year, ignoring missing values.
+  mutate(total_revenue_millions = total_revenue / 1e6)  
+  # Convert revenue values to millions for readability.
 
 # Print the summarized revenue to verify the calculation
-print(yearly_revenue)
+print(yearly_revenue)  
+# Display the yearly revenue summary to verify results.
 
 # Verify conversion to millions
 healthcare_data %>%
-  group_by(Year) %>%
-  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE)) %>%
-  mutate(manual_check_millions = total_revenue / 1e6)  # Recalculate millions manually
+  group_by(Year) %>%  # Group data by year
+  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE)) %>%  
+  # Recalculate total revenue for each year.
+  mutate(manual_check_millions = total_revenue / 1e6)  
+  # Manually verify the conversion to millions.
+
 ```
 
+## Interpretation of the Code
+This code calculates and validates the total yearly revenue from healthcare services based on patient admissions. The following insights are derived:
+
+Date Handling:
+The Date.of.Admission column is converted to the Date format to enable accurate date-based analysis.
+The Year is extracted from the admission dates to facilitate grouping and summarizing data by year.
+
+Revenue Calculation:
+The total revenue (Billing.Amount) is calculated for each year.
+Revenue values are converted to millions for easier interpretation and reporting.
+
+Validation:
+A manual check is included to validate the conversion of revenue to millions, ensuring accurate computations.
+
+Practical Utility:
+This information can help identify trends in revenue over the years, which may reflect changes in patient volume, service costs, or healthcare policies.
+
+
+## Yearly Revenue Trend Analysis
+
 ```{r}
+
 # Ensure the Date.of.Admission column is in Date format
-healthcare_data$Date.of.Admission <- as.Date(healthcare_data$Date.of.Admission, format = "%Y-%m-%d")
+healthcare_data$Date.of.Admission <- as.Date(healthcare_data$Date.of.Admission, format = "%Y-%m-%d")  
+# Convert the 'Date.of.Admission' column to Date format to allow for correct date manipulation.
 
 # Extract year from the Date.of.Admission column
 healthcare_data <- healthcare_data %>%
-  mutate(Year = format(Date.of.Admission, "%Y"))  # Extract year
+  mutate(Year = format(Date.of.Admission, "%Y"))  
+# Create a new column 'Year' by extracting the year from the 'Date.of.Admission' column.
 
 # Summarize revenue by year
 yearly_revenue <- healthcare_data %>%
-  group_by(Year) %>%
-  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%
-  mutate(total_revenue_millions = total_revenue / 1e6)  # Convert revenue to millions
+  group_by(Year) %>%  # Group data by year
+  summarise(total_revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%  
+  # Calculate the total revenue for each year, ignoring missing values with 'na.rm = TRUE'.
+  mutate(total_revenue_millions = total_revenue / 1e6)  
+  # Convert the total revenue into millions for better readability.
 
 # Plot the yearly revenue as a line graph
 ggplot(yearly_revenue, aes(x = Year, y = total_revenue_millions, group = 1)) +
-  geom_line(color = "blue", size = 1) +
-  geom_point(color = "red", size = 2) +
-  geom_text(aes(label = round(total_revenue_millions, 2)), hjust=1.2,vjust = -0.5, color = "black", size = 2.5) +  # Position text above the point
-  labs(title = "Yearly Revenue in Millions",
-       x = "Year",
+  geom_line(color = "blue", size = 1) +  # Draw the line connecting points, color blue and size 1
+  geom_point(color = "red", size = 2) +  # Add red points to mark the actual data values
+  geom_text(aes(label = round(total_revenue_millions, 2)), hjust=1.2,vjust = -0.5, color = "black", size = 2.5) +  
+  # Add text labels with the exact revenue value rounded to 2 decimal places, positioned above the points
+  labs(title = "Yearly Revenue in Millions",  # Add title and axis labels
+       x = "Year", 
        y = "Revenue (Millions)") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(size = 10),  # Customize x-axis label size
-        plot.title = element_text(hjust = 0.5)) +scale_y_continuous(breaks = seq(0, 300, by = 60), limits = c(0, 300)) 
+  theme_minimal() +  # Use minimal theme for a clean look
+  theme(axis.text.x = element_text(size = 10),  # Customize x-axis label size for better readability
+        plot.title = element_text(hjust = 0.5)) +  # Center-align the plot title
+  scale_y_continuous(breaks = seq(0, 300, by = 60), limits = c(0, 300))  
+  # Adjust y-axis to show revenue in millions from 0 to 300 million with breaks every 60 million
+
 ```
 
+## Interpretation of the Graph
+The Yearly Revenue Trend line graph displays the total revenue (in millions) generated by healthcare services across different years. Here's what can be inferred:
+   The blue line indicates the trend in total revenue over time, showing increases or decreases in revenue each year.
+   Red points mark the revenue for each year, highlighting individual data points for clarity.
+   Text labels above each red point provide the exact value of the revenue (in millions) for each corresponding year.
+   The y-axis represents the revenue in millions, and the x-axis corresponds to the years.
+   The overall trend in the graph could reveal periods of revenue growth, decline, or consistency, which may be linked to healthcare events, policy changes, or economic factors.
+
+This graph can be used to assess financial performance over time, identify any significant changes, and inform decision-making for future strategies.
+
+
+## Total Medical Revenue by Age Group (in Millions)
+
 ```{r}
+
 # Calculate total revenue per age group
 age_group_revenue <- healthcare_data %>%
-  group_by(Age_Group) %>%
-  summarise(Total_Revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%
-  mutate(Total_Revenue_Million = Total_Revenue / 1e6)  # Convert to millions
+  group_by(Age_Group) %>%  # Group the data by Age_Group
+  summarise(Total_Revenue = sum(Billing.Amount, na.rm = TRUE), .groups = 'drop') %>%  
+  # Sum the billing amount for each age group, ignoring NA values with 'na.rm = TRUE'.
+  mutate(Total_Revenue_Million = Total_Revenue / 1e6)  # Convert the revenue into millions for readability
 
 # Display the results in a neat format using knitr
-cat("### Age Group Revenue Distribution (in Millions)\n")
-knitr::kable(age_group_revenue, caption = "Total Revenue by Age Group (in Millions)")
+cat("### Age Group Revenue Distribution (in Millions)\n")  
+# Print the heading for the table in markdown format
+knitr::kable(age_group_revenue, caption = "Total Revenue by Age Group (in Millions)")  
+# Display the summarized revenue per age group using knitr for neat tabular output
 
 # Create a bar plot for revenue distribution by age group with "M" suffix
 ggplot(age_group_revenue, aes(x = Age_Group, y = Total_Revenue_Million, fill = Age_Group)) +
-  geom_bar(stat = "identity", show.legend = FALSE) +
-  geom_text(aes(label = paste0(round(Total_Revenue_Million, 1), "M")), 
-            vjust = -0.5, color = "black", size = 3) +
-  labs(title = "Total Medical Revenue by Age Group (in Millions)",
-       x = "Age Group",
+  geom_bar(stat = "identity", show.legend = FALSE) +  # Create a bar plot with one bar for each age group
+  geom_text(aes(label = paste0(round(Total_Revenue_Million, 1), "M")),  # Add text labels above the bars
+            vjust = -0.5, color = "black", size = 3) +  # Adjust label position and appearance
+  labs(title = "Total Medical Revenue by Age Group (in Millions)",  # Add title and axis labels
+       x = "Age Group", 
        y = "Total Revenue (in Millions)") +
-  theme(axis.text.x = element_text(vjust = 4, hjust=0.5),  # Rotate x-axis labels for readability
-        plot.title = element_text(hjust = 0.5)) +
-  scale_y_continuous(labels = scales::label_number(scale = 1, suffix = "M"),limits = c(0, 500))  # Add "M" suffix to y-axis
+  theme(axis.text.x = element_text(vjust = 4, hjust=0.5),  # Rotate x-axis labels for better readability
+        plot.title = element_text(hjust = 0.5)) +  # Center align the title
+  scale_y_continuous(labels = scales::label_number(scale = 1, suffix = "M"), limits = c(0, 500))  
+  # Format the y-axis to show the revenue in millions, with a "M" suffix and a limit for clarity
 
+```
+
+## Interpretation of the Graph
+The Total Medical Revenue by Age Group bar graph displays the sum of revenue generated by healthcare services, categorized by different age groups, with the values represented in millions. Here's what can be inferred:
+  Each bar represents the total medical revenue (in millions) generated by patients within a particular age group.
+  The labels on top of the bars indicate the exact revenue value in millions, with the "M" suffix added for clarity.
+  Age Groups are represented on the x-axis, and the total revenue (in millions) is represented on the y-axis.
+  The height of the bars shows how much revenue is generated by each age group, and the differences in bar heights indicate which age groups contribute the most to the total revenue.
+  The graph helps in identifying which age groups are more lucrative for the healthcare system in terms of medical billing.
   
-```
+  
+## Proportion of Total Revenue by Age Group (in Millions)
 
 ```{r}
-# Pie chart of Total Revenue by Age Group
+
 # Pie chart of Total Revenue by Age Group with Percentages
-ggplot(age_group_revenue, aes(x = "", y = Total_Revenue_Million, fill = Age_Group)) +
-  geom_bar(stat = "identity", width = 1) +
-  coord_polar(theta = "y") +
-  labs(title = "Proportion of Total Revenue by Age Group (in Millions)") +
-  theme(axis.text.x = element_blank(), 
-        plot.title = element_text(hjust = 0.5)) +
-  geom_text(aes(label = paste0(round(Total_Revenue_Million / sum(Total_Revenue_Million) * 100, 1), "%")),
-            position = position_stack(vjust = 0.5), color = "white")
+ggplot(age_group_revenue, aes(x = "", y = Total_Revenue_Million, fill = Age_Group)) +  # Create pie chart with filled segments based on Age Group
+  geom_bar(stat = "identity", width = 1) +  # Make the bars form a complete circle for the pie chart
+  coord_polar(theta = "y") +  # Convert the bar plot into a pie chart by polar coordinates
+  labs(title = "Proportion of Total Revenue by Age Group (in Millions)") +  # Add title to the chart
+  theme(axis.text.x = element_blank(),  # Remove x-axis labels since they are not needed for pie chart
+        plot.title = element_text(hjust = 0.5)) +  # Center the title
+  geom_text(aes(label = paste0(round(Total_Revenue_Million / sum(Total_Revenue_Million) * 100, 1), "%")), 
+            position = position_stack(vjust = 0.5), color = "white")  # Add percentage labels inside each pie segment
 
 ```
 
-```{r}
-#RQ-2-How many people will be able to support themselves with medical treatment after retirement
+## Interpretation of the Graph
+The pie chart of Total Revenue by Age Group displays how the total revenue is distributed across various age groups. Here's the key interpretation:
+  Each slice of the pie represents a different age group, and the size of the slice corresponds to the revenue generated by that age group (in millions).
+  The percentage labels on the pie segments show what proportion of the total revenue is contributed by each age group. The percentage is calculated by dividing the revenue for a specific age group by the total revenue and multiplying by 100.
+  Larger slices indicate age groups that contribute more to the overall revenue, while smaller slices represent age groups with a lower revenue contribution.
+  The chart provides a visual comparison of revenue contributions from different age groups, making it easy to see which groups are the most lucrative.
 
-#Comparison of Medical Expenditure by Age Group
+
+## Medical Expenditure by Age Group
+
+```{r}
+
 # Box plot: Medical Expenditure by Age Group
-ggplot(healthcare_data, aes(x = Age_Group, y = Billing.Amount, fill = Age_Group)) +
-  geom_boxplot() +
-  labs(title = "Medical Expenditure by Age Group",
-       x = "Age Group",
-       y = "Medical Expenditure") +
-  theme(axis.text.x = element_text(vjust = 0.5), plot.title = element_text(hjust = 0.5)) +
-  scale_y_continuous(labels = scales::comma)
+ggplot(healthcare_data, aes(x = Age_Group, y = Billing.Amount, fill = Age_Group)) +  # Create box plot with Billing Amount on y-axis and Age Group on x-axis
+  geom_boxplot() +  # Adds the box plot to visualize the distribution of medical expenditure
+  labs(title = "Medical Expenditure by Age Group",  # Add the title of the plot
+       x = "Age Group",  # Label for x-axis
+       y = "Medical Expenditure") +  # Label for y-axis
+  theme(axis.text.x = element_text(vjust = 0.5), plot.title = element_text(hjust = 0.5)) +  # Adjust x-axis label positioning and center title
+  scale_y_continuous(labels = scales::comma)  # Format y-axis labels with commas for readability
+
 
 ```
 
+## Interpretation of the Graph
+The box plot of Medical Expenditure by Age Group illustrates the distribution of medical expenditures across different age groups. Here's the key interpretation:
+
+Box Plots: Each box represents the distribution of medical expenditure for an age group. The top and bottom of the box represent the upper and lower quartiles (i.e., the 75th and 25th percentiles), with the line in the middle of the box representing the median (50th percentile).
+  
+Whiskers: The lines extending from the boxes represent the range of the data, capturing values within 1.5 times the interquartile range from the quartiles. Data points outside this range are considered outliers and are plotted as individual dots.
+
+Age Group Comparisons: By looking at the boxes and their ranges, you can compare the median medical expenditures for different age groups. If an age group has a larger interquartile range, it indicates a greater variability in medical expenses within that group.
+
+Interpretation for Retirement: Higher expenditures in older age groups might suggest that people in these groups are more likely to need higher medical expenses in retirement. This can imply that fewer people in these age groups will be able to fully support themselves without medical insurance or additional support post-retirement.
+
+
+## Average Medical Revenue by Age Group (in Thousands)
+
 ```{r}
+
 # Calculate average revenue per age group in thousands (K)
 age_group_avg_revenue <- healthcare_data %>%
   group_by(Age_Group) %>%
@@ -407,19 +735,30 @@ knitr::kable(age_group_avg_revenue, caption = "Average Revenue by Age Group (in 
 
 # Create a bar plot for average revenue distribution by age group in K
 ggplot(age_group_avg_revenue, aes(x = Age_Group, y = Average_Revenue_K, fill = Age_Group)) +
-  geom_bar(stat = "identity", show.legend = FALSE) +
-  geom_text(aes(label = paste0(round(Average_Revenue_K, 1), "K")), 
-            vjust = -0.5, color = "black", size = 3) +
-  labs(title = "Average Medical Revenue by Age Group (in Thousands)",
-       x = "Age Group",
-       y = "Average Revenue (in K)") +
-  theme(axis.text.x = element_text(vjust = 4, hjust=0.5),  # Adjust x-axis labels for readability
-        plot.title = element_text(hjust = 0.5)) +
-  scale_y_continuous(labels = scales::label_number(scale = 1, suffix = "K"),limits = c(0, 30))
+  geom_bar(stat = "identity", show.legend = FALSE) +  # Creates bars based on average revenue
+  geom_text(aes(label = paste0(round(Average_Revenue_K, 1), "K")),  # Labels the bars with revenue in thousands
+            vjust = -0.5, color = "black", size = 3) +  # Adjusts label position
+  labs(title = "Average Medical Revenue by Age Group (in Thousands)",  # Title of the plot
+       x = "Age Group",  # X-axis label
+       y = "Average Revenue (in K)") +  # Y-axis label
+  theme(axis.text.x = element_text(vjust = 4, hjust = 0.5),  # Adjusts x-axis labels for readability
+        plot.title = element_text(hjust = 0.5)) +  # Centers the title
+  scale_y_continuous(labels = scales::label_number(scale = 1, suffix = "K"),limits = c(0, 30))  # Formats the y-axis in thousands and sets axis limits
 
-#write the content accordingly as justification for q-2
 
 ```
+
+## Interpretation of the Graph
+The bar plot of Average Medical Revenue by Age Group (in Thousands) visualizes the average medical revenue (in thousands) generated from each age group. Here's the interpretation:
+
+Bars: Each bar represents the average revenue for a given age group. The height of the bar reflects how much, on average, each age group contributes to the total medical revenue. The values are displayed in thousands (K) for better readability.
+
+Age Group Insights: By observing the height of the bars, we can compare how different age groups contribute to medical revenue on average. Age groups with higher bars contribute significantly more to medical revenue, while age groups with lower bars contribute less.
+
+Revenue Distribution: The chart helps to identify which age groups generate the most medical revenue on average, which may be valuable for understanding healthcare utilization patterns and planning medical services and resources for different age groups. 
+
+
+## Machine Learning part
 
 ```{r}
 #Machine Learning part
