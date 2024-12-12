@@ -46,7 +46,7 @@
     "href": "proposal.html#questions",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Questions:",
-    "text": "Questions:\n\nWhat demographic factors influence test results (Normal, Abnormal, Inconclusive)? Importance: Identifying demographic trends can improve targeted healthcare services and personalized medicine.\nWhat is the relationship between medical conditions and admission types (Emergency, Elective, Urgent)? Importance: Understanding these patterns can help in hospital resource planning and patient care prioritization.\nWhat factors contribute most to higher billing amounts? Importance: Insights here can inform healthcare cost optimization and insurance claim processes.\n\nThe two questions you want to answer.\nIf medical expenditure gets bigger as age increases, what are the sources of income and/or average income of that old age group?\nHow many percent of the population will be able to support themselves with proper medical treatment after retirement? what can individuals and governments do about it?\nThere are much options for categorical data"
+    "text": "Questions:\n\nWhat demographic factors influence test results (Normal, Abnormal, Inconclusive)? Importance: Identifying demographic trends can improve targeted healthcare services and personalized medicine.\nWhat is the relationship between medical conditions and admission types (Emergency, Elective, Urgent)? Importance: Understanding these patterns can help in hospital resource planning and patient care prioritization.\nWhat factors contribute most to higher billing amounts? Importance: Insights here can inform healthcare cost optimization and insurance claim processes.\n\nThe two questions you want to answer.\nHow does total and average medical revenue vary across different age groups, and what is the proportional contribution of each age group to the overall medical revenue?\nHow many percent of the population will be able to support themselves with proper medical treatment after retirement? what can individuals and governments do about it?\nThere are much options for categorical data"
   },
   {
     "objectID": "proposal.html#statement-on-why-this-question-is-important.",
@@ -86,7 +86,7 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Financial Analysis of Long-Term Care Services for the Elderly in the US",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "",
     "text": "This project was developed by Trailblazers For INFO 526 - Data Analysis and Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: Anirudh Koganti, Major – Data Science - 2024\nTeam member 2: Giridhar Kotha, Major - Information Science - 2024\nTeam member 3: John Kang, Major - Information Science - 2024\nTeam member 4: K Chaithanya, Major - Information Science - 2024\nTeam member 5: Rohith Gadichanda, Major - Information Science - 2024\nTeam member 6: Sai Hemanth Kilaru, Major - Data Science - 2024\nTeam member 7: Shashank Satish Kohade, Major - Information Science - 2024"
   },
@@ -117,41 +117,6 @@
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Plots",
     "text": "Plots"
-  },
-  {
-    "objectID": "presentation.html#plot-and-text",
-    "href": "presentation.html#plot-and-text",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Plot and text",
-    "text": "Plot and text\n\n\n\nSome text\ngoes here"
-  },
-  {
-    "objectID": "presentation.html#tables",
-    "href": "presentation.html#tables",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Tables",
-    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,"
-  },
-  {
-    "objectID": "presentation.html#images",
-    "href": "presentation.html#images",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Images",
-    "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
-  },
-  {
-    "objectID": "presentation.html#math-expressions",
-    "href": "presentation.html#math-expressions",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Math Expressions",
-    "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
-  },
-  {
-    "objectID": "presentation.html#feeling-adventurous",
-    "href": "presentation.html#feeling-adventurous",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Feeling adventurous?",
-    "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
   },
   {
     "objectID": "presentation.html#gender-distribution",
@@ -238,11 +203,11 @@
     "text": "Interpretation of the Graph\nThe boxplot represents the distribution of patients’ ages across various medical conditions. Key insights include:\nBoxplot Details:\nThe box shows the interquartile range (IQR), representing the middle 50% of ages for each medical condition. The horizontal line inside the box represents the median age for each condition. Whiskers extend to the smallest and largest values within 1.5 times the IQR, and points outside these whiskers are considered outliers. Jittered Points:\nThe scatter points (jitter) overlay the boxplot to show individual patient ages, providing more granular data visibility. Mean Indication:\nA black ‘X’ marker (mean point) is added for each medical condition, offering a quick comparison of average age. General Trends:\nVariations in age distribution across medical conditions can indicate if specific conditions are more common among certain age groups. For example, conditions like arthritis or hypertension may have higher age medians compared to asthma or diabetes, which could indicate age-related trends."
   },
   {
-    "objectID": "presentation.html#average-billing-amount-by-admission-type",
-    "href": "presentation.html#average-billing-amount-by-admission-type",
+    "objectID": "presentation.html#admission-type-by-medical-condition",
+    "href": "presentation.html#admission-type-by-medical-condition",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Average Billing Amount by Admission Type",
-    "text": "Average Billing Amount by Admission Type"
+    "section": "Admission Type by Medical Condition",
+    "text": "Admission Type by Medical Condition"
   },
   {
     "objectID": "presentation.html#interpretation-of-the-graph-5",
@@ -252,20 +217,6 @@
     "text": "Interpretation of the Graph\nThis grouped bar chart visualizes the relationship between medical conditions and admission types, providing the following insights:\nAdmission Type Breakdown: For each medical condition, bars represent counts of different admission types (e.g., Emergency, Elective, or Urgent). The dodge position ensures clear separation between bars for easier comparison across admission types.\nKey Observations: Certain conditions like Hypertension or Diabetes may have higher counts for specific admission types, such as Emergency. Elective admissions may dominate planned medical conditions such as Obesity-related procedures. Urgent admissions might be fewer overall, reflecting their specialized and immediate nature.\nPractical Implications: Hospitals can use this data to allocate resources appropriately based on admission patterns for different conditions. Identifying conditions with higher emergency admissions can guide emergency preparedness."
   },
   {
-    "objectID": "presentation.html#admission-type-by-medical-condition",
-    "href": "presentation.html#admission-type-by-medical-condition",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Admission Type by Medical Condition",
-    "text": "Admission Type by Medical Condition"
-  },
-  {
-    "objectID": "presentation.html#interpretation-of-the-graph-6",
-    "href": "presentation.html#interpretation-of-the-graph-6",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Interpretation of the Graph",
-    "text": "Interpretation of the Graph\nThis stacked bar chart illustrates the distribution of medical conditions across different blood types, providing the following insights:\nBlood Type Analysis: The bars represent the total count of individuals for each blood type, with subdivisions indicating various medical conditions. The stacking highlights how medical conditions are distributed within each blood type.\nMedical Condition Contribution: Certain blood types (e.g., O+, A+) may show higher overall counts, reflecting their prevalence in the dataset. Specific medical conditions may dominate for certain blood types, indicating potential associations between medical conditions and blood types.\nKey Observations: Blood types such as O- or AB- might have lower overall counts, which aligns with their rarity in the general population. The composition of medical conditions within each blood type is relatively consistent, with a few exceptions.\nPractical Implications: This chart is useful for identifying whether certain blood types are more prone to specific medical conditions. Healthcare providers can use this data for personalized care, especially in conditions where blood type may have clinical relevance."
-  },
-  {
     "objectID": "presentation.html#medical-conditions-by-blood-type",
     "href": "presentation.html#medical-conditions-by-blood-type",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
@@ -273,11 +224,11 @@
     "text": "Medical Conditions by Blood Type"
   },
   {
-    "objectID": "presentation.html#interpretation-of-the-graph-7",
-    "href": "presentation.html#interpretation-of-the-graph-7",
+    "objectID": "presentation.html#interpretation-of-the-graph-6",
+    "href": "presentation.html#interpretation-of-the-graph-6",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Interpretation of the Graph",
-    "text": "Interpretation of the Graph\nThe Yearly Revenue Trend line graph displays the total revenue (in millions) generated by healthcare services across different years. Here’s what can be inferred: The blue line indicates the trend in total revenue over time, showing increases or decreases in revenue each year. Red points mark the revenue for each year, highlighting individual data points for clarity. Text labels above each red point provide the exact value of the revenue (in millions) for each corresponding year. The y-axis represents the revenue in millions, and the x-axis corresponds to the years. The overall trend in the graph could reveal periods of revenue growth, decline, or consistency, which may be linked to healthcare events, policy changes, or economic factors.\nThis graph can be used to assess financial performance over time, identify any significant changes, and inform decision-making for future strategies."
+    "text": "Interpretation of the Graph\nThis stacked bar chart illustrates the distribution of medical conditions across different blood types, providing the following insights:\nBlood Type Analysis: The bars represent the total count of individuals for each blood type, with subdivisions indicating various medical conditions. The stacking highlights how medical conditions are distributed within each blood type.\nMedical Condition Contribution: Certain blood types (e.g., O+, A+) may show higher overall counts, reflecting their prevalence in the dataset. Specific medical conditions may dominate for certain blood types, indicating potential associations between medical conditions and blood types.\nKey Observations: Blood types such as O- or AB- might have lower overall counts, which aligns with their rarity in the general population. The composition of medical conditions within each blood type is relatively consistent, with a few exceptions.\nPractical Implications: This chart is useful for identifying whether certain blood types are more prone to specific medical conditions. Healthcare providers can use this data for personalized care, especially in conditions where blood type may have clinical relevance."
   },
   {
     "objectID": "presentation.html#yearly-revenue-summary-and-validation",
@@ -301,11 +252,18 @@
     "text": "Yearly Revenue Trend Analysis"
   },
   {
-    "objectID": "presentation.html#interpretation-of-the-graph-8",
-    "href": "presentation.html#interpretation-of-the-graph-8",
+    "objectID": "presentation.html#interpretation-of-the-graph-7",
+    "href": "presentation.html#interpretation-of-the-graph-7",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Interpretation of the Graph",
-    "text": "Interpretation of the Graph\nThe Total Medical Revenue by Age Group bar graph displays the sum of revenue generated by healthcare services, categorized by different age groups, with the values represented in millions. Here’s what can be inferred: Each bar represents the total medical revenue (in millions) generated by patients within a particular age group. The labels on top of the bars indicate the exact revenue value in millions, with the “M” suffix added for clarity. Age Groups are represented on the x-axis, and the total revenue (in millions) is represented on the y-axis. The height of the bars shows how much revenue is generated by each age group, and the differences in bar heights indicate which age groups contribute the most to the total revenue. The graph helps in identifying which age groups are more lucrative for the healthcare system in terms of medical billing."
+    "text": "Interpretation of the Graph\nThe Yearly Revenue Trend line graph displays the total revenue (in millions) generated by healthcare services across different years. Here’s what can be inferred: The blue line indicates the trend in total revenue over time, showing increases or decreases in revenue each year. Red points mark the revenue for each year, highlighting individual data points for clarity. Text labels above each red point provide the exact value of the revenue (in millions) for each corresponding year. The y-axis represents the revenue in millions, and the x-axis corresponds to the years. The overall trend in the graph could reveal periods of revenue growth, decline, or consistency, which may be linked to healthcare events, policy changes, or economic factors.\nThis graph can be used to assess financial performance over time, identify any significant changes, and inform decision-making for future strategies."
+  },
+  {
+    "objectID": "presentation.html#research-questions",
+    "href": "presentation.html#research-questions",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Research Questions:",
+    "text": "Research Questions:\nRQ-1. How does total and average medical revenue vary across different age groups, and what is the proportional contribution of each age group to the overall medical revenue?\nThe analysis shows that older age groups, particularly those aged 65 and above, contribute the most to total medical revenue, generating $409.3M, or 29.2% of the overall revenue. This is followed by the 19–35, 51–65, and 36–50 age groups, which also make significant contributions. In contrast, the 0–18 age group accounts for only $23.7M, making up just 1.7% of the total revenue.\nInterestingly, the average medical revenue per person is fairly consistent across all age groups, ranging from $25.4K to $26.7K, with the 0–18 group having a slightly higher average despite its lower total contribution. This suggests that specialized or targeted medical services for younger individuals may drive higher per-person costs.\nThe pie chart further highlights the proportional revenue contributions, with older populations, particularly those aged 65+, dominating the share. The variability in medical expenditures is also evident from the box plot, with higher costs and outliers more common in older age groups like 51–65 and 65+.\nOverall, this analysis underscores the significant impact of older populations on healthcare revenue, reflecting their higher healthcare needs. It also suggests that younger age groups, while contributing less overall, might incur higher average costs due to specialized care. These insights can guide resource allocation and healthcare planning."
   },
   {
     "objectID": "presentation.html#total-medical-revenue-by-age-group-in-millions",
@@ -315,11 +273,11 @@
     "text": "Total Medical Revenue by Age Group (in Millions)\n\n\n### Age Group Revenue Distribution (in Millions)\n\n\n\nTotal Revenue by Age Group (in Millions)\n\n\nAge_Group\nTotal_Revenue\nTotal_Revenue_Million\n\n\n\n\n0-18\n23697208\n23.69721\n\n\n19-35\n345002555\n345.00255\n\n\n36-50\n310416841\n310.41684\n\n\n51-65\n315614265\n315.61427\n\n\n65+\n409337470\n409.33747"
   },
   {
-    "objectID": "presentation.html#interpretation-of-the-graph-9",
-    "href": "presentation.html#interpretation-of-the-graph-9",
+    "objectID": "presentation.html#interpretation-of-the-graph-8",
+    "href": "presentation.html#interpretation-of-the-graph-8",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Interpretation of the Graph",
-    "text": "Interpretation of the Graph\nThe pie chart of Total Revenue by Age Group displays how the total revenue is distributed across various age groups. Here’s the key interpretation: Each slice of the pie represents a different age group, and the size of the slice corresponds to the revenue generated by that age group (in millions). The percentage labels on the pie segments show what proportion of the total revenue is contributed by each age group. The percentage is calculated by dividing the revenue for a specific age group by the total revenue and multiplying by 100. Larger slices indicate age groups that contribute more to the overall revenue, while smaller slices represent age groups with a lower revenue contribution. The chart provides a visual comparison of revenue contributions from different age groups, making it easy to see which groups are the most lucrative."
+    "text": "Interpretation of the Graph\nThe Total Medical Revenue by Age Group bar graph displays the sum of revenue generated by healthcare services, categorized by different age groups, with the values represented in millions. Here’s what can be inferred: Each bar represents the total medical revenue (in millions) generated by patients within a particular age group. The labels on top of the bars indicate the exact revenue value in millions, with the “M” suffix added for clarity. Age Groups are represented on the x-axis, and the total revenue (in millions) is represented on the y-axis. The height of the bars shows how much revenue is generated by each age group, and the differences in bar heights indicate which age groups contribute the most to the total revenue. The graph helps in identifying which age groups are more lucrative for the healthcare system in terms of medical billing."
   },
   {
     "objectID": "presentation.html#proportion-of-total-revenue-by-age-group-in-millions",
@@ -329,11 +287,11 @@
     "text": "Proportion of Total Revenue by Age Group (in Millions)"
   },
   {
-    "objectID": "presentation.html#interpretation-of-the-graph-10",
-    "href": "presentation.html#interpretation-of-the-graph-10",
+    "objectID": "presentation.html#interpretation-of-the-graph-9",
+    "href": "presentation.html#interpretation-of-the-graph-9",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Interpretation of the Graph",
-    "text": "Interpretation of the Graph\nThe box plot of Medical Expenditure by Age Group illustrates the distribution of medical expenditures across different age groups. Here’s the key interpretation:\nBox Plots: Each box represents the distribution of medical expenditure for an age group. The top and bottom of the box represent the upper and lower quartiles (i.e., the 75th and 25th percentiles), with the line in the middle of the box representing the median (50th percentile).\nWhiskers: The lines extending from the boxes represent the range of the data, capturing values within 1.5 times the interquartile range from the quartiles. Data points outside this range are considered outliers and are plotted as individual dots.\nAge Group Comparisons: By looking at the boxes and their ranges, you can compare the median medical expenditures for different age groups. If an age group has a larger interquartile range, it indicates a greater variability in medical expenses within that group.\nInterpretation for Retirement: Higher expenditures in older age groups might suggest that people in these groups are more likely to need higher medical expenses in retirement. This can imply that fewer people in these age groups will be able to fully support themselves without medical insurance or additional support post-retirement."
+    "text": "Interpretation of the Graph\nThe pie chart of Total Revenue by Age Group displays how the total revenue is distributed across various age groups. Here’s the key interpretation: Each slice of the pie represents a different age group, and the size of the slice corresponds to the revenue generated by that age group (in millions). The percentage labels on the pie segments show what proportion of the total revenue is contributed by each age group. The percentage is calculated by dividing the revenue for a specific age group by the total revenue and multiplying by 100. Larger slices indicate age groups that contribute more to the overall revenue, while smaller slices represent age groups with a lower revenue contribution. The chart provides a visual comparison of revenue contributions from different age groups, making it easy to see which groups are the most lucrative."
   },
   {
     "objectID": "presentation.html#medical-expenditure-by-age-group",
@@ -343,11 +301,11 @@
     "text": "Medical Expenditure by Age Group"
   },
   {
-    "objectID": "presentation.html#interpretation-of-the-graph-11",
-    "href": "presentation.html#interpretation-of-the-graph-11",
+    "objectID": "presentation.html#interpretation-of-the-graph-10",
+    "href": "presentation.html#interpretation-of-the-graph-10",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Interpretation of the Graph",
-    "text": "Interpretation of the Graph\nThe bar plot of Average Medical Revenue by Age Group (in Thousands) visualizes the average medical revenue (in thousands) generated from each age group. Here’s the interpretation:\nBars: Each bar represents the average revenue for a given age group. The height of the bar reflects how much, on average, each age group contributes to the total medical revenue. The values are displayed in thousands (K) for better readability.\nAge Group Insights: By observing the height of the bars, we can compare how different age groups contribute to medical revenue on average. Age groups with higher bars contribute significantly more to medical revenue, while age groups with lower bars contribute less.\nRevenue Distribution: The chart helps to identify which age groups generate the most medical revenue on average, which may be valuable for understanding healthcare utilization patterns and planning medical services and resources for different age groups.\nRQ-2. What factors contribute most to higher billing amounts? Importance: Insights here can inform healthcare cost optimization and insurance claimprocesses.\nThe factors contributing most to higher billing amounts, based on the provided graphs and analysis, include:\nAdmission Type: Emergency and urgent admissions have slightly higher average billing amounts compared to elective admissions. This reflects the additional complexity and immediacy of care associated with unplanned or critical treatments.\nAge Group: Older populations, particularly those aged 65+, generate the highest total billing amounts due to increased healthcare needs and more frequent utilization of medical services.\nMedications: High total billing amounts are observed for widely used or essential medications like Ibuprofen, Lipitor, and Aspirin, indicating their frequent prescription or high associated costs.\nThese insights are crucial for healthcare providers and insurers to optimize costs by focusing on improving efficiency in emergency care, targeting preventive measures for older age groups, and evaluating the cost-effectiveness of commonly prescribed medications."
+    "text": "Interpretation of the Graph\nThe box plot of Medical Expenditure by Age Group illustrates the distribution of medical expenditures across different age groups. Here’s the key interpretation:\nBox Plots: Each box represents the distribution of medical expenditure for an age group. The top and bottom of the box represent the upper and lower quartiles (i.e., the 75th and 25th percentiles), with the line in the middle of the box representing the median (50th percentile).\nWhiskers: The lines extending from the boxes represent the range of the data, capturing values within 1.5 times the interquartile range from the quartiles. Data points outside this range are considered outliers and are plotted as individual dots.\nAge Group Comparisons: By looking at the boxes and their ranges, you can compare the median medical expenditures for different age groups. If an age group has a larger interquartile range, it indicates a greater variability in medical expenses within that group.\nInterpretation for Retirement: Higher expenditures in older age groups might suggest that people in these groups are more likely to need higher medical expenses in retirement. This can imply that fewer people in these age groups will be able to fully support themselves without medical insurance or additional support post-retirement."
   },
   {
     "objectID": "presentation.html#average-medical-revenue-by-age-group-in-thousands",
@@ -357,25 +315,25 @@
     "text": "Average Medical Revenue by Age Group (in Thousands)\n\n\n### Age Group Average Revenue Distribution (in Thousands)\n\n\n\nAverage Revenue by Age Group (in Thousands)\n\n\nAge_Group\nAverage_Revenue\nAverage_Revenue_K\n\n\n\n\n0-18\n26746.28\n26.74628\n\n\n19-35\n25519.83\n25.51983\n\n\n36-50\n25513.01\n25.51301\n\n\n51-65\n25663.87\n25.66387\n\n\n65+\n25431.01\n25.43101"
   },
   {
+    "objectID": "presentation.html#interpretation-of-the-graph-11",
+    "href": "presentation.html#interpretation-of-the-graph-11",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe bar plot of Average Medical Revenue by Age Group (in Thousands) visualizes the average medical revenue (in thousands) generated from each age group. Here’s the interpretation:\nBars: Each bar represents the average revenue for a given age group. The height of the bar reflects how much, on average, each age group contributes to the total medical revenue. The values are displayed in thousands (K) for better readability.\nAge Group Insights: By observing the height of the bars, we can compare how different age groups contribute to medical revenue on average. Age groups with higher bars contribute significantly more to medical revenue, while age groups with lower bars contribute less.\nRevenue Distribution: The chart helps to identify which age groups generate the most medical revenue on average, which may be valuable for understanding healthcare utilization patterns and planning medical services and resources for different age groups.\nRQ-2. What factors contribute most to higher billing amounts? Importance: Insights here can inform healthcare cost optimization and insurance claimprocesses.\nThe factors contributing most to higher billing amounts, based on the provided graphs and analysis, include:\nAdmission Type: Emergency and urgent admissions have slightly higher average billing amounts compared to elective admissions. This reflects the additional complexity and immediacy of care associated with unplanned or critical treatments.\nAge Group: Older populations, particularly those aged 65+, generate the highest total billing amounts due to increased healthcare needs and more frequent utilization of medical services.\nMedications: High total billing amounts are observed for widely used or essential medications like Ibuprofen, Lipitor, and Aspirin, indicating their frequent prescription or high associated costs.\nThese insights are crucial for healthcare providers and insurers to optimize costs by focusing on improving efficiency in emergency care, targeting preventive measures for older age groups, and evaluating the cost-effectiveness of commonly prescribed medications."
+  },
+  {
+    "objectID": "presentation.html#average-billing-amount-by-admission-type",
+    "href": "presentation.html#average-billing-amount-by-admission-type",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Average Billing Amount by Admission Type",
+    "text": "Average Billing Amount by Admission Type"
+  },
+  {
     "objectID": "presentation.html#interpretation-of-the-graph-12",
     "href": "presentation.html#interpretation-of-the-graph-12",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Interpretation of the Graph",
     "text": "Interpretation of the Graph\nThe bar chart provides insights into the average billing amount for different types of hospital admissions. Key observations include:\nAverage Billing Amount Differences: Each bar represents the average billing amount for a specific admission type, such as emergency, elective, or urgent admissions. The height of the bars indicates the relative cost, allowing easy comparison across admission types.\nKey Insights: Admission types with higher average billing (e.g., Emergency admissions) may reflect the complexity and urgency of the care provided. Lower billing amounts (e.g., Elective admissions) could be associated with planned or less intensive procedures.\nPractical Implications: This analysis can help hospitals and healthcare providers evaluate the cost structures associated with different admission types and plan resource allocation accordingly."
-  },
-  {
-    "objectID": "presentation.html#machine-learning-part",
-    "href": "presentation.html#machine-learning-part",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Machine Learning part",
-    "text": "Machine Learning part\n\n\n# A tibble: 4 × 3\n  Model                  .metric  .estimate\n  &lt;chr&gt;                  &lt;chr&gt;        &lt;dbl&gt;\n1 Multinomial Regression accuracy    0.335 \n2 Multinomial Regression kap         0     \n3 Random Forest          accuracy    0.341 \n4 Random Forest          kap         0.0115"
-  },
-  {
-    "objectID": "presentation.html#research-questions",
-    "href": "presentation.html#research-questions",
-    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
-    "section": "Research Questions:",
-    "text": "Research Questions:\nRQ-1. How does total and average medical revenue vary across different age groups, and what is the proportional contribution of each age group to the overall medical revenue?\nThe analysis shows that older age groups, particularly those aged 65 and above, contribute the most to total medical revenue, generating $409.3M, or 29.2% of the overall revenue. This is followed by the 19–35, 51–65, and 36–50 age groups, which also make significant contributions. In contrast, the 0–18 age group accounts for only $23.7M, making up just 1.7% of the total revenue.\nInterestingly, the average medical revenue per person is fairly consistent across all age groups, ranging from $25.4K to $26.7K, with the 0–18 group having a slightly higher average despite its lower total contribution. This suggests that specialized or targeted medical services for younger individuals may drive higher per-person costs.\nThe pie chart further highlights the proportional revenue contributions, with older populations, particularly those aged 65+, dominating the share. The variability in medical expenditures is also evident from the box plot, with higher costs and outliers more common in older age groups like 51–65 and 65+.\nOverall, this analysis underscores the significant impact of older populations on healthcare revenue, reflecting their higher healthcare needs. It also suggests that younger age groups, while contributing less overall, might incur higher average costs due to specialized care. These insights can guide resource allocation and healthcare planning."
   },
   {
     "objectID": "presentation.html#comparison-of-total-billing-amounts-by-medication.",
@@ -392,10 +350,52 @@
     "text": "Interpretation of the Graph:\nPurpose of the Graph: The graph visualizes the total billing amounts associated with different medications. Each bar represents a specific medication, and the height of the bar reflects its total billing amount.\nKey Observations: Ibuprofen has the highest total billing amount ($283,784,867), indicating it may be the most commonly prescribed or the costliest medication overall. Lipitor, Aspirin, Paracetamol, and Penicillin follow closely, with billing totals in a similar range. All medications have billing amounts exceeding $279 million, suggesting a substantial financial impact across all categories.\nOverall Insight: The graph highlights that the healthcare billing amounts are quite high across all medications. This may reflect widespread usage or high treatment costs associated with these medications. Further analysis could explore factors driving these costs, such as the frequency of prescriptions or the unit price of medications."
   },
   {
+    "objectID": "presentation.html#machine-learning-part",
+    "href": "presentation.html#machine-learning-part",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Machine Learning part",
+    "text": "Machine Learning part\n\n\n# A tibble: 4 × 3\n  Model                  .metric  .estimate\n  &lt;chr&gt;                  &lt;chr&gt;        &lt;dbl&gt;\n1 Multinomial Regression accuracy    0.335 \n2 Multinomial Regression kap         0     \n3 Random Forest          accuracy    0.341 \n4 Random Forest          kap         0.0115"
+  },
+  {
     "objectID": "presentation.html#interpretation",
     "href": "presentation.html#interpretation",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Interpretation",
     "text": "Interpretation\nThe low accuracy in my multinomial regression and random forest models might be due to factors like limited feature selection, imbalanced classes, or insufficient model tuning. To improve, I can take the following steps: First, I should enhance my features by creating more meaningful predictors. Second, I need to address any class imbalance using methods such as oversampling, undersampling, or adjusting class weights. Third, I should fine-tune my models by experimenting with different hyperparameters. Fourth, exploring ensemble techniques like boosting (e.g., XGBoost or LightGBM) may help achieve better performance. Lastly, ensuring thorough data preprocessing—by addressing missing values, outliers, and applying proper scaling—can significantly improve the models’ accuracy."
+  },
+  {
+    "objectID": "presentation.html#plot-and-text",
+    "href": "presentation.html#plot-and-text",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Plot and text",
+    "text": "Plot and text\n\n\n\nSome text\ngoes here"
+  },
+  {
+    "objectID": "presentation.html#tables",
+    "href": "presentation.html#tables",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Tables",
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,"
+  },
+  {
+    "objectID": "presentation.html#images",
+    "href": "presentation.html#images",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Images",
+    "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
+  },
+  {
+    "objectID": "presentation.html#math-expressions",
+    "href": "presentation.html#math-expressions",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Math Expressions",
+    "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
+  },
+  {
+    "objectID": "presentation.html#feeling-adventurous",
+    "href": "presentation.html#feeling-adventurous",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Feeling adventurous?",
+    "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
   }
 ]
