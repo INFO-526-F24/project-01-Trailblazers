@@ -102,14 +102,14 @@
     "href": "presentation.html#layouts",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Layouts",
-    "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\nlike\nthis\n\nAnd add footnotes"
+    "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\nAnd add footnotes"
   },
   {
     "objectID": "presentation.html#code",
     "href": "presentation.html#code",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Code",
-    "text": "Code\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+    "text": "Code\n\n\n'data.frame':   54966 obs. of  15 variables:\n $ Name              : chr  \"Bobby JacksOn\" \"LesLie TErRy\" \"DaNnY sMitH\" \"andrEw waTtS\" ...\n $ Age               : int  30 62 76 28 43 36 21 20 82 58 ...\n $ Gender            : chr  \"Male\" \"Male\" \"Female\" \"Female\" ...\n $ Blood.Type        : chr  \"B-\" \"A+\" \"A-\" \"O+\" ...\n $ Medical.Condition : chr  \"Cancer\" \"Obesity\" \"Obesity\" \"Diabetes\" ...\n $ Date.of.Admission : chr  \"2024-01-31\" \"2019-08-20\" \"2022-09-22\" \"2020-11-18\" ...\n $ Doctor            : chr  \"Matthew Smith\" \"Samantha Davies\" \"Tiffany Mitchell\" \"Kevin Wells\" ...\n $ Hospital          : chr  \"Sons and Miller\" \"Kim Inc\" \"Cook PLC\" \"Hernandez Rogers and Vang,\" ...\n $ Insurance.Provider: chr  \"Blue Cross\" \"Medicare\" \"Aetna\" \"Medicare\" ...\n $ Billing.Amount    : num  18856 33643 27955 37910 14238 ...\n $ Room.Number       : int  328 265 205 450 458 389 389 277 316 249 ...\n $ Admission.Type    : chr  \"Urgent\" \"Emergency\" \"Emergency\" \"Elective\" ...\n $ Discharge.Date    : chr  \"2024-02-02\" \"2019-08-26\" \"2022-10-07\" \"2020-12-18\" ...\n $ Medication        : chr  \"Paracetamol\" \"Ibuprofen\" \"Aspirin\" \"Ibuprofen\" ...\n $ Test.Results      : chr  \"Normal\" \"Inconclusive\" \"Normal\" \"Abnormal\" ...\n\n\n'data.frame':   54966 obs. of  15 variables:\n $ Name              : chr  \"Bobby JacksOn\" \"LesLie TErRy\" \"DaNnY sMitH\" \"andrEw waTtS\" ...\n $ Age               : int  30 62 76 28 43 36 21 20 82 58 ...\n $ Gender            : chr  \"Male\" \"Male\" \"Female\" \"Female\" ...\n $ Blood.Type        : chr  \"B-\" \"A+\" \"A-\" \"O+\" ...\n $ Medical.Condition : chr  \"Cancer\" \"Obesity\" \"Obesity\" \"Diabetes\" ...\n $ Date.of.Admission : Date, format: \"2024-01-31\" \"2019-08-20\" ...\n $ Doctor            : chr  \"Matthew Smith\" \"Samantha Davies\" \"Tiffany Mitchell\" \"Kevin Wells\" ...\n $ Hospital          : chr  \"Sons and Miller\" \"Kim Inc\" \"Cook PLC\" \"Hernandez Rogers and Vang,\" ...\n $ Insurance.Provider: chr  \"Blue Cross\" \"Medicare\" \"Aetna\" \"Medicare\" ...\n $ Billing.Amount    : num  18856 33643 27955 37910 14238 ...\n $ Room.Number       : int  328 265 205 450 458 389 389 277 316 249 ...\n $ Admission.Type    : chr  \"Urgent\" \"Emergency\" \"Emergency\" \"Elective\" ...\n $ Discharge.Date    : Date, format: \"2024-02-02\" \"2019-08-26\" ...\n $ Medication        : chr  \"Paracetamol\" \"Ibuprofen\" \"Aspirin\" \"Ibuprofen\" ...\n $ Test.Results      : chr  \"Normal\" \"Inconclusive\" \"Normal\" \"Abnormal\" ..."
   },
   {
     "objectID": "presentation.html#plots",
@@ -130,7 +130,7 @@
     "href": "presentation.html#tables",
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Tables",
-    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale"
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,"
   },
   {
     "objectID": "presentation.html#images",
@@ -152,5 +152,222 @@
     "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
     "section": "Feeling adventurous?",
     "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
+  },
+  {
+    "objectID": "presentation.html#gender-distribution",
+    "href": "presentation.html#gender-distribution",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Gender Distribution",
+    "text": "Gender Distribution"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph",
+    "href": "presentation.html#interpretation-of-the-graph",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe graph represents the gender distribution of a dataset. It shows the counts of individuals grouped by gender (Female and Male). The counts for each gender are labeled above the bars:\nFemale: 27,470 individuals. Male: 27,496 individuals. The counts are nearly equal, indicating a balanced gender distribution in the dataset."
+  },
+  {
+    "objectID": "presentation.html#distribution-of-medical-conditions",
+    "href": "presentation.html#distribution-of-medical-conditions",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Distribution of Medical Conditions",
+    "text": "Distribution of Medical Conditions"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-1",
+    "href": "presentation.html#interpretation-of-the-graph-1",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe bar chart depicts the distribution of various medical conditions in the dataset. The counts for each condition are labeled above the bars: Arthritis: 9,218 cases. Asthma: 9,095 cases. Cancer: 9,140 cases. Diabetes: 9,216 cases. Hypertension: 9,151 cases. Obesity: 9,146 cases. The data indicates that all medical conditions have nearly similar counts, suggesting an evenly distributed representation of conditions in the dataset."
+  },
+  {
+    "objectID": "presentation.html#blood-type-distribution",
+    "href": "presentation.html#blood-type-distribution",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Blood Type Distribution",
+    "text": "Blood Type Distribution"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-2",
+    "href": "presentation.html#interpretation-of-the-graph-2",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe bar chart represents the distribution of different blood types within the dataset. Each bar corresponds to a blood type, and the counts are displayed as text beside the bars: A-: 6,898 individuals A+: 6,896 individuals B+: 6,885 individuals AB+: 6,882 individuals AB-: 6,874 individuals B-: 6,872 individuals O+: 6,855 individuals O-: 6,804 individuals The data suggests that all blood types have relatively similar counts, with small variations. A- is the most frequent blood type, while O- is the least."
+  },
+  {
+    "objectID": "presentation.html#test-results-distribution-plot",
+    "href": "presentation.html#test-results-distribution-plot",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Test Results Distribution Plot",
+    "text": "Test Results Distribution Plot"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-3",
+    "href": "presentation.html#interpretation-of-the-graph-3",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe bar chart displays the distribution of test results from the dataset. Each bar represents a category of test results, and the height indicates the count of occurrences for that category. The exact count is displayed on top of each bar for better readability.\nFrom the chart: It is possible to determine which test result category is most or least frequent. The y-axis is scaled to a maximum of 20,000, with intervals of 5,000, providing an appropriate scale for interpretation."
+  },
+  {
+    "objectID": "presentation.html#age-group-distribution-of-patients",
+    "href": "presentation.html#age-group-distribution-of-patients",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Age Group Distribution of Patients",
+    "text": "Age Group Distribution of Patients\n\n\n### Age Group Distribution\n\n\n\nAge Group Distribution of Patients\n\n\nAge_Group\nCount\n\n\n\n\n0-18\n886\n\n\n19-35\n13519\n\n\n36-50\n12167\n\n\n51-65\n12298\n\n\n65+\n16096"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-results",
+    "href": "presentation.html#interpretation-of-the-results",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Results",
+    "text": "Interpretation of the Results\nThe table provides a summary of the distribution of patients across different age groups. The age groups are defined as: 0-18 years: Representing children and adolescents. 19-35 years: Representing young adults. 36-50 years: Representing middle-aged individuals. 51-65 years: Representing older adults nearing retirement age. 65+ years: Representing the elderly population. The counts in the table allow us to analyze which age group has the highest or lowest number of patients, helping identify trends in patient demographics. This can assist healthcare providers in tailoring age-specific services or interventions."
+  },
+  {
+    "objectID": "presentation.html#age-distribution-by-medical-condition",
+    "href": "presentation.html#age-distribution-by-medical-condition",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Age Distribution by Medical Condition",
+    "text": "Age Distribution by Medical Condition"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-4",
+    "href": "presentation.html#interpretation-of-the-graph-4",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe boxplot represents the distribution of patients’ ages across various medical conditions. Key insights include:\nBoxplot Details:\nThe box shows the interquartile range (IQR), representing the middle 50% of ages for each medical condition. The horizontal line inside the box represents the median age for each condition. Whiskers extend to the smallest and largest values within 1.5 times the IQR, and points outside these whiskers are considered outliers. Jittered Points:\nThe scatter points (jitter) overlay the boxplot to show individual patient ages, providing more granular data visibility. Mean Indication:\nA black ‘X’ marker (mean point) is added for each medical condition, offering a quick comparison of average age. General Trends:\nVariations in age distribution across medical conditions can indicate if specific conditions are more common among certain age groups. For example, conditions like arthritis or hypertension may have higher age medians compared to asthma or diabetes, which could indicate age-related trends."
+  },
+  {
+    "objectID": "presentation.html#average-billing-amount-by-admission-type",
+    "href": "presentation.html#average-billing-amount-by-admission-type",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Average Billing Amount by Admission Type",
+    "text": "Average Billing Amount by Admission Type"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-5",
+    "href": "presentation.html#interpretation-of-the-graph-5",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThis grouped bar chart visualizes the relationship between medical conditions and admission types, providing the following insights:\nAdmission Type Breakdown: For each medical condition, bars represent counts of different admission types (e.g., Emergency, Elective, or Urgent). The dodge position ensures clear separation between bars for easier comparison across admission types.\nKey Observations: Certain conditions like Hypertension or Diabetes may have higher counts for specific admission types, such as Emergency. Elective admissions may dominate planned medical conditions such as Obesity-related procedures. Urgent admissions might be fewer overall, reflecting their specialized and immediate nature.\nPractical Implications: Hospitals can use this data to allocate resources appropriately based on admission patterns for different conditions. Identifying conditions with higher emergency admissions can guide emergency preparedness."
+  },
+  {
+    "objectID": "presentation.html#admission-type-by-medical-condition",
+    "href": "presentation.html#admission-type-by-medical-condition",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Admission Type by Medical Condition",
+    "text": "Admission Type by Medical Condition"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-6",
+    "href": "presentation.html#interpretation-of-the-graph-6",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThis stacked bar chart illustrates the distribution of medical conditions across different blood types, providing the following insights:\nBlood Type Analysis: The bars represent the total count of individuals for each blood type, with subdivisions indicating various medical conditions. The stacking highlights how medical conditions are distributed within each blood type.\nMedical Condition Contribution: Certain blood types (e.g., O+, A+) may show higher overall counts, reflecting their prevalence in the dataset. Specific medical conditions may dominate for certain blood types, indicating potential associations between medical conditions and blood types.\nKey Observations: Blood types such as O- or AB- might have lower overall counts, which aligns with their rarity in the general population. The composition of medical conditions within each blood type is relatively consistent, with a few exceptions.\nPractical Implications: This chart is useful for identifying whether certain blood types are more prone to specific medical conditions. Healthcare providers can use this data for personalized care, especially in conditions where blood type may have clinical relevance."
+  },
+  {
+    "objectID": "presentation.html#medical-conditions-by-blood-type",
+    "href": "presentation.html#medical-conditions-by-blood-type",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Medical Conditions by Blood Type",
+    "text": "Medical Conditions by Blood Type"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-7",
+    "href": "presentation.html#interpretation-of-the-graph-7",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe Yearly Revenue Trend line graph displays the total revenue (in millions) generated by healthcare services across different years. Here’s what can be inferred: The blue line indicates the trend in total revenue over time, showing increases or decreases in revenue each year. Red points mark the revenue for each year, highlighting individual data points for clarity. Text labels above each red point provide the exact value of the revenue (in millions) for each corresponding year. The y-axis represents the revenue in millions, and the x-axis corresponds to the years. The overall trend in the graph could reveal periods of revenue growth, decline, or consistency, which may be linked to healthcare events, policy changes, or economic factors.\nThis graph can be used to assess financial performance over time, identify any significant changes, and inform decision-making for future strategies."
+  },
+  {
+    "objectID": "presentation.html#yearly-revenue-summary-and-validation",
+    "href": "presentation.html#yearly-revenue-summary-and-validation",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Yearly Revenue Summary and Validation",
+    "text": "Yearly Revenue Summary and Validation\n\n\n# A tibble: 6 × 3\n  Year  total_revenue total_revenue_millions\n  &lt;chr&gt;         &lt;dbl&gt;                  &lt;dbl&gt;\n1 2019     187511031.                  188. \n2 2020     283952664.                  284. \n3 2021     277178299.                  277. \n4 2022     278612040.                  279. \n5 2023     279670833.                  280. \n6 2024      97143472.                   97.1\n\n\n# A tibble: 6 × 3\n  Year  total_revenue manual_check_millions\n  &lt;chr&gt;         &lt;dbl&gt;                 &lt;dbl&gt;\n1 2019     187511031.                 188. \n2 2020     283952664.                 284. \n3 2021     277178299.                 277. \n4 2022     278612040.                 279. \n5 2023     279670833.                 280. \n6 2024      97143472.                  97.1"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-code",
+    "href": "presentation.html#interpretation-of-the-code",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Code",
+    "text": "Interpretation of the Code\nThis code calculates and validates the total yearly revenue from healthcare services based on patient admissions. The following insights are derived:\nDate Handling: The Date.of.Admission column is converted to the Date format to enable accurate date-based analysis. The Year is extracted from the admission dates to facilitate grouping and summarizing data by year.\nRevenue Calculation: The total revenue (Billing.Amount) is calculated for each year. Revenue values are converted to millions for easier interpretation and reporting.\nValidation: A manual check is included to validate the conversion of revenue to millions, ensuring accurate computations.\nPractical Utility: This information can help identify trends in revenue over the years, which may reflect changes in patient volume, service costs, or healthcare policies."
+  },
+  {
+    "objectID": "presentation.html#yearly-revenue-trend-analysis",
+    "href": "presentation.html#yearly-revenue-trend-analysis",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Yearly Revenue Trend Analysis",
+    "text": "Yearly Revenue Trend Analysis"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-8",
+    "href": "presentation.html#interpretation-of-the-graph-8",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe Total Medical Revenue by Age Group bar graph displays the sum of revenue generated by healthcare services, categorized by different age groups, with the values represented in millions. Here’s what can be inferred: Each bar represents the total medical revenue (in millions) generated by patients within a particular age group. The labels on top of the bars indicate the exact revenue value in millions, with the “M” suffix added for clarity. Age Groups are represented on the x-axis, and the total revenue (in millions) is represented on the y-axis. The height of the bars shows how much revenue is generated by each age group, and the differences in bar heights indicate which age groups contribute the most to the total revenue. The graph helps in identifying which age groups are more lucrative for the healthcare system in terms of medical billing."
+  },
+  {
+    "objectID": "presentation.html#total-medical-revenue-by-age-group-in-millions",
+    "href": "presentation.html#total-medical-revenue-by-age-group-in-millions",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Total Medical Revenue by Age Group (in Millions)",
+    "text": "Total Medical Revenue by Age Group (in Millions)\n\n\n### Age Group Revenue Distribution (in Millions)\n\n\n\nTotal Revenue by Age Group (in Millions)\n\n\nAge_Group\nTotal_Revenue\nTotal_Revenue_Million\n\n\n\n\n0-18\n23697208\n23.69721\n\n\n19-35\n345002555\n345.00255\n\n\n36-50\n310416841\n310.41684\n\n\n51-65\n315614265\n315.61427\n\n\n65+\n409337470\n409.33747"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-9",
+    "href": "presentation.html#interpretation-of-the-graph-9",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe pie chart of Total Revenue by Age Group displays how the total revenue is distributed across various age groups. Here’s the key interpretation: Each slice of the pie represents a different age group, and the size of the slice corresponds to the revenue generated by that age group (in millions). The percentage labels on the pie segments show what proportion of the total revenue is contributed by each age group. The percentage is calculated by dividing the revenue for a specific age group by the total revenue and multiplying by 100. Larger slices indicate age groups that contribute more to the overall revenue, while smaller slices represent age groups with a lower revenue contribution. The chart provides a visual comparison of revenue contributions from different age groups, making it easy to see which groups are the most lucrative."
+  },
+  {
+    "objectID": "presentation.html#proportion-of-total-revenue-by-age-group-in-millions",
+    "href": "presentation.html#proportion-of-total-revenue-by-age-group-in-millions",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Proportion of Total Revenue by Age Group (in Millions)",
+    "text": "Proportion of Total Revenue by Age Group (in Millions)"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-10",
+    "href": "presentation.html#interpretation-of-the-graph-10",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe box plot of Medical Expenditure by Age Group illustrates the distribution of medical expenditures across different age groups. Here’s the key interpretation:\nBox Plots: Each box represents the distribution of medical expenditure for an age group. The top and bottom of the box represent the upper and lower quartiles (i.e., the 75th and 25th percentiles), with the line in the middle of the box representing the median (50th percentile).\nWhiskers: The lines extending from the boxes represent the range of the data, capturing values within 1.5 times the interquartile range from the quartiles. Data points outside this range are considered outliers and are plotted as individual dots.\nAge Group Comparisons: By looking at the boxes and their ranges, you can compare the median medical expenditures for different age groups. If an age group has a larger interquartile range, it indicates a greater variability in medical expenses within that group.\nInterpretation for Retirement: Higher expenditures in older age groups might suggest that people in these groups are more likely to need higher medical expenses in retirement. This can imply that fewer people in these age groups will be able to fully support themselves without medical insurance or additional support post-retirement."
+  },
+  {
+    "objectID": "presentation.html#medical-expenditure-by-age-group",
+    "href": "presentation.html#medical-expenditure-by-age-group",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Medical Expenditure by Age Group",
+    "text": "Medical Expenditure by Age Group"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-11",
+    "href": "presentation.html#interpretation-of-the-graph-11",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe bar plot of Average Medical Revenue by Age Group (in Thousands) visualizes the average medical revenue (in thousands) generated from each age group. Here’s the interpretation:\nBars: Each bar represents the average revenue for a given age group. The height of the bar reflects how much, on average, each age group contributes to the total medical revenue. The values are displayed in thousands (K) for better readability.\nAge Group Insights: By observing the height of the bars, we can compare how different age groups contribute to medical revenue on average. Age groups with higher bars contribute significantly more to medical revenue, while age groups with lower bars contribute less.\nRevenue Distribution: The chart helps to identify which age groups generate the most medical revenue on average, which may be valuable for understanding healthcare utilization patterns and planning medical services and resources for different age groups."
+  },
+  {
+    "objectID": "presentation.html#average-medical-revenue-by-age-group-in-thousands",
+    "href": "presentation.html#average-medical-revenue-by-age-group-in-thousands",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Average Medical Revenue by Age Group (in Thousands)",
+    "text": "Average Medical Revenue by Age Group (in Thousands)\n\n\n### Age Group Average Revenue Distribution (in Thousands)\n\n\n\nAverage Revenue by Age Group (in Thousands)\n\n\nAge_Group\nAverage_Revenue\nAverage_Revenue_K\n\n\n\n\n0-18\n26746.28\n26.74628\n\n\n19-35\n25519.83\n25.51983\n\n\n36-50\n25513.01\n25.51301\n\n\n51-65\n25663.87\n25.66387\n\n\n65+\n25431.01\n25.43101"
+  },
+  {
+    "objectID": "presentation.html#interpretation-of-the-graph-12",
+    "href": "presentation.html#interpretation-of-the-graph-12",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Interpretation of the Graph",
+    "text": "Interpretation of the Graph\nThe bar chart provides insights into the average billing amount for different types of hospital admissions. Key observations include:\nAverage Billing Amount Differences: Each bar represents the average billing amount for a specific admission type, such as emergency, elective, or urgent admissions. The height of the bars indicates the relative cost, allowing easy comparison across admission types.\nKey Insights: Admission types with higher average billing (e.g., Emergency admissions) may reflect the complexity and urgency of the care provided. Lower billing amounts (e.g., Elective admissions) could be associated with planned or less intensive procedures.\nPractical Implications: This analysis can help hospitals and healthcare providers evaluate the cost structures associated with different admission types and plan resource allocation accordingly."
+  },
+  {
+    "objectID": "presentation.html#machine-learning-part",
+    "href": "presentation.html#machine-learning-part",
+    "title": "Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics",
+    "section": "Machine Learning part",
+    "text": "Machine Learning part\n\n\n# A tibble: 4 × 3\n  Model                  .metric  .estimate\n  &lt;chr&gt;                  &lt;chr&gt;        &lt;dbl&gt;\n1 Multinomial Regression accuracy    0.335 \n2 Multinomial Regression kap         0     \n3 Random Forest          accuracy    0.341 \n4 Random Forest          kap         0.0115\n\n\n\n\n\n\n\n    Abnormal Inconclusive       Normal \n       18437        18198        18331"
   }
 ]

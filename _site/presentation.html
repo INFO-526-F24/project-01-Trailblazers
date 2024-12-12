@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.57">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Giridhar Kotha, Rohith">
   <title>Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics</title>
@@ -320,10 +320,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-  <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -364,7 +360,8 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 </ul>
 </div><div class="column" style="width:60%;">
 <p>or in two columns</p>
-</div></div>
+</div>
+</div>
 <ul>
 <li><p>like</p></li>
 <li><p>this</p></li>
@@ -374,25 +371,369 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 <h2>Code</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 5
-  term        estimate std.error statistic       p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
-1 (Intercept)   25.3      3.08        8.22 0.00000000358
-2 speed         -0.116    0.0642     -1.81 0.0806       </code></pre>
+<pre><code>'data.frame':   54966 obs. of  15 variables:
+ $ Name              : chr  "Bobby JacksOn" "LesLie TErRy" "DaNnY sMitH" "andrEw waTtS" ...
+ $ Age               : int  30 62 76 28 43 36 21 20 82 58 ...
+ $ Gender            : chr  "Male" "Male" "Female" "Female" ...
+ $ Blood.Type        : chr  "B-" "A+" "A-" "O+" ...
+ $ Medical.Condition : chr  "Cancer" "Obesity" "Obesity" "Diabetes" ...
+ $ Date.of.Admission : chr  "2024-01-31" "2019-08-20" "2022-09-22" "2020-11-18" ...
+ $ Doctor            : chr  "Matthew Smith" "Samantha Davies" "Tiffany Mitchell" "Kevin Wells" ...
+ $ Hospital          : chr  "Sons and Miller" "Kim Inc" "Cook PLC" "Hernandez Rogers and Vang," ...
+ $ Insurance.Provider: chr  "Blue Cross" "Medicare" "Aetna" "Medicare" ...
+ $ Billing.Amount    : num  18856 33643 27955 37910 14238 ...
+ $ Room.Number       : int  328 265 205 450 458 389 389 277 316 249 ...
+ $ Admission.Type    : chr  "Urgent" "Emergency" "Emergency" "Elective" ...
+ $ Discharge.Date    : chr  "2024-02-02" "2019-08-26" "2022-10-07" "2020-12-18" ...
+ $ Medication        : chr  "Paracetamol" "Ibuprofen" "Aspirin" "Ibuprofen" ...
+ $ Test.Results      : chr  "Normal" "Inconclusive" "Normal" "Abnormal" ...</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
-      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.
-# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+<pre><code>'data.frame':   54966 obs. of  15 variables:
+ $ Name              : chr  "Bobby JacksOn" "LesLie TErRy" "DaNnY sMitH" "andrEw waTtS" ...
+ $ Age               : int  30 62 76 28 43 36 21 20 82 58 ...
+ $ Gender            : chr  "Male" "Male" "Female" "Female" ...
+ $ Blood.Type        : chr  "B-" "A+" "A-" "O+" ...
+ $ Medical.Condition : chr  "Cancer" "Obesity" "Obesity" "Diabetes" ...
+ $ Date.of.Admission : Date, format: "2024-01-31" "2019-08-20" ...
+ $ Doctor            : chr  "Matthew Smith" "Samantha Davies" "Tiffany Mitchell" "Kevin Wells" ...
+ $ Hospital          : chr  "Sons and Miller" "Kim Inc" "Cook PLC" "Hernandez Rogers and Vang," ...
+ $ Insurance.Provider: chr  "Blue Cross" "Medicare" "Aetna" "Medicare" ...
+ $ Billing.Amount    : num  18856 33643 27955 37910 14238 ...
+ $ Room.Number       : int  328 265 205 450 458 389 389 277 316 249 ...
+ $ Admission.Type    : chr  "Urgent" "Emergency" "Emergency" "Elective" ...
+ $ Discharge.Date    : Date, format: "2024-02-02" "2019-08-26" ...
+ $ Medication        : chr  "Paracetamol" "Ibuprofen" "Aspirin" "Ibuprofen" ...
+ $ Test.Results      : chr  "Normal" "Inconclusive" "Normal" "Abnormal" ...</code></pre>
 </div>
 </div>
 </section>
 <section id="plots" class="slide level2">
 <h2>Plots</h2>
+</section>
+<section id="gender-distribution" class="slide level2">
+<h2>Gender Distribution</h2>
 
 <img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The graph represents the gender distribution of a dataset. It shows the counts of individuals grouped by gender (Female and Male). The counts for each gender are labeled above the bars:</p>
+<p>Female: 27,470 individuals. Male: 27,496 individuals. The counts are nearly equal, indicating a balanced gender distribution in the dataset.</p>
+</section>
+<section id="distribution-of-medical-conditions" class="slide level2">
+<h2>Distribution of Medical Conditions</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-1" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The bar chart depicts the distribution of various medical conditions in the dataset. The counts for each condition are labeled above the bars: Arthritis: 9,218 cases. Asthma: 9,095 cases. Cancer: 9,140 cases. Diabetes: 9,216 cases. Hypertension: 9,151 cases. Obesity: 9,146 cases. The data indicates that all medical conditions have nearly similar counts, suggesting an evenly distributed representation of conditions in the dataset.</p>
+</section>
+<section id="blood-type-distribution" class="slide level2">
+<h2>Blood Type Distribution</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-2" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The bar chart represents the distribution of different blood types within the dataset. Each bar corresponds to a blood type, and the counts are displayed as text beside the bars: A-: 6,898 individuals A+: 6,896 individuals B+: 6,885 individuals AB+: 6,882 individuals AB-: 6,874 individuals B-: 6,872 individuals O+: 6,855 individuals O-: 6,804 individuals The data suggests that all blood types have relatively similar counts, with small variations. A- is the most frequent blood type, while O- is the least.</p>
+</section>
+<section id="test-results-distribution-plot" class="slide level2">
+<h2>Test Results Distribution Plot</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-8-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-3" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The bar chart displays the distribution of test results from the dataset. Each bar represents a category of test results, and the height indicates the count of occurrences for that category. The exact count is displayed on top of each bar for better readability.</p>
+<p>From the chart: It is possible to determine which test result category is most or least frequent. The y-axis is scaled to a maximum of 20,000, with intervals of 5,000, providing an appropriate scale for interpretation.</p>
+</section>
+<section id="age-group-distribution-of-patients" class="slide level2">
+<h2>Age Group Distribution of Patients</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>### Age Group Distribution</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Age Group Distribution of Patients</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Age_Group</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0-18</td>
+<td style="text-align: right;">886</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">19-35</td>
+<td style="text-align: right;">13519</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">36-50</td>
+<td style="text-align: right;">12167</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">51-65</td>
+<td style="text-align: right;">12298</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">65+</td>
+<td style="text-align: right;">16096</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="interpretation-of-the-results" class="slide level2">
+<h2>Interpretation of the Results</h2>
+<p>The table provides a summary of the distribution of patients across different age groups. The age groups are defined as: 0-18 years: Representing children and adolescents. 19-35 years: Representing young adults. 36-50 years: Representing middle-aged individuals. 51-65 years: Representing older adults nearing retirement age. 65+ years: Representing the elderly population. The counts in the table allow us to analyze which age group has the highest or lowest number of patients, helping identify trends in patient demographics. This can assist healthcare providers in tailoring age-specific services or interventions.</p>
+</section>
+<section id="age-distribution-by-medical-condition" class="slide level2">
+<h2>Age Distribution by Medical Condition</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-10-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-4" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The boxplot represents the distribution of patients’ ages across various medical conditions. Key insights include:</p>
+<p>Boxplot Details:</p>
+<p>The box shows the interquartile range (IQR), representing the middle 50% of ages for each medical condition. The horizontal line inside the box represents the median age for each condition. Whiskers extend to the smallest and largest values within 1.5 times the IQR, and points outside these whiskers are considered outliers. Jittered Points:</p>
+<p>The scatter points (jitter) overlay the boxplot to show individual patient ages, providing more granular data visibility. Mean Indication:</p>
+<p>A black ‘X’ marker (mean point) is added for each medical condition, offering a quick comparison of average age. General Trends:</p>
+<p>Variations in age distribution across medical conditions can indicate if specific conditions are more common among certain age groups. For example, conditions like arthritis or hypertension may have higher age medians compared to asthma or diabetes, which could indicate age-related trends.</p>
+</section>
+<section id="admission-type-by-medical-condition" class="slide level2">
+<h2>Admission Type by Medical Condition</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-11-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-5" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>This grouped bar chart visualizes the relationship between medical conditions and admission types, providing the following insights:</p>
+<p>Admission Type Breakdown: For each medical condition, bars represent counts of different admission types (e.g., Emergency, Elective, or Urgent). The dodge position ensures clear separation between bars for easier comparison across admission types.</p>
+<p>Key Observations: Certain conditions like Hypertension or Diabetes may have higher counts for specific admission types, such as Emergency. Elective admissions may dominate planned medical conditions such as Obesity-related procedures. Urgent admissions might be fewer overall, reflecting their specialized and immediate nature.</p>
+<p>Practical Implications: Hospitals can use this data to allocate resources appropriately based on admission patterns for different conditions. Identifying conditions with higher emergency admissions can guide emergency preparedness.</p>
+</section>
+<section id="medical-conditions-by-blood-type" class="slide level2">
+<h2>Medical Conditions by Blood Type</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-13-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-6" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>This stacked bar chart illustrates the distribution of medical conditions across different blood types, providing the following insights:</p>
+<p>Blood Type Analysis: The bars represent the total count of individuals for each blood type, with subdivisions indicating various medical conditions. The stacking highlights how medical conditions are distributed within each blood type.</p>
+<p>Medical Condition Contribution: Certain blood types (e.g., O+, A+) may show higher overall counts, reflecting their prevalence in the dataset. Specific medical conditions may dominate for certain blood types, indicating potential associations between medical conditions and blood types.</p>
+<p>Key Observations: Blood types such as O- or AB- might have lower overall counts, which aligns with their rarity in the general population. The composition of medical conditions within each blood type is relatively consistent, with a few exceptions.</p>
+<p>Practical Implications: This chart is useful for identifying whether certain blood types are more prone to specific medical conditions. Healthcare providers can use this data for personalized care, especially in conditions where blood type may have clinical relevance.</p>
+</section>
+<section id="yearly-revenue-summary-and-validation" class="slide level2">
+<h2>Yearly Revenue Summary and Validation</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Year  total_revenue total_revenue_millions
+  &lt;chr&gt;         &lt;dbl&gt;                  &lt;dbl&gt;
+1 2019     187511031.                  188. 
+2 2020     283952664.                  284. 
+3 2021     277178299.                  277. 
+4 2022     278612040.                  279. 
+5 2023     279670833.                  280. 
+6 2024      97143472.                   97.1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Year  total_revenue manual_check_millions
+  &lt;chr&gt;         &lt;dbl&gt;                 &lt;dbl&gt;
+1 2019     187511031.                 188. 
+2 2020     283952664.                 284. 
+3 2021     277178299.                 277. 
+4 2022     278612040.                 279. 
+5 2023     279670833.                 280. 
+6 2024      97143472.                  97.1</code></pre>
+</div>
+</div>
+</section>
+<section id="interpretation-of-the-code" class="slide level2">
+<h2>Interpretation of the Code</h2>
+<p>This code calculates and validates the total yearly revenue from healthcare services based on patient admissions. The following insights are derived:</p>
+<p>Date Handling: The Date.of.Admission column is converted to the Date format to enable accurate date-based analysis. The Year is extracted from the admission dates to facilitate grouping and summarizing data by year.</p>
+<p>Revenue Calculation: The total revenue (Billing.Amount) is calculated for each year. Revenue values are converted to millions for easier interpretation and reporting.</p>
+<p>Validation: A manual check is included to validate the conversion of revenue to millions, ensuring accurate computations.</p>
+<p>Practical Utility: This information can help identify trends in revenue over the years, which may reflect changes in patient volume, service costs, or healthcare policies.</p>
+</section>
+<section id="yearly-revenue-trend-analysis" class="slide level2">
+<h2>Yearly Revenue Trend Analysis</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-15-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-7" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The Yearly Revenue Trend line graph displays the total revenue (in millions) generated by healthcare services across different years. Here’s what can be inferred: The blue line indicates the trend in total revenue over time, showing increases or decreases in revenue each year. Red points mark the revenue for each year, highlighting individual data points for clarity. Text labels above each red point provide the exact value of the revenue (in millions) for each corresponding year. The y-axis represents the revenue in millions, and the x-axis corresponds to the years. The overall trend in the graph could reveal periods of revenue growth, decline, or consistency, which may be linked to healthcare events, policy changes, or economic factors.</p>
+<p>This graph can be used to assess financial performance over time, identify any significant changes, and inform decision-making for future strategies.</p>
+</section>
+<section id="total-medical-revenue-by-age-group-in-millions" class="slide level2">
+<h2>Total Medical Revenue by Age Group (in Millions)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>### Age Group Revenue Distribution (in Millions)</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Total Revenue by Age Group (in Millions)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Age_Group</th>
+<th style="text-align: right;">Total_Revenue</th>
+<th style="text-align: right;">Total_Revenue_Million</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0-18</td>
+<td style="text-align: right;">23697208</td>
+<td style="text-align: right;">23.69721</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">19-35</td>
+<td style="text-align: right;">345002555</td>
+<td style="text-align: right;">345.00255</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">36-50</td>
+<td style="text-align: right;">310416841</td>
+<td style="text-align: right;">310.41684</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">51-65</td>
+<td style="text-align: right;">315614265</td>
+<td style="text-align: right;">315.61427</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">65+</td>
+<td style="text-align: right;">409337470</td>
+<td style="text-align: right;">409.33747</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-16-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-8" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The Total Medical Revenue by Age Group bar graph displays the sum of revenue generated by healthcare services, categorized by different age groups, with the values represented in millions. Here’s what can be inferred: Each bar represents the total medical revenue (in millions) generated by patients within a particular age group. The labels on top of the bars indicate the exact revenue value in millions, with the “M” suffix added for clarity. Age Groups are represented on the x-axis, and the total revenue (in millions) is represented on the y-axis. The height of the bars shows how much revenue is generated by each age group, and the differences in bar heights indicate which age groups contribute the most to the total revenue. The graph helps in identifying which age groups are more lucrative for the healthcare system in terms of medical billing.</p>
+</section>
+<section id="proportion-of-total-revenue-by-age-group-in-millions" class="slide level2">
+<h2>Proportion of Total Revenue by Age Group (in Millions)</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-17-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-9" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The pie chart of Total Revenue by Age Group displays how the total revenue is distributed across various age groups. Here’s the key interpretation: Each slice of the pie represents a different age group, and the size of the slice corresponds to the revenue generated by that age group (in millions). The percentage labels on the pie segments show what proportion of the total revenue is contributed by each age group. The percentage is calculated by dividing the revenue for a specific age group by the total revenue and multiplying by 100. Larger slices indicate age groups that contribute more to the overall revenue, while smaller slices represent age groups with a lower revenue contribution. The chart provides a visual comparison of revenue contributions from different age groups, making it easy to see which groups are the most lucrative.</p>
+</section>
+<section id="medical-expenditure-by-age-group" class="slide level2">
+<h2>Medical Expenditure by Age Group</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-18-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-10" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The box plot of Medical Expenditure by Age Group illustrates the distribution of medical expenditures across different age groups. Here’s the key interpretation:</p>
+<p>Box Plots: Each box represents the distribution of medical expenditure for an age group. The top and bottom of the box represent the upper and lower quartiles (i.e., the 75th and 25th percentiles), with the line in the middle of the box representing the median (50th percentile).</p>
+<p>Whiskers: The lines extending from the boxes represent the range of the data, capturing values within 1.5 times the interquartile range from the quartiles. Data points outside this range are considered outliers and are plotted as individual dots.</p>
+<p>Age Group Comparisons: By looking at the boxes and their ranges, you can compare the median medical expenditures for different age groups. If an age group has a larger interquartile range, it indicates a greater variability in medical expenses within that group.</p>
+<p>Interpretation for Retirement: Higher expenditures in older age groups might suggest that people in these groups are more likely to need higher medical expenses in retirement. This can imply that fewer people in these age groups will be able to fully support themselves without medical insurance or additional support post-retirement.</p>
+</section>
+<section id="average-medical-revenue-by-age-group-in-thousands" class="slide level2">
+<h2>Average Medical Revenue by Age Group (in Thousands)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>### Age Group Average Revenue Distribution (in Thousands)</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Average Revenue by Age Group (in Thousands)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Age_Group</th>
+<th style="text-align: right;">Average_Revenue</th>
+<th style="text-align: right;">Average_Revenue_K</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0-18</td>
+<td style="text-align: right;">26746.28</td>
+<td style="text-align: right;">26.74628</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">19-35</td>
+<td style="text-align: right;">25519.83</td>
+<td style="text-align: right;">25.51983</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">36-50</td>
+<td style="text-align: right;">25513.01</td>
+<td style="text-align: right;">25.51301</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">51-65</td>
+<td style="text-align: right;">25663.87</td>
+<td style="text-align: right;">25.66387</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">65+</td>
+<td style="text-align: right;">25431.01</td>
+<td style="text-align: right;">25.43101</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-19-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-11" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The bar plot of Average Medical Revenue by Age Group (in Thousands) visualizes the average medical revenue (in thousands) generated from each age group. Here’s the interpretation:</p>
+<p>Bars: Each bar represents the average revenue for a given age group. The height of the bar reflects how much, on average, each age group contributes to the total medical revenue. The values are displayed in thousands (K) for better readability.</p>
+<p>Age Group Insights: By observing the height of the bars, we can compare how different age groups contribute to medical revenue on average. Age groups with higher bars contribute significantly more to medical revenue, while age groups with lower bars contribute less.</p>
+<p>Revenue Distribution: The chart helps to identify which age groups generate the most medical revenue on average, which may be valuable for understanding healthcare utilization patterns and planning medical services and resources for different age groups.</p>
+</section>
+<section id="average-billing-amount-by-admission-type" class="slide level2">
+<h2>Average Billing Amount by Admission Type</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-20-1.png" width="1800" class="r-stretch"></section>
+<section id="interpretation-of-the-graph-12" class="slide level2">
+<h2>Interpretation of the Graph</h2>
+<p>The bar chart provides insights into the average billing amount for different types of hospital admissions. Key observations include:</p>
+<p>Average Billing Amount Differences: Each bar represents the average billing amount for a specific admission type, such as emergency, elective, or urgent admissions. The height of the bars indicates the relative cost, allowing easy comparison across admission types.</p>
+<p>Key Insights: Admission types with higher average billing (e.g., Emergency admissions) may reflect the complexity and urgency of the care provided. Lower billing amounts (e.g., Elective admissions) could be associated with planned or less intensive procedures.</p>
+<p>Practical Implications: This analysis can help hospitals and healthcare providers evaluate the cost structures associated with different admission types and plan resource allocation accordingly.</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-21-1.png" width="2700" class="r-stretch"></section>
+<section id="machine-learning-part" class="slide level2">
+<h2>Machine Learning part</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  Model                  .metric  .estimate
+  &lt;chr&gt;                  &lt;chr&gt;        &lt;dbl&gt;
+1 Multinomial Regression accuracy    0.335 
+2 Multinomial Regression kap         0     
+3 Random Forest          accuracy    0.341 
+4 Random Forest          kap         0.0115</code></pre>
+</div>
+</div>
+<pre><code></code></pre>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-24-1.png" width="1800" class="r-stretch"><div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Abnormal Inconclusive       Normal 
+       18437        18198        18331 </code></pre>
+</div>
+</div>
+<pre><code></code></pre>
+<pre><code></code></pre>
+</section>
 <section id="plot-and-text" class="slide level2">
 <h2>Plot and text</h2>
 <div class="columns">
@@ -402,16 +743,9 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 <li><p>goes here</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="1650"></p>
-</figure>
+
 </div>
 </div>
-</div>
-</div></div>
 </section></section>
 <section>
 <section id="a-new-section" class="title-slide slide level1 center">
@@ -421,81 +755,6 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 <section id="tables" class="slide level2">
 <h2>Tables</h2>
 <p>If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">species</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">island</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bill_length_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">body_mass_g</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.1</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">181</td>
-<td style="text-align: right;">3750</td>
-<td style="text-align: left;">male</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.5</td>
-<td style="text-align: right;">17.4</td>
-<td style="text-align: right;">186</td>
-<td style="text-align: right;">3800</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">40.3</td>
-<td style="text-align: right;">18.0</td>
-<td style="text-align: right;">195</td>
-<td style="text-align: right;">3250</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">36.7</td>
-<td style="text-align: right;">19.3</td>
-<td style="text-align: right;">193</td>
-<td style="text-align: right;">3450</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.3</td>
-<td style="text-align: right;">20.6</td>
-<td style="text-align: right;">190</td>
-<td style="text-align: right;">3650</td>
-<td style="text-align: left;">male</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
 </section>
 <section id="images" class="slide level2">
 <h2>Images</h2>
@@ -851,7 +1110,18 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -883,37 +1153,15 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/INFO-526-F24\.github\.io\/project-01-Trailblazers\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
