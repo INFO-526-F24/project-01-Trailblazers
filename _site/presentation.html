@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.57">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Giridhar Kotha, Rohith">
   <title>Predicting Healthcare Service Demands Using Simulated Data for Advanced Analytics</title>
@@ -360,7 +360,8 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 </ul>
 </div><div class="column" style="width:60%;">
 <p>or in two columns</p>
-</div></div>
+</div>
+</div>
 <ul>
 <li><p>like</p></li>
 <li><p>this</p></li>
@@ -368,6 +369,9 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 <aside><ol class="aside-footnotes"><li id="fn1"><p>And add footnotes</p></li></ol></aside></section>
 <section id="code" class="slide level2">
 <h2>Code</h2>
+</section>
+<section id="data-cleaning" class="slide level2">
+<h2>Data Cleaning</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   54966 obs. of  15 variables:
@@ -409,6 +413,11 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 </section>
 <section id="plots" class="slide level2">
 <h2>Plots</h2>
+</section></section>
+<section>
+<section id="univariate-analysis" class="title-slide slide level1 center">
+<h1>Univariate Analysis</h1>
+
 </section>
 <section id="gender-distribution" class="slide level2">
 <h2>Gender Distribution</h2>
@@ -443,6 +452,11 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 <h2>Interpretation of the Graph</h2>
 <p>The bar chart displays the distribution of test results from the dataset. Each bar represents a category of test results, and the height indicates the count of occurrences for that category. The exact count is displayed on top of each bar for better readability.</p>
 <p>From the chart: It is possible to determine which test result category is most or least frequent. The y-axis is scaled to a maximum of 20,000, with intervals of 5,000, providing an appropriate scale for interpretation.</p>
+</section></section>
+<section>
+<section id="multi-variate-analysis" class="title-slide slide level1 center">
+<h1>Multi-variate Analysis</h1>
+
 </section>
 <section id="age-group-distribution-of-patients" class="slide level2">
 <h2>Age Group Distribution of Patients</h2>
@@ -761,7 +775,8 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
 </ul>
 </div><div class="column" style="width:50%;">
 
-</div></div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="a-new-section" class="title-slide slide level1 center">
@@ -1126,7 +1141,18 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1158,37 +1184,15 @@ Anirudh Koganti, John Kang, Sai Hemanth, Shashank Kohade, Chaitanya Konda, Girid
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/INFO-526-F24\.github\.io\/project-01-Trailblazers\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
