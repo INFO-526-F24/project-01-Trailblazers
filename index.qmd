@@ -115,25 +115,25 @@ This section presents the key findings from our analysis, utilizing visualizatio
 
 -   **Total Medical Revenue by Age Group:**
 
-    ![](images/WhatsApp Image 2024-12-13 at 12.27.53 AM.jpeg)
+    ![](images/WhatsApp%20Image%202024-12-13%20at%2012.27.53%20AM.jpeg)
 
 The bar chart illustrates that the age group of 65+ years contributes the most to the total medical revenue, followed by the 19-35, 51-65, and 36-50 age groups. The 0-18 age group has the lowest total revenue contribution.
 
 -   **Proportion of Total Revenue by Age Group:**
 
-    ![](images/WhatsApp Image 2024-12-13 at 12.27.53 AM (2).jpeg)
+    ![](images/WhatsApp%20Image%202024-12-13%20at%2012.27.53%20AM%20(2).jpeg)
 
 This pie chart visually reinforces the dominant contribution of the 65+ age group, representing approximately 29.2% of the total revenue. The 19-35 and 51-65 age groups also hold significant proportions, highlighting the importance of these demographics in healthcare revenue generation.
 
 -   **Average Medical Revenue by Age Group:**
 
-    ![](images/WhatsApp Image 2024-12-13 at 12.27.54 AM.jpeg)
+    ![](images/WhatsApp%20Image%202024-12-13%20at%2012.27.54%20AM.jpeg)
 
     Interestingly, while the total revenue varies considerably across age groups, the average revenue per person remains relatively consistent, ranging from approximately \$25.4K to \$26.7K. This suggests that while older age groups contribute more to the overall revenue due to higher healthcare utilization, the average cost of treating an individual remains fairly stable across different age demographics.
 
 -   **Medical Expenditure by Age Group**
 
-    ![](images/WhatsApp Image 2024-12-13 at 12.27.53 AM (1).jpeg)
+    ![](images/WhatsApp%20Image%202024-12-13%20at%2012.27.53%20AM%20(1).jpeg)
 
 The box plot of Medical Expenditure by Age Group shows how medical costs vary across age groups. Each box highlights the typical range, with the median line marking the central value. Whiskers show most data, while dots represent outliers. Older age groups tend to have higher or more variable costs, emphasizing the need for medical insurance or financial planning in retirement, as many may struggle to cover these expenses independently.
 
@@ -143,13 +143,13 @@ The box plot of Medical Expenditure by Age Group shows how medical costs vary ac
 
 -   **Average Billing Amount by Admission Type:**
 
-    ![](images/WhatsApp Image 2024-12-13 at 12.29.10 AM (1).jpeg)
+    ![](images/WhatsApp%20Image%202024-12-13%20at%2012.29.10%20AM%20(1).jpeg)
 
 The bar chart reveals that Emergency admissions have the highest average billing amount, followed by Urgent and then Elective admissions. This suggests that the complexity and urgency of care required for unplanned or critical treatments contribute significantly to higher billing amounts.
 
 -   **Comparison of Total Billing Amounts by Medication:**
 
-    ![](images/WhatsApp Image 2024-12-13 at 12.29.10 AM.jpeg){width="581"}
+    ![](images/WhatsApp%20Image%202024-12-13%20at%2012.29.10%20AM.jpeg){width="581"}
 
 The bar chart demonstrates that certain medications, such as Ibuprofen, Lipitor, and Aspirin, have notably high total billing amounts. This indicates that these medications, likely due to their widespread usage or high individual costs, contribute substantially to overall healthcare expenditure.
 
@@ -157,7 +157,7 @@ The bar chart demonstrates that certain medications, such as Ibuprofen, Lipitor,
 
 -   **Predicting Test Results with Machine Learning**
 
-    ![](images/WhatsApp Image 2024-12-13 at 12.28.11 AM.jpeg){width="593"}
+    ![](images/WhatsApp%20Image%202024-12-13%20at%2012.28.11%20AM.jpeg){width="593"}
 
 The bar chart above illustrates the performance of two machine learning models, Multinomial Regression and Random Forest, in predicting test results. Both models exhibit low accuracy, with the Multinomial Regression achieving 33.5% accuracy and the Random Forest slightly higher at 34.1%. This suggests that the models, in their current form, have limited predictive power for determining test outcomes based on the included features.
 
