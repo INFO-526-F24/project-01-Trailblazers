@@ -8,9 +8,12 @@ title-slide-attributes:
   data-background-opacity: "0.7"
   data-slide-number: none
 format:
-  revealjs:
-    theme:  ['data/customtheming.scss']
-  
+  html:
+    embed-resources: true
+toc: true
+execute:
+  warning: false
+  message: false
 editor: visual
 execute:
   echo: false
@@ -80,7 +83,7 @@ glimpse(data)
 
 You can use plain text
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 -   or bullet points[^1]
 :::
@@ -88,7 +91,7 @@ You can use plain text
 ::: {.column width="60%"}
 or in two columns
 :::
-:::
+:::::
 
 [^1]: And add footnotes
 
@@ -99,6 +102,7 @@ or in two columns
 ## Code
 
 ## Data Cleaning
+
 ```{r, echo=FALSE}
 
 
@@ -123,7 +127,6 @@ str(healthcare_data)
 ```
 
 ## Plots
-
 
 # Univariate Analysis
 
@@ -297,6 +300,21 @@ age_group_count <- healthcare_data %>%  # Use the modified dataset
 cat("### Age Group Distribution\n")  # Add a heading for the results
 knitr::kable(age_group_count, caption = "Age Group Distribution of Patients")  # Display the table neatly using knitr
 
+age_group_count <- data.frame(
+  Age_Group = c("0-18", "19-35", "36-50", "51-65", "65+"),
+  Count = c(886, 13519, 12167, 12298, 16096)
+)
+
+# Create a bar plot
+ggplot(data = age_group_count, aes(x = Age_Group, y = Count, fill = Age_Group)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(
+    title = "Age Group Distribution of Patients",
+    x = "Age Group",
+    y = "Number of Patients"
+  ) +
+  theme_minimal() +
+  geom_text(aes(label = Count), vjust = -0.5, size = 5)
 ```
 
 ## Interpretation of the Results
@@ -594,8 +612,8 @@ ggplot(age_group_revenue, aes(x = "", y = Total_Revenue_Million, fill = Age_Grou
   geom_bar(stat = "identity", width = 1) +  # Make the bars form a complete circle for the pie chart
   coord_polar(theta = "y") +  # Convert the bar plot into a pie chart by polar coordinates
   labs(title = "Proportion of Total Revenue by Age Group (in Millions)") +  # Add title to the chart
-  theme(axis.text.x = element_blank(),  # Remove x-axis labels since they are not needed for pie chart
-        plot.title = element_text(hjust = 0.5)) +  # Center the title
+  theme_void() + #Removning x on x-axis
+  theme(plot.title = element_text(hjust = 0.5, vjust = - 88)) +  # Center the title at bottom of the plot
   geom_text(aes(label = paste0(round(Total_Revenue_Million / sum(Total_Revenue_Million) * 100, 1), "%")), 
             position = position_stack(vjust = 0.5), color = "white")  # Add percentage labels inside each pie segment
 
@@ -889,7 +907,7 @@ The low accuracy in my multinomial regression and random forest models might be 
 
 ## Plot and text
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 -   Some text
 
@@ -900,7 +918,7 @@ The low accuracy in my multinomial regression and random forest models might be 
 ```{r}
 ```
 :::
-:::
+:::::
 
 # A new section...
 
